@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import LanguageDisplay from '@/components/LanguageDisplay'
+import LanguageDisplay from '@/components/ui/LanguageDisplay'
 
 export default {
   name: 'LanguageSwitcher',
