@@ -1,9 +1,11 @@
 import PageSection from '@/components/cms/PageSection'
 import TextBox from '@/components/cms/TextBox'
+import MediaBox from '@/components/cms/MediaBox'
 
 const CONTENT_BLOCKS = {
   section: 'section',
-  textBox: 'textBox'
+  textBox: 'textBox',
+  mediaBox: 'mediaBox'
 }
 
 export function parseCMSBlock (contentBlock) {
@@ -24,6 +26,17 @@ export function parseCMSBlock (contentBlock) {
         name: contentBlock.fields?.name,
         props: {
           description: contentBlock.fields?.description
+        }
+      }
+    case CONTENT_BLOCKS.mediaBox:
+      return {
+        component: MediaBox,
+        name: contentBlock.fields?.name,
+        props: {
+          asset: contentBlock.fields?.asset?.fields,
+          width: contentBlock.fields?.width,
+          height: contentBlock.fields?.height,
+          rounded: contentBlock.fields?.rounded
         }
       }
   }

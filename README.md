@@ -1,20 +1,17 @@
-# nuxt-headless-cms
+# Nuxt Headless CMS
 
-## Build Setup
+## Getting started
 
-```bash
-# install dependencies
-$ yarn install
+### Contentful setup
 
-# serve with hot reload at localhost:3000
-$ yarn dev
+### Project setup
 
-# build for production and launch server
-$ yarn build
-$ yarn start
+## Live demo
 
-# generate static project
-$ yarn generate
-```
+## Customization
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+### Styling
+
+### New content blocks
+
+## License
