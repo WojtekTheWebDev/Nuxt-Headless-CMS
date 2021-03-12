@@ -1,11 +1,13 @@
 import PageSection from '@/components/cms/PageSection'
 import TextBox from '@/components/cms/TextBox'
 import MediaBox from '@/components/cms/MediaBox'
+import Timeline from '@/components/cms/Timeline'
 
 const CONTENT_BLOCKS = {
   section: 'section',
   textBox: 'textBox',
-  mediaBox: 'mediaBox'
+  mediaBox: 'mediaBox',
+  timeline: 'timeline'
 }
 
 export function parseCMSBlock (contentBlock) {
@@ -38,6 +40,20 @@ export function parseCMSBlock (contentBlock) {
           height: contentBlock.fields?.height,
           rounded: contentBlock.fields?.rounded
         }
+      }
+    case CONTENT_BLOCKS.timeline:
+      return {
+        component: Timeline,
+        name: contentBlock.fields?.name,
+        props: {
+          items: contentBlock.fields?.items.map(timelineItem => timelineItem.fields)
+        }
+      }
+    default:
+      return {
+        component: null,
+        name: contentBlock.fields?.name,
+        props: {}
       }
   }
 }
