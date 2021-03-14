@@ -4,7 +4,7 @@
       {{ title }}
     </h2>
 
-    <v-timeline>
+    <v-timeline :dense="$vuetify.breakpoint.smAndDown">
       <v-timeline-item
         v-for="item in items"
         :key="item.name"
@@ -15,7 +15,7 @@
         <span slot="opposite" class="text--secondary">{{ item.subtitle }}</span>
 
         <v-card class="elevation-2 pa-3">
-          <v-card-title>
+          <v-card-title class="keep-words">
             {{ item.title }}
           </v-card-title>
 

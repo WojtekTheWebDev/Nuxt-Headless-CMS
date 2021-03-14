@@ -2,7 +2,7 @@
   <div class="media-box mb-5">
     <video
       v-if="isVideo"
-      :width="width ? width : 500"
+      :width="width ? width : defaultWidth"
       :height="height ? height : null"
       controls="controls"
     >
@@ -14,7 +14,7 @@
       :class="{ rounded }"
       :src="imageURL"
       :alt="asset.title"
-      :width="width ? width : 500"
+      :width="width ? width : defaultWidth"
       :height="height ? height : null"
     >
   </div>
@@ -59,6 +59,9 @@ export default {
     },
     imageURL () {
       return `${this.asset.src}?h=500`
+    },
+    defaultWidth () {
+      return this.$vuetify.breakpoint.smAndDown ? 300 : 500
     }
   }
 }
