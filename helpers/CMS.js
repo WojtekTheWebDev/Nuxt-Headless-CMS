@@ -2,12 +2,14 @@ import PageSection from '@/components/cms/PageSection'
 import TextBox from '@/components/cms/TextBox'
 import MediaBox from '@/components/cms/MediaBox'
 import Timeline from '@/components/cms/Timeline'
+import IconList from '@/components/cms/IconList'
 
 const CONTENT_BLOCKS = {
   section: 'section',
   textBox: 'textBox',
   mediaBox: 'mediaBox',
-  timeline: 'timeline'
+  timeline: 'timeline',
+  iconList: 'iconList'
 }
 
 export function parseCMSBlock (contentBlock) {
@@ -35,7 +37,11 @@ export function parseCMSBlock (contentBlock) {
         component: MediaBox,
         name: contentBlock.fields?.name,
         props: {
-          asset: contentBlock.fields?.asset?.fields,
+          asset: {
+            src: contentBlock.fields?.asset?.fields?.file?.url,
+            type: contentBlock.fields?.asset?.fields?.file?.contentType,
+            title: contentBlock.fields?.asset?.fields?.title
+          },
           width: contentBlock.fields?.width,
           height: contentBlock.fields?.height,
           rounded: contentBlock.fields?.rounded
@@ -46,7 +52,24 @@ export function parseCMSBlock (contentBlock) {
         component: Timeline,
         name: contentBlock.fields?.name,
         props: {
+          title: contentBlock.fields?.title,
           items: contentBlock.fields?.items.map(timelineItem => timelineItem.fields)
+        }
+      }
+    case CONTENT_BLOCKS.iconList:
+      return {
+        component: IconList,
+        name: contentBlock.fields?.name,
+        props: {
+          title: contentBlock.fields?.title,
+          icons: contentBlock.fields?.icons.map(icon => ({
+            name: icon.fields?.name,
+            title: icon.fields?.title,
+            icon: {
+              src: icon.fields?.icon?.fields?.file?.url,
+              alt: icon.fields?.icon?.fields?.title
+            }
+          }))
         }
       }
     default:

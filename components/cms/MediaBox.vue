@@ -6,7 +6,7 @@
       :height="height ? height : null"
       controls="controls"
     >
-      <source :src="asset.file.url" type="video/mp4">
+      <source :src="asset.src" type="video/mp4">
     </video>
 
     <img
@@ -27,7 +27,11 @@ export default {
   props: {
     asset: {
       type: Object,
-      default: () => ({})
+      default: () => ({
+        src: '',
+        type: '',
+        title: ''
+      })
     },
 
     width: {
@@ -48,13 +52,13 @@ export default {
 
   computed: {
     isImage () {
-      return this.asset.file.contentType.includes('image')
+      return this.asset.type.includes('image')
     },
     isVideo () {
-      return this.asset.file.contentType.includes('video')
+      return this.asset.type.includes('video')
     },
     imageURL () {
-      return `${this.asset.file.url}?h=500`
+      return `${this.asset.src}?h=500`
     }
   }
 }
