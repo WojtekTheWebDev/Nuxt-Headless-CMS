@@ -58,7 +58,13 @@ export default {
       return this.asset.type.includes('video')
     },
     imageURL () {
-      return `${this.asset.src}?h=500`
+      const width = this.width ? this.width : this.defaultWidth
+      const height = this.height ? this.height : null
+      let imageURL = `${this.asset.src}?w=${width}`
+
+      if (height) { imageURL += `h=${height}` }
+
+      return imageURL
     },
     defaultWidth () {
       return this.$vuetify.breakpoint.smAndDown ? 300 : 500

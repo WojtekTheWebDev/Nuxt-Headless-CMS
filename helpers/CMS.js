@@ -3,18 +3,11 @@ import TextBox from '@/components/cms/TextBox'
 import MediaBox from '@/components/cms/MediaBox'
 import Timeline from '@/components/cms/Timeline'
 import IconList from '@/components/cms/IconList'
-
-const CONTENT_BLOCKS = {
-  section: 'section',
-  textBox: 'textBox',
-  mediaBox: 'mediaBox',
-  timeline: 'timeline',
-  iconList: 'iconList'
-}
+import ModalCardList from '@/components/cms/ModalCardList'
 
 export function parseCMSBlock (contentBlock) {
   switch (contentBlock.sys.contentType.sys.id) {
-    case CONTENT_BLOCKS.section:
+    case 'section':
       return {
         component: PageSection,
         name: contentBlock.fields?.name,
@@ -24,7 +17,7 @@ export function parseCMSBlock (contentBlock) {
           theme: contentBlock.fields?.theme
         }
       }
-    case CONTENT_BLOCKS.textBox:
+    case 'textBox':
       return {
         component: TextBox,
         name: contentBlock.fields?.name,
@@ -32,7 +25,7 @@ export function parseCMSBlock (contentBlock) {
           description: contentBlock.fields?.description
         }
       }
-    case CONTENT_BLOCKS.mediaBox:
+    case 'mediaBox':
       return {
         component: MediaBox,
         name: contentBlock.fields?.name,
@@ -47,7 +40,7 @@ export function parseCMSBlock (contentBlock) {
           rounded: contentBlock.fields?.rounded
         }
       }
-    case CONTENT_BLOCKS.timeline:
+    case 'timeline':
       return {
         component: Timeline,
         name: contentBlock.fields?.name,
@@ -56,7 +49,7 @@ export function parseCMSBlock (contentBlock) {
           items: contentBlock.fields?.items.map(timelineItem => timelineItem.fields)
         }
       }
-    case CONTENT_BLOCKS.iconList:
+    case 'iconList':
       return {
         component: IconList,
         name: contentBlock.fields?.name,
@@ -68,6 +61,24 @@ export function parseCMSBlock (contentBlock) {
             icon: {
               src: icon.fields?.icon?.fields?.file?.url,
               alt: icon.fields?.icon?.fields?.title
+            }
+          }))
+        }
+      }
+    case 'modalCardList':
+      return {
+        component: ModalCardList,
+        name: contentBlock.fields?.name,
+        props: {
+          title: contentBlock.fields?.title,
+          subtitle: contentBlock.fields?.subtitle,
+          modalCards: contentBlock.fields?.modalCards.map(modalCard => ({
+            name: modalCard.fields?.name,
+            title: modalCard.fields?.title,
+            description: modalCard.fields?.description,
+            image: {
+              src: modalCard.fields?.image?.fields?.file?.url,
+              alt: modalCard.fields?.image?.fields?.title
             }
           }))
         }
