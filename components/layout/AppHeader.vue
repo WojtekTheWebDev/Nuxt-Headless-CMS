@@ -2,10 +2,13 @@
   <v-app-bar
     app
     elevate-on-scroll
+    dark
   >
-    <v-toolbar-title>Nuxt Headless CMS</v-toolbar-title>
+    <PageLogo />
 
     <v-spacer />
+
+    <Navigation />
 
     <LanguageSwitcher />
   </v-app-bar>
@@ -13,12 +16,16 @@
 
 <script>
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher'
+import Navigation from '@/components/ui/Navigation'
+import PageLogo from '@/components/ui/PageLogo'
 
 export default {
   name: 'AppHeader',
 
   components: {
-    LanguageSwitcher
+    LanguageSwitcher,
+    Navigation,
+    PageLogo
   }
 }
 </script>

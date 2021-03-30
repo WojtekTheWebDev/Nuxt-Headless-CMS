@@ -10,10 +10,28 @@
 
 <script>
 import AppHeader from '@/components/layout/AppHeader'
+import CMSMixin from '@/mixins/CMSMixin'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
     AppHeader
+  },
+
+  mixins: [CMSMixin],
+
+  head () {
+    return {
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: this.pageIcon }
+      ]
+    }
+  },
+
+  computed: {
+    ...mapGetters({
+      pageIcon: 'config/getPageIcon'
+    })
   }
 }
 </script>

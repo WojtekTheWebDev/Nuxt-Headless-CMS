@@ -10,9 +10,10 @@
         text
         :disabled="!availableLocales.length"
         v-bind="attrs"
+        class="lang-btn"
         v-on="on"
       >
-        <LanguageDisplay :code="$i18n.locale" />
+        <LanguageDisplay :locale="$i18n.localeProperties" />
       </v-btn>
     </template>
 
@@ -23,7 +24,7 @@
         :to="switchLocalePath(locale.code)"
       >
         <v-list-item-title class="text-uppercase">
-          <LanguageDisplay :code="locale.code" />
+          <LanguageDisplay :locale="locale" />
         </v-list-item-title>
       </v-list-item>
     </v-list>
@@ -47,3 +48,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.lang-btn {
+  width: 5rem;
+}
+</style>

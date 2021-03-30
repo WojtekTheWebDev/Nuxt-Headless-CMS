@@ -29,7 +29,7 @@ export default {
 
     const entries = await client.getEntries({
       content_type: env.pageContentModel,
-      locale: app.i18n.localeProperties.iso,
+      locale: app.i18n.localeProperties.code,
       include: env.contentfulIncludeLevel
     })
 
