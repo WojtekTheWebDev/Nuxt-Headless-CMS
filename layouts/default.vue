@@ -5,17 +5,21 @@
     <v-main>
       <nuxt />
     </v-main>
+
+    <AppFooter />
   </v-app>
 </template>
 
 <script>
 import AppHeader from '@/components/layout/AppHeader'
+import AppFooter from '@/components/layout/AppFooter'
 import CMSMixin from '@/mixins/CMSMixin'
 import { mapGetters } from 'vuex'
 
 export default {
   components: {
-    AppHeader
+    AppHeader,
+    AppFooter
   },
 
   mixins: [CMSMixin],

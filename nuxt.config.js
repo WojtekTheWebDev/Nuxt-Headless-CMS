@@ -65,7 +65,19 @@ export default {
     }],
     defaultLocale: 'en',
     vueI18n: {
-      fallbackLocale: 'en'
+      fallbackLocale: 'en',
+      messages: {
+        en: {
+          homePage: 'Home page',
+          siteMap: 'Site map',
+          socialMedia: 'Social media'
+        },
+        pl: {
+          homePage: 'Strona główna',
+          siteMap: 'Mapa strony',
+          socialMedia: 'Social media'
+        }
+      }
     }
   },
 
