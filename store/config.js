@@ -4,7 +4,9 @@ export const state = () => ({
   routes: null,
   logo: null,
   pageIcon: null,
-  pageName: null
+  pageName: null,
+  homePage: null,
+  contactDetails: null
 })
 
 export const getters = {
@@ -18,6 +20,10 @@ export const getters = {
 
   getRoutes (state) {
     return state.routes.map(route => ({ path: route.slug, name: route.title }))
+  },
+
+  getHomePageName (state) {
+    return state.homePage.name
   }
 }
 
@@ -36,6 +42,14 @@ export const mutations = {
 
   SET_PAGE_NAME (state, payload) {
     state.pageName = payload
+  },
+
+  SET_HOME_PAGE (state, payload) {
+    state.homePage = payload
+  },
+
+  SET_CONTACT_DETAILS (state, payload) {
+    state.contactDetails = payload
   }
 }
 
@@ -49,11 +63,13 @@ export const actions = {
 
     if (!entries.total) { return }
 
-    const { routing, logo, pageIcon, pageName } = entries.items[0].fields
+    const { routing, logo, pageIcon, pageName, homePage, contactDetails } = entries.items[0].fields
 
     commit('SET_ROUTES', routing.map(page => page.fields))
     commit('SET_LOGO', logo.fields)
     commit('SET_PAGE_ICON', pageIcon.fields)
     commit('SET_PAGE_NAME', pageName)
+    commit('SET_HOME_PAGE', homePage.fields)
+    commit('SET_CONTACT_DETAILS', contactDetails.fields)
   }
 }

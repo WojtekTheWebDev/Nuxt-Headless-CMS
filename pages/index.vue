@@ -22,15 +22,16 @@ export default {
 
   mixins: [CMSMixin],
 
-  async asyncData ({ app, env, route, error }) {
+  async asyncData ({ app, env, store, error }) {
     const client = createClient()
-
     const entries = await client.getEntries({
       content_type: env.pageContentModel,
       locale: app.i18n.localeProperties.code,
-      include: env.contentfulIncludeLevel
+      include: env.contentfulIncludeLevel,
+      'fields.name': store.getters['config/getHomePageName']
     })
-    const page = entries.items.find(entry => entry.fields.name === env.homePageId)
+
+    const page = entries.items[0] || null
 
     if (!page) { error({ statusCode: 404 }) }
 

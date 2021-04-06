@@ -5,7 +5,7 @@
         <v-col
           class="d-flex align-center justify-center"
           cols="12"
-          lg="4"
+          md="4"
         >
           <div class="text-center">
             <img :src="logo" alt="logo">
@@ -16,7 +16,7 @@
         <v-col
           class="routes"
           cols="12"
-          lg="4"
+          md="4"
         >
           <p>{{ $t('siteMap') }}</p>
 
@@ -37,11 +37,14 @@
         </v-col>
 
         <v-col
-          class="text-center"
           cols="12"
-          lg="4"
+          md="4"
         >
-          <p>{{ $t('socialMedia') }}</p>
+          <p class="text-center">
+            {{ $t('socialMedia') }}
+          </p>
+
+          <ContactButtons />
         </v-col>
       </v-row>
 
@@ -65,8 +68,15 @@
 
 <script>
 import { mapGetters, mapState } from 'vuex'
+import ContactButtons from '@/components/ui/ContactButtons'
+
 export default {
   name: 'AppFooter',
+
+  components: {
+    ContactButtons
+  },
+
   computed: {
     ...mapState({
       pageName: state => state.config.pageName
