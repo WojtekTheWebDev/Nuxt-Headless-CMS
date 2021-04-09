@@ -70,12 +70,12 @@ export default {
         en: {
           homePage: 'Home page',
           siteMap: 'Site map',
-          socialMedia: 'Social media'
+          getInTouch: 'Get in touch'
         },
         pl: {
           homePage: 'Strona główna',
           siteMap: 'Mapa strony',
-          socialMedia: 'Social media'
+          getInTouch: 'Pozostańmy w kontakcie'
         }
       }
     }

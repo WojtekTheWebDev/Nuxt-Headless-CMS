@@ -24,7 +24,8 @@
       <v-list-item
         v-for="locale in availableLocales"
         :key="locale.code"
-        :to="switchLocalePath(locale.code)"
+        link
+        @click="switchLocale(locale.code)"
       >
         <v-list-item-title class="text-uppercase">
           <LanguageDisplay :locale="locale" />
@@ -54,6 +55,13 @@ export default {
   computed: {
     availableLocales () {
       return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
+    }
+  },
+
+  methods: {
+    switchLocale (code) {
+      this.$store.dispatch('config/translateRoutes', code)
+      this.$router.push(this.switchLocalePath(code))
     }
   }
 }

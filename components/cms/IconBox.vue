@@ -1,5 +1,5 @@
 <template>
-  <div class="icon-box ma-3">
+  <div class="icon-box">
     <img :src="iconURL" :alt="icon.alt">
     <p class="text-center">
       {{ title }}

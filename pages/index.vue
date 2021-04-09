@@ -2,9 +2,12 @@
   <section id="home-page">
     <PageHeader :title="header.title" :background-image="header.backgroundImage" />
 
-    <template v-for="contentBlock in contentBlocks">
-      <component :is="contentBlock.component" :key="contentBlock.name" v-bind="contentBlock.props" />
-    </template>
+    <component
+      :is="contentBlock.component"
+      v-for="contentBlock in contentBlocks"
+      :key="contentBlock.name"
+      v-bind="contentBlock.props"
+    />
   </section>
 </template>
 

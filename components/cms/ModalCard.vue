@@ -1,5 +1,5 @@
 <template>
-  <div class="modal-card pa-3">
+  <div class="modal-card">
     <v-dialog
       v-model="dialog"
       width="500"
@@ -15,9 +15,9 @@
         >
           <ClickMe />
           <v-img class="image" contain :src="image.src" :alt="image.alt" />
-          <h4 class="px-3">
+          <p class="px-3">
             {{ title }}
-          </h4>
+          </p>
         </div>
       </template>
 
@@ -88,7 +88,7 @@ export default {
       transition: all 0.2s ease-in-out;
     }
 
-    h4 {
+    p {
       position: absolute;
       text-align: center;
       font-weight: 300;
@@ -104,7 +104,7 @@ export default {
         opacity: 0.5;
       }
 
-      h4 {
+      p {
         opacity: 1;
       }
     }

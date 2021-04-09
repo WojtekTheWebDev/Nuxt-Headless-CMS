@@ -4,8 +4,10 @@
     elevate-on-scroll
     dark
   >
-    <PageLogo />
-    <AppHeaderContent />
+    <v-container class="py-0 d-flex align-center">
+      <PageLogo />
+      <AppHeaderContent />
+    </v-container>
   </v-app-bar>
 </template>
 

@@ -36,8 +36,7 @@
       </v-list>
 
       <div class="bottom-aligned">
-        <ContactButtons dense :large="false" class="mb-3" />
-
+        <ContactButtons dense :large="false" class="mb-5" />
         <LanguageSwitcher :left="true" />
       </div>
     </div>

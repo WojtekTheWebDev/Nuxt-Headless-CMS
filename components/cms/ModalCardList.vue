@@ -1,11 +1,6 @@
 <template>
-  <div class="modal-card-list mb-5">
-    <h2 class="text-center">
-      {{ title }}
-    </h2>
-    <h3 class="text-center">
-      {{ subtitle }}
-    </h3>
+  <div class="modal-card-list">
+    <ComponentHeader :title="title" :subtitle="subtitle" />
 
     <v-row class="d-flex justify-center align-center">
       <v-col
@@ -28,12 +23,14 @@
 
 <script>
 import ModalCard from '@/components/cms/ModalCard'
+import ComponentHeader from '@/components/ui/ComponentHeader'
 
 export default {
   name: 'ModalCardList',
 
   components: {
-    ModalCard
+    ModalCard,
+    ComponentHeader
   },
 
   props: {

@@ -58,7 +58,8 @@ export const actions = {
     const client = createClient()
     const entries = await client.getEntries({
       content_type: process.env.configContentModel,
-      include: process.env.contentfulIncludeLevel
+      include: process.env.contentfulIncludeLevel,
+      locale: this.$i18n.locale
     })
 
     if (!entries.total) { return }
@@ -71,5 +72,20 @@ export const actions = {
     commit('SET_PAGE_NAME', pageName)
     commit('SET_HOME_PAGE', homePage.fields)
     commit('SET_CONTACT_DETAILS', contactDetails.fields)
+  },
+
+  async translateRoutes ({ commit }, locale) {
+    const client = createClient()
+    const entries = await client.getEntries({
+      content_type: process.env.configContentModel,
+      include: process.env.contentfulIncludeLevel,
+      locale
+    })
+
+    if (!entries.total) { return }
+
+    const { routing } = entries.items[0].fields
+
+    commit('SET_ROUTES', routing.map(page => page.fields))
   }
 }

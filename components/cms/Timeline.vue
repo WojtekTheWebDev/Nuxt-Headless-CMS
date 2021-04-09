@@ -1,8 +1,6 @@
 <template>
-  <div class="timeline mb-5">
-    <h2 v-if="title" class="text-center mb-3">
-      {{ title }}
-    </h2>
+  <div class="timeline">
+    <ComponentHeader :title="title" />
 
     <v-timeline :dense="$vuetify.breakpoint.smAndDown">
       <v-timeline-item
@@ -36,8 +34,14 @@
 </template>
 
 <script>
+import ComponentHeader from '@/components/ui/ComponentHeader'
+
 export default {
   name: 'Timeline',
+
+  components: {
+    ComponentHeader
+  },
 
   props: {
     title: {
@@ -51,12 +55,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.timeline {
-  h2 {
-    font-size: 2rem;
-    font-weight: 300;
-  }
-}
-</style>

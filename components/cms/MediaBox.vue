@@ -1,5 +1,5 @@
 <template>
-  <div class="media-box mb-5">
+  <div class="media-box">
     <video
       v-if="isVideo"
       :width="width ? width : defaultWidth"

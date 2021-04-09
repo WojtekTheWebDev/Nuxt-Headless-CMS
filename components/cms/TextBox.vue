@@ -1,10 +1,12 @@
 <template>
-  <div class="text-box text-justify mb-5">
-    {{ description }}
-  </div>
+  <div
+    class="text-box text-justify"
+    v-html="markedDescription"
+  />
 </template>
 
 <script>
+import marked from 'marked'
 export default {
   name: 'TextBox',
 
@@ -12,6 +14,12 @@ export default {
     description: {
       type: String,
       default: ''
+    }
+  },
+
+  computed: {
+    markedDescription () {
+      return marked(this.description)
     }
   }
 }

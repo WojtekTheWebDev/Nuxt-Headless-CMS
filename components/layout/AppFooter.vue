@@ -49,7 +49,7 @@
           md="4"
         >
           <p class="text-center">
-            {{ $t('socialMedia') }}
+            {{ $t('getInTouch') }}
           </p>
 
           <ContactButtons />
@@ -86,6 +86,10 @@ export default {
 .app-footer {
   font-weight: 300;
   font-size: 1rem;
+
+  p {
+    font-size: 1.25rem;
+  }
 
   .routes {
     display: flex;

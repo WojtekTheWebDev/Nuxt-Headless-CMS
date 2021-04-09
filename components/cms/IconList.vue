@@ -1,8 +1,6 @@
 <template>
-  <div class="icon-list mb-5">
-    <h2 v-if="title" class="text-center mb-3">
-      {{ title }}
-    </h2>
+  <div class="icon-list">
+    <ComponentHeader :title="title" />
 
     <v-row>
       <v-col
@@ -22,12 +20,14 @@
 
 <script>
 import IconBox from '@/components/cms/IconBox'
+import ComponentHeader from '@/components/ui/ComponentHeader'
 
 export default {
   name: 'IconList',
 
   components: {
-    IconBox
+    IconBox,
+    ComponentHeader
   },
 
   props: {
@@ -42,12 +42,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.icon-list {
-  h2 {
-    font-size: 2rem;
-    font-weight: 300;
-  }
-}
-</style>
