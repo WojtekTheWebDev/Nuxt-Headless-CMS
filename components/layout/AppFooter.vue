@@ -10,6 +10,7 @@
           <div class="text-center">
             <img :src="logo" alt="logo">
             <p>{{ pageName }}</p>
+            <small>Copyright 2020 Wojciech Sikora</small>
           </div>
         </v-col>
 
@@ -20,7 +21,13 @@
         >
           <p>{{ $t('siteMap') }}</p>
 
-          <v-btn :to="localePath('/')" exact class="nav-btn my-1" text>
+          <v-btn
+            :to="localePath('/')"
+            exact
+            class="nav-btn my-1"
+            text
+            rounded
+          >
             {{ $t('homePage') }}
           </v-btn>
 
@@ -31,6 +38,7 @@
             exact
             class="nav-btn my-1"
             text
+            rounded
           >
             {{ route.name }}
           </v-btn>
@@ -45,21 +53,6 @@
           </p>
 
           <ContactButtons />
-        </v-col>
-      </v-row>
-
-      <v-row class="copyright">
-        <v-col
-          class="pa-0"
-          cols="12"
-        >
-          <v-divider />
-        </v-col>
-        <v-col
-          class="text-center"
-          cols="12"
-        >
-          Copyright
         </v-col>
       </v-row>
     </v-container>

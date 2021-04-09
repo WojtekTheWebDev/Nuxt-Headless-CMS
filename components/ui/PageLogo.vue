@@ -1,6 +1,6 @@
 <template>
   <nuxt-link :to="localePath('/')" exact class="home-page-navigation">
-    <img class="mx-3" :src="logo" alt="logo" width="50" height="50">
+    <img class="mx-3" :src="logo" alt="logo" width="40" height="40">
     <span v-if="$vuetify.breakpoint.mdAndUp">{{ pageName }}</span>
   </nuxt-link>
 </template>

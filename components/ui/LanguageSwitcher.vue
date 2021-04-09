@@ -1,6 +1,8 @@
 <template>
   <v-menu
-    offset-y
+    :left="left"
+    :offset-x="left"
+    :offset-y="!left"
     open-on-hover
     transition="slide-y-transition"
     :disabled="!availableLocales.length"
@@ -11,6 +13,7 @@
         :disabled="!availableLocales.length"
         v-bind="attrs"
         class="lang-btn"
+        rounded
         v-on="on"
       >
         <LanguageDisplay :locale="$i18n.localeProperties" />
@@ -39,6 +42,13 @@ export default {
 
   components: {
     LanguageDisplay
+  },
+
+  props: {
+    left: {
+      type: Boolean,
+      default: false
+    }
   },
 
   computed: {

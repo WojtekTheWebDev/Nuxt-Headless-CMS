@@ -5,27 +5,20 @@
     dark
   >
     <PageLogo />
-
-    <v-spacer />
-
-    <Navigation />
-
-    <LanguageSwitcher />
+    <AppHeaderContent />
   </v-app-bar>
 </template>
 
 <script>
-import LanguageSwitcher from '@/components/ui/LanguageSwitcher'
-import Navigation from '@/components/ui/Navigation'
 import PageLogo from '@/components/ui/PageLogo'
+import AppHeaderContent from '@/components/layout/AppHeaderContent'
 
 export default {
   name: 'AppHeader',
 
   components: {
-    LanguageSwitcher,
-    Navigation,
-    PageLogo
+    PageLogo,
+    AppHeaderContent
   }
 }
 </script>

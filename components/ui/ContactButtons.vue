@@ -1,40 +1,64 @@
 <template>
   <div
-    class="contact-buttons d-flex justify-space-around align-center flex-wrap"
+    class="contact-buttons d-flex justify-center align-center flex-wrap"
     :class="{ 'flex-column': $vuetify.breakpoint.smAndDown }"
   >
-    <v-btn v-if="email" icon large class="ma-3">
-      <v-icon large>
+    <v-btn
+      v-if="email"
+      icon
+      :class="{ 'ma-3': !dense }"
+    >
+      <v-icon>
         mdi-email
       </v-icon>
     </v-btn>
 
-    <v-btn v-if="facebook" icon large class="ma-3">
-      <v-icon large>
+    <v-btn
+      v-if="facebook"
+      icon
+      :class="{ 'ma-3': !dense }"
+    >
+      <v-icon>
         mdi-facebook
       </v-icon>
     </v-btn>
 
-    <v-btn v-if="linkedIn" icon large class="ma-3">
-      <v-icon large>
+    <v-btn
+      v-if="linkedIn"
+      icon
+      :class="{ 'ma-3': !dense }"
+    >
+      <v-icon>
         mdi-linkedin
       </v-icon>
     </v-btn>
 
-    <v-btn v-if="twitter" icon large class="ma-3">
-      <v-icon large>
+    <v-btn
+      v-if="twitter"
+      icon
+      :class="{ 'ma-3': !dense }"
+    >
+      <v-icon>
         mdi-twitter
       </v-icon>
     </v-btn>
 
-    <v-btn v-if="youtube" icon large class="ma-3">
-      <v-icon large>
+    <v-btn
+      v-if="youtube"
+      icon
+      :class="{ 'ma-3': !dense }"
+    >
+      <v-icon>
         mdi-youtube
       </v-icon>
     </v-btn>
 
-    <v-btn v-if="github" icon large class="ma-3">
-      <v-icon large>
+    <v-btn
+      v-if="github"
+      icon
+      :class="{ 'ma-3': !dense }"
+    >
+      <v-icon>
         mdi-github
       </v-icon>
     </v-btn>
@@ -45,6 +69,13 @@
 import { mapState } from 'vuex'
 export default {
   name: 'ContactButtons',
+
+  props: {
+    dense: {
+      type: Boolean,
+      default: false
+    }
+  },
 
   computed: {
     ...mapState({

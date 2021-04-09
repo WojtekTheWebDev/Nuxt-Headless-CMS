@@ -8,6 +8,7 @@
       exact
       text
       class="mx-3"
+      rounded
     >
       {{ route.name }}
     </v-btn>
