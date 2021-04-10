@@ -23,7 +23,7 @@
 
       <v-card raised>
         <TRCloseButton @close="dialog = false" />
-        <v-img class="align-end" :src="image.src" :alt="image.alt" />
+        <v-img class="card-image align-end" :src="image.src" :alt="image.alt" />
         <v-card-title>{{ title }}</v-card-title>
 
         <v-card-text>{{ description }}</v-card-text>
@@ -89,9 +89,10 @@ export default {
     }
 
     p {
+      color: #fff;
       position: absolute;
       text-align: center;
-      font-weight: 300;
+      font-weight: 500;
       font-size: 2rem;
       opacity: 0;
       transition: all 0.2s ease-in-out;
@@ -109,6 +110,9 @@ export default {
       }
     }
   }
+}
 
+.card-image {
+  opacity: 0.8;
 }
 </style>

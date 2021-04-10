@@ -100,13 +100,16 @@ export default {
       options: { customProperties: true },
       themes: {
         light: {
-          primary: '#1976D2',
-          secondary: '#424242',
-          accent: '#82B1FF',
-          error: '#FF5252',
+          primary: '#f0db4f',
+          secondary: '#323330',
           info: '#2196F3',
-          success: '#4CAF50',
-          warning: '#FFC107'
+          anchor: '#f0db4f',
+
+          // Backgrounds
+          lightBackground: '#ffffff',
+          darkBackground: '#141414',
+          headerBackground: '#141414',
+          footerBackground: '#141414'
         }
       }
     }

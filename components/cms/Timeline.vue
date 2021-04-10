@@ -6,9 +6,10 @@
       <v-timeline-item
         v-for="item in items"
         :key="item.name"
-        icon="mdi-school"
+        :icon="getIcon(item.type)"
         color="primary"
         fill-dot
+        icon-color="secondary"
       >
         <span slot="opposite" class="text--secondary">{{ item.subtitle }}</span>
 
@@ -51,6 +52,21 @@ export default {
     items: {
       type: Array,
       default: () => []
+    }
+  },
+
+  methods: {
+    getIcon (type) {
+      switch (type) {
+        case 'EDUCATION':
+          return 'mdi-school'
+        case 'WORK_EXPERIENCE':
+          return 'mdi-briefcase'
+        case 'CERTIFICATION':
+          return 'mdi-certificate'
+        default:
+          return ''
+      }
     }
   }
 }

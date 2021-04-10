@@ -3,9 +3,10 @@
     app
     elevate-on-scroll
     dark
+    color="headerBackground"
   >
     <v-container class="py-0 d-flex align-center">
-      <PageLogo />
+      <PageLogo class="mr-3" />
       <AppHeaderContent />
     </v-container>
   </v-app-bar>

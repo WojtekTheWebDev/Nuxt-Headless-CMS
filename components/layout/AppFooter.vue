@@ -1,9 +1,13 @@
 <template>
-  <v-footer dark class="app-footer">
+  <v-footer
+    dark
+    class="app-footer"
+    color="footerBackground"
+  >
     <v-container>
       <v-row>
         <v-col
-          class="d-flex align-center justify-center"
+          class="logo d-flex align-center justify-center"
           cols="12"
           md="4"
         >
@@ -21,30 +25,11 @@
         >
           <p>{{ $t('siteMap') }}</p>
 
-          <v-btn
-            :to="localePath('/')"
-            exact
-            class="nav-btn my-1"
-            text
-            rounded
-          >
-            {{ $t('homePage') }}
-          </v-btn>
-
-          <v-btn
-            v-for="route in routes"
-            :key="route.path"
-            :to="localePath(route)"
-            exact
-            class="nav-btn my-1"
-            text
-            rounded
-          >
-            {{ route.name }}
-          </v-btn>
+          <Navigation :show-home-page="true" :vertical="true" />
         </v-col>
 
         <v-col
+          class="contact"
           cols="12"
           md="4"
         >
@@ -52,7 +37,7 @@
             {{ $t('getInTouch') }}
           </p>
 
-          <ContactButtons />
+          <ContactButtons :dense="$vuetify.breakpoint.smAndDown" />
         </v-col>
       </v-row>
     </v-container>
@@ -62,12 +47,14 @@
 <script>
 import { mapGetters, mapState } from 'vuex'
 import ContactButtons from '@/components/ui/ContactButtons'
+import Navigation from '@/components/ui/Navigation'
 
 export default {
   name: 'AppFooter',
 
   components: {
-    ContactButtons
+    ContactButtons,
+    Navigation
   },
 
   computed: {
@@ -83,6 +70,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~vuetify/src/styles/settings/_variables';
+
 .app-footer {
   font-weight: 300;
   font-size: 1rem;
@@ -103,6 +92,20 @@ export default {
 
   .copyright {
     font-size: 0.7rem;
+  }
+
+  @media #{map-get($display-breakpoints, 'sm-and-down')} {
+    .routes {
+      order: 1;
+    }
+
+    .logo {
+      order: 3;
+    }
+
+    .contact {
+      order: 2;
+    }
   }
 }
 

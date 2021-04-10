@@ -7,33 +7,7 @@
     temporary
   >
     <div class="content py-3">
-      <v-list rounded class="list">
-        <v-list-item
-          :to="localePath(`/`)"
-          nuxt
-          exact
-          class="my-1"
-          color="primary"
-        >
-          <v-list-item-content>
-            <v-list-item-title v-text="$t('homePage')" />
-          </v-list-item-content>
-        </v-list-item>
-
-        <v-list-item
-          v-for="route in routes"
-          :key="route.path"
-          :to="localePath(`/${route.path}`)"
-          nuxt
-          exact
-          class="my-1"
-          color="primary"
-        >
-          <v-list-item-content>
-            <v-list-item-title v-text="route.name" />
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
+      <Navigation :show-home-page="true" :vertical="true" />
 
       <div class="bottom-aligned">
         <ContactButtons dense :large="false" class="mb-5" />
@@ -44,6 +18,7 @@
 </template>
 
 <script>
+import Navigation from '@/components/ui/Navigation'
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher'
 import ContactButtons from '@/components/ui/ContactButtons'
 import { mapGetters } from 'vuex'
@@ -53,7 +28,8 @@ export default {
 
   components: {
     LanguageSwitcher,
-    ContactButtons
+    ContactButtons,
+    Navigation
   },
 
   computed: {

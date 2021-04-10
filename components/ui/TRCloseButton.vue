@@ -2,6 +2,7 @@
   <v-btn
     class="tr-close-button"
     icon
+    :dark="dark"
     @click="$emit('close')"
   >
     <v-icon>mdi-close</v-icon>
@@ -11,6 +12,13 @@
 <script>
 export default {
   name: 'TRCloseButton',
+
+  props: {
+    dark: {
+      type: Boolean,
+      default: true
+    }
+  },
 
   emits: ['close']
 }

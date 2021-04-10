@@ -1,5 +1,12 @@
 <template>
-  <v-card tag="section" class="page-section mb-10" :dark="theme === 'dark'" flat tile>
+  <v-card
+    tag="section"
+    class="page-section mb-10"
+    :class="{ 'dark-theme': theme === 'dark' }"
+    :dark="theme === 'dark'"
+    flat
+    tile
+  >
     <v-container>
       <h2 class="text-center mb-5">
         {{ title }}
@@ -55,6 +62,7 @@ export default {
 @import '~vuetify/src/styles/settings/_variables';
 
 .page-section {
+  background-color: var(--v-lightBackground-base) !important;
   h2 {
     font-size: 3rem;
     font-weight: 300;
@@ -62,5 +70,9 @@ export default {
       font-size: 2rem;
     }
   }
+}
+
+.dark-theme {
+  background-color: var(--v-darkBackground-base) !important;
 }
 </style>
