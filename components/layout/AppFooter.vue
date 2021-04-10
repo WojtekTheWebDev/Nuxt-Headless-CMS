@@ -14,7 +14,7 @@
           <div class="text-center">
             <img :src="logo" alt="logo">
             <p>{{ pageName }}</p>
-            <small>Copyright 2020 Wojciech Sikora</small>
+            <small>Made with <a href="https://github.com/SikoraWojciech/Nuxt-Headless-CMS" target="_blank">Nuxt Headless CMS</a> by <a href="https://sikorawojciech.pl/" target="_blank">Wojciech Sikora</a></small>
           </div>
         </v-col>
 

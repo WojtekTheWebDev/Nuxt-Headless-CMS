@@ -1,5 +1,11 @@
 @import '~vuetify/src/styles/settings/_variables';
 
+@media #{map-get($display-breakpoints, 'xl-only')} {
+  .container {
+    max-width: 1440px; 
+  }  
+}
+
 :root {
   font-size: 16px;
   @media #{map-get($display-breakpoints, 'sm-and-down')} {

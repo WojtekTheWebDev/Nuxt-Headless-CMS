@@ -66,7 +66,7 @@ export const actions = {
 
     const { routing, logo, pageIcon, pageName, homePage, contactDetails } = entries.items[0].fields
 
-    commit('SET_ROUTES', routing.map(page => page.fields))
+    commit('SET_ROUTES', routing?.map(page => page.fields) || [])
     commit('SET_LOGO', logo.fields)
     commit('SET_PAGE_ICON', pageIcon.fields)
     commit('SET_PAGE_NAME', pageName)

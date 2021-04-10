@@ -63,6 +63,7 @@ export default {
 
 .page-section {
   background-color: var(--v-lightBackground-base) !important;
+
   h2 {
     font-size: 3rem;
     font-weight: 300;

@@ -10,7 +10,7 @@ export default {
     },
 
     contentBlocks () {
-      return this.content.map(parseCMSBlock)
+      return this.content?.map(parseCMSBlock) || []
     }
   }
 }

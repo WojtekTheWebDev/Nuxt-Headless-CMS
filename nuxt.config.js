@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s',
+    titleTemplate: '%s - Nuxt Headless CMS',
     title: 'Nuxt Headless CMS',
     htmlAttrs: {
       lang: 'en'
@@ -10,20 +10,17 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' }
-    ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
 
   env: {
     contentfulSpace: process.env.CONTENTFUL_SPACE || '',
-    contentfulEnv: process.env.CONTENTFUL_ENV || '',
+    contentfulEnv: process.env.CONTENTFUL_ENV || 'master',
     contentfulToken: process.env.CONTENTFUL_TOKEN || '',
-    pageContentModel: process.env.CONTENTFUL_PAGE_CONTENT_MODEL || '',
-    configContentModel: process.env.CONTENTFUL_CONFIG_CONTENT_MODEL || '',
+    pageContentModel: process.env.CONTENTFUL_PAGE_CONTENT_MODEL || 'page',
+    configContentModel: process.env.CONTENTFUL_CONFIG_CONTENT_MODEL || 'config',
     contentfulIncludeLevel: process.env.CONTENTFUL_INCLUDE_LEVEL || 10,
-    contactDetailsContentModel: process.env.CONTACT_DETAILS_CONTENT_MODEL || ''
+    contactDetailsContentModel: process.env.CONTACT_DETAILS_CONTENT_MODEL || 'contactDetails'
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -62,9 +59,6 @@ export default {
     locales: [{
       code: 'en',
       iso: 'gb'
-    }, {
-      code: 'pl',
-      iso: 'pl'
     }],
     seo: true,
     defaultLocale: 'en',
@@ -79,15 +73,6 @@ export default {
           pageNotFoundMessage: 'The page that you\'re looking for was not found.',
           otherErrorTitle: 'Oops, something\'s gone wrong!',
           otherErrorMessage: 'It\'s not you - it\'s us. Sorry for that.'
-        },
-        pl: {
-          homePage: 'Strona główna',
-          siteMap: 'Mapa strony',
-          getInTouch: 'Pozostańmy w kontakcie',
-          pageNotFoundTitle: 'Nie ma takiej strony!',
-          pageNotFoundMessage: 'Wybacz, ale nie znaleźlismy strony, której szukasz.',
-          otherErrorTitle: 'Ups, coś poszło nie tak!',
-          otherErrorMessage: 'To nie ty - to my. Wybacz.'
         }
       }
     }
@@ -115,7 +100,6 @@ export default {
           primary: '#f0db4f',
           secondary: '#323330',
           info: '#2196F3',
-          anchor: '#f0db4f',
 
           // Backgrounds
           lightBackground: '#ffffff',
