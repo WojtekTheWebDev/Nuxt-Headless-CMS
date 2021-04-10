@@ -1,5 +1,3 @@
-import localConfig from './local.js'
-
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -19,19 +17,24 @@ export default {
   },
 
   env: {
-    contentfulSpace: process.env.CONTENTFUL_SPACE || localConfig.env.contentfulSpace || '',
-    contentfulEnv: process.env.CONTENTFUL_ENV || localConfig.env.contentfulEnv || '',
-    contentfulToken: process.env.CONTENTFUL_TOKEN || localConfig.env.contentfulToken || '',
-    pageContentModel: process.env.CONTENTFUL_PAGE_CONTENT_MODEL || localConfig.env.pageContentModel || '',
-    configContentModel: process.env.CONTENTFUL_CONFIG_CONTENT_MODEL || localConfig.env.configContentModel || '',
+    contentfulSpace: process.env.CONTENTFUL_SPACE || '',
+    contentfulEnv: process.env.CONTENTFUL_ENV || '',
+    contentfulToken: process.env.CONTENTFUL_TOKEN || '',
+    pageContentModel: process.env.CONTENTFUL_PAGE_CONTENT_MODEL || '',
+    configContentModel: process.env.CONTENTFUL_CONFIG_CONTENT_MODEL || '',
     contentfulIncludeLevel: process.env.CONTENTFUL_INCLUDE_LEVEL || 10,
-    contactDetailsContentModel: process.env.CONTACT_DETAILS_CONTENT_MODEL || localConfig.env.contactDetailsContentModel || ''
+    contactDetailsContentModel: process.env.CONTACT_DETAILS_CONTENT_MODEL || ''
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '~/assets/css/main'
   ],
+
+  loading: {
+    color: '#f0db4f',
+    height: '2px'
+  },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
@@ -63,6 +66,7 @@ export default {
       code: 'pl',
       iso: 'pl'
     }],
+    seo: true,
     defaultLocale: 'en',
     vueI18n: {
       fallbackLocale: 'en',
@@ -70,12 +74,20 @@ export default {
         en: {
           homePage: 'Home page',
           siteMap: 'Site map',
-          getInTouch: 'Get in touch'
+          getInTouch: 'Get in touch',
+          pageNotFoundTitle: 'Page not found!',
+          pageNotFoundMessage: 'The page that you\'re looking for was not found.',
+          otherErrorTitle: 'Oops, something\'s gone wrong!',
+          otherErrorMessage: 'It\'s not you - it\'s us. Sorry for that.'
         },
         pl: {
           homePage: 'Strona główna',
           siteMap: 'Mapa strony',
-          getInTouch: 'Pozostańmy w kontakcie'
+          getInTouch: 'Pozostańmy w kontakcie',
+          pageNotFoundTitle: 'Nie ma takiej strony!',
+          pageNotFoundMessage: 'Wybacz, ale nie znaleźlismy strony, której szukasz.',
+          otherErrorTitle: 'Ups, coś poszło nie tak!',
+          otherErrorMessage: 'To nie ty - to my. Wybacz.'
         }
       }
     }
