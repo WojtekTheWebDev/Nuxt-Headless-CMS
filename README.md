@@ -8,7 +8,7 @@ The project was made with [Nuxt.js](https://nuxtjs.org/) and [Contentful](https:
 - Manage meta title and meta description for SEO improvement
 - Implement multiple locales with [nuxt/i18n](https://i18n.nuxtjs.org/)
 
-Project documentation is in progress, it will appear here someday.
+Documentation is still being built, but it will be [here](https://nuxt-headless-cms.herokuapp.com/).
 
 ## Getting started
 
@@ -29,7 +29,7 @@ contentful space import --space-id YOUR_SPACE_ID --content-file ./contentful-exp
 6. Create config content for main page config. **Important note: There should be only 1 config content**
 7. Done!
 
-Description of all content models and it's fields with examples will be availble in the documentation, when I finally finish it.
+Description of all content models and it's fields with examples is still being built, but it will be [here](https://nuxt-headless-cms.herokuapp.com/).
 
 ### Project setup
 
@@ -54,7 +54,7 @@ env: {
 
 ## Live demo
 
-Documentation and live demo will appear here as soon as I finish it.
+Live demo and documentation with examples and guides: [https://nuxt-headless-cms.herokuapp.com/](https://nuxt-headless-cms.herokuapp.com/)
 
 ## Customization
 

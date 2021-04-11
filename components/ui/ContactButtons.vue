@@ -7,6 +7,8 @@
       v-if="email"
       icon
       :class="{ 'ma-3': !dense }"
+      :href="`mailto:${email}`"
+      target="_blank"
     >
       <v-icon>
         mdi-email
@@ -17,6 +19,8 @@
       v-if="facebook"
       icon
       :class="{ 'ma-3': !dense }"
+      :href="facebook"
+      target="_blank"
     >
       <v-icon>
         mdi-facebook
@@ -27,6 +31,8 @@
       v-if="linkedIn"
       icon
       :class="{ 'ma-3': !dense }"
+      :href="linkedIn"
+      target="_blank"
     >
       <v-icon>
         mdi-linkedin
@@ -37,6 +43,8 @@
       v-if="twitter"
       icon
       :class="{ 'ma-3': !dense }"
+      :href="twitter"
+      target="_blank"
     >
       <v-icon>
         mdi-twitter
@@ -47,6 +55,8 @@
       v-if="youtube"
       icon
       :class="{ 'ma-3': !dense }"
+      :href="youtube"
+      target="_blank"
     >
       <v-icon>
         mdi-youtube
@@ -57,6 +67,8 @@
       v-if="github"
       icon
       :class="{ 'ma-3': !dense }"
+      :href="github"
+      target="_blank"
     >
       <v-icon>
         mdi-github

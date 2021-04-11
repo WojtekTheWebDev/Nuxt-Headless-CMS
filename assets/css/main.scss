@@ -6,6 +6,15 @@
   }  
 }
 
+.main-content {
+  margin: auto;
+  max-width: 1140px;
+}
+
+a {
+  text-decoration: none;
+}
+
 :root {
   font-size: 16px;
   @media #{map-get($display-breakpoints, 'sm-and-down')} {
