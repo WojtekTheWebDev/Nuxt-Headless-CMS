@@ -91,3 +91,7 @@ sw.*
 
 # Local config
 local.js
+
+# contentful export/import configs
+export-config.json
+import-config.json

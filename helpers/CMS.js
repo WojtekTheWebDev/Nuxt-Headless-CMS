@@ -4,6 +4,7 @@ import MediaBox from '@/components/cms/MediaBox'
 import Timeline from '@/components/cms/Timeline'
 import IconList from '@/components/cms/IconList'
 import ModalCardList from '@/components/cms/ModalCardList'
+import Blog from '@/components/cms/Blog'
 
 export function parseCMSBlock (contentBlock) {
   switch (contentBlock.sys.contentType.sys.id) {
@@ -81,6 +82,14 @@ export function parseCMSBlock (contentBlock) {
               alt: modalCard.fields?.image?.fields?.title
             }
           }))
+        }
+      }
+    case 'blog':
+      return {
+        component: Blog,
+        name: contentBlock.fields?.name,
+        props: {
+          pages: contentBlock.fields?.pages?.map(page => page.fields)
         }
       }
     default:
