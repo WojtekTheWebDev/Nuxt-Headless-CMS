@@ -1,8 +1,8 @@
 <template>
-  <header class="page-header mb-5" :style="{ backgroundColor }">
+  <header class="page-header" :style="{ backgroundColor }">
     <v-container class="pa-0">
       <v-parallax :src="`${backgroundImage}?w=1440`">
-        <h1 class="text-center px-10">
+        <h1 class="text-center">
           {{ title }}
         </h1>
       </v-parallax>

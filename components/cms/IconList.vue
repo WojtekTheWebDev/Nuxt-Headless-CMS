@@ -2,7 +2,7 @@
   <div class="icon-list">
     <ComponentHeader :title="title" />
 
-    <v-row>
+    <v-row class="d-flex justify-center">
       <v-col
         v-for="icon in icons"
         :key="icon.name"

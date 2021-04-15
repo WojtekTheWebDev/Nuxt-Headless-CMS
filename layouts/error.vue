@@ -42,8 +42,10 @@ export default {
         title: this.$t('pageNotFoundTitle'),
         message: this.$t('pageNotFoundMessage')
       },
-      otherError: this.$t('otherErrorTitle'),
-      message: this.$t('otherErrorMessage')
+      otherError: {
+        title: this.$t('otherErrorTitle'),
+        message: this.$t('otherErrorMessage')
+      }
     }
   },
 

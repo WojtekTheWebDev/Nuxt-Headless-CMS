@@ -1,13 +1,13 @@
 <template>
   <v-card
     tag="section"
-    class="page-section mb-10"
+    class="page-section py-5"
     :class="{ 'dark-theme': theme === 'dark' }"
     :dark="theme === 'dark'"
     flat
     tile
   >
-    <v-container>
+    <v-container class="main-content">
       <h2 class="text-center mb-5">
         {{ title }}
       </h2>

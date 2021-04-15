@@ -5,6 +5,7 @@ import Timeline from '@/components/cms/Timeline'
 import IconList from '@/components/cms/IconList'
 import ModalCardList from '@/components/cms/ModalCardList'
 import Blog from '@/components/cms/Blog'
+import PageLink from '@/components/cms/PageLink'
 
 export function parseCMSBlock (contentBlock) {
   switch (contentBlock.sys.contentType.sys.id) {
@@ -90,6 +91,16 @@ export function parseCMSBlock (contentBlock) {
         name: contentBlock.fields?.name,
         props: {
           pages: contentBlock.fields?.pages?.map(page => page.fields)
+        }
+      }
+    case 'pageLink':
+      return {
+        component: PageLink,
+        name: contentBlock.fields?.name,
+        props: {
+          text: contentBlock.fields?.text,
+          type: contentBlock.fields?.type,
+          slug: contentBlock.fields?.page?.fields?.slug
         }
       }
     default:

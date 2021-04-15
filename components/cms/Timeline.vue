@@ -11,7 +11,7 @@
         fill-dot
         icon-color="secondary"
       >
-        <span slot="opposite" class="text--secondary">{{ item.subtitle }}</span>
+        <span slot="opposite">{{ item.subtitle }}</span>
 
         <v-card class="elevation-2 pa-3">
           <v-card-title class="keep-words">

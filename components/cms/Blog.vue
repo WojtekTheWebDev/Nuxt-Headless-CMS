@@ -1,7 +1,7 @@
 <template>
   <div class="blog">
     <div
-      v-for="page in [...pages, ...pages]"
+      v-for="page in pages"
       :key="page.name"
       class="blog-page"
     >

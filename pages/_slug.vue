@@ -1,15 +1,17 @@
 <template>
   <article>
-    <PageHeader :title="header.title" :background-image="header.backgroundImage" />
+    <PageHeader
+      :title="header.title"
+      :background-image="header.backgroundImage"
+      :background-color="header.backgroundColor"
+    />
 
-    <div class="main-content">
-      <component
-        :is="contentBlock.component"
-        v-for="contentBlock in contentBlocks"
-        :key="contentBlock.name"
-        v-bind="contentBlock.props"
-      />
-    </div>
+    <component
+      :is="contentBlock.component"
+      v-for="contentBlock in contentBlocks"
+      :key="contentBlock.name"
+      v-bind="contentBlock.props"
+    />
   </article>
 </template>
 

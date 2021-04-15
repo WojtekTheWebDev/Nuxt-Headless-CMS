@@ -11,7 +11,7 @@
 
     <img
       v-else-if="isImage"
-      :class="{ rounded }"
+      :class="{ 'img-rounded': rounded }"
       :src="imageURL"
       :alt="asset.title"
       :width="width ? width : defaultWidth"
@@ -79,5 +79,9 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  .img-rounded {
+    border-radius: 100%;
+  }
 }
 </style>

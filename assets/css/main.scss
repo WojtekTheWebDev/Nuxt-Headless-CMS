@@ -25,3 +25,7 @@ a {
 .keep-words {
   word-break: keep-all !important;
 }
+
+pre {
+  overflow: auto;
+}

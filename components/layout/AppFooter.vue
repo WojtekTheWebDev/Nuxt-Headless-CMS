@@ -5,6 +5,7 @@
     color="footerBackground"
   >
     <v-container>
+      <v-divider class="mb-3" />
       <v-row>
         <v-col
           class="logo d-flex align-center justify-center"

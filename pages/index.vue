@@ -6,14 +6,12 @@
       :background-color="header.backgroundColor"
     />
 
-    <div class="main-content">
-      <component
-        :is="contentBlock.component"
-        v-for="contentBlock in contentBlocks"
-        :key="contentBlock.name"
-        v-bind="contentBlock.props"
-      />
-    </div>
+    <component
+      :is="contentBlock.component"
+      v-for="contentBlock in contentBlocks"
+      :key="contentBlock.name"
+      v-bind="contentBlock.props"
+    />
   </section>
 </template>
 
