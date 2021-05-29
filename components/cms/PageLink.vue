@@ -2,7 +2,7 @@
   <div class="page-link">
     <v-btn
       v-if="type === 'Button'"
-      :to="localePath(`/${slug}`)"
+      :to="link"
       nuxt
       exact
       color="primary"
@@ -15,7 +15,7 @@
 
     <nuxt-link
       v-else
-      :to="localePath(`/${slug}`)"
+      :to="link"
       exact=""
     >
       {{ text }}
@@ -40,6 +40,16 @@ export default {
       type: String,
       default: 'Button',
       validator: value => value === 'Button' || value === 'Link'
+    },
+    parentPageSlug: {
+      type: String,
+      default: null
+    }
+  },
+
+  computed: {
+    link () {
+      return this.parentPageSlug ? this.localePath(`/${this.parentPageSlug}/${this.slug}`) : this.localePath(`/${this.slug}`)
     }
   }
 }

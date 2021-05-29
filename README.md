@@ -8,7 +8,7 @@ The project was made with [Nuxt.js](https://nuxtjs.org/) and [Contentful](https:
 - Manage meta title and meta description for SEO improvement
 - Implement multiple locales with [nuxt/i18n](https://i18n.nuxtjs.org/)
 
-Documentation is still being built, but it will be [here](https://nuxt-headless-cms.herokuapp.com/).
+Documentation can be found [here](https://nuxt-headless-cms.herokuapp.com/documentation).
 
 ## Getting started
 

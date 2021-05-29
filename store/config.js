@@ -86,6 +86,8 @@ export const actions = {
 
     const { routing } = entries.items[0].fields
 
+    if (!routing) { return }
+
     commit('SET_ROUTES', routing.map(page => page.fields))
   }
 }

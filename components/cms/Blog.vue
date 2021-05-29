@@ -11,7 +11,7 @@
         <v-card
           outlined
           rounded
-          :to="localePath(`/${page.slug}`)"
+          :to="getPageLink(page)"
           nuxt
           exact
           :elevation="hover ? 5 : 0"
@@ -41,6 +41,10 @@ export default {
   methods: {
     getPageHeader (page) {
       return `${page.header.fields.backgroundImage.fields.file.url}?w=300`
+    },
+
+    getPageLink (page) {
+      return page.parentPage ? this.localePath(`/${page.parentPage.fields.slug}/${page.slug}`) : this.localePath(`/${page.slug}`)
     }
   }
 }

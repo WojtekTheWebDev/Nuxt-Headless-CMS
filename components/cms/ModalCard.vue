@@ -26,15 +26,16 @@
         <v-img class="card-image align-end" :src="image.src" :alt="image.alt" />
         <v-card-title>{{ title }}</v-card-title>
 
-        <v-card-text>{{ description }}</v-card-text>
+        <v-card-text v-html="description" />
       </v-card>
     </v-dialog>
   </div>
 </template>
 
 <script>
-import TRCloseButton from '@/components/ui/TRCloseButton'
+import marked from 'marked'
 import ClickMe from '@/components/ui/ClickMe'
+import TRCloseButton from '@/components/ui/TRCloseButton'
 
 export default {
   name: 'ModalCard',
@@ -66,7 +67,13 @@ export default {
 
   data: () => ({
     dialog: false
-  })
+  }),
+
+  computed: {
+    markedDescription () {
+      return marked(this.description)
+    }
+  }
 }
 </script>
 
@@ -90,6 +97,7 @@ export default {
 
     p {
       color: #fff;
+      text-shadow: 1px 1px 5px var(--v-secondary-base);
       position: absolute;
       text-align: center;
       font-weight: 500;
@@ -110,9 +118,5 @@ export default {
       }
     }
   }
-}
-
-.card-image {
-  opacity: 0.8;
 }
 </style>

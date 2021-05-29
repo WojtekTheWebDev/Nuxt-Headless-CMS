@@ -40,7 +40,7 @@ export default {
       include: env.contentfulIncludeLevel
     })
 
-    const page = entries.items.find(entry => entry.fields.slug === params.slug && !entry.fields.parentPage)
+    const page = entries.items.find(entry => entry.fields.slug === params.slug && entry.fields.parentPage.fields.slug === params.parent)
 
     if (!page) { error({ statusCode: 404 }) }
 

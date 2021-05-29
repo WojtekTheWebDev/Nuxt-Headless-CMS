@@ -30,5 +30,6 @@ export default {
   top: 1rem;
   right: 1rem;
   z-index: 100;
+  text-shadow: 1px 1px 5px var(--v-secondary-base);
 }
 </style>

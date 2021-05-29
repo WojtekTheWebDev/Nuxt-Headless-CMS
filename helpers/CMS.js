@@ -6,6 +6,7 @@ import IconList from '@/components/cms/IconList'
 import ModalCardList from '@/components/cms/ModalCardList'
 import Blog from '@/components/cms/Blog'
 import PageLink from '@/components/cms/PageLink'
+import ImageTextBox from '@/components/cms/ImageTextBox'
 
 export function parseCMSBlock (contentBlock) {
   switch (contentBlock.sys.contentType.sys.id) {
@@ -74,7 +75,7 @@ export function parseCMSBlock (contentBlock) {
         props: {
           title: contentBlock.fields?.title,
           subtitle: contentBlock.fields?.subtitle,
-          modalCards: contentBlock.fields?.modalCards.map(modalCard => ({
+          modalCards: (contentBlock.fields?.modalCards || []).map(modalCard => ({
             name: modalCard.fields?.name,
             title: modalCard.fields?.title,
             description: modalCard.fields?.description,
@@ -100,7 +101,21 @@ export function parseCMSBlock (contentBlock) {
         props: {
           text: contentBlock.fields?.text,
           type: contentBlock.fields?.type,
-          slug: contentBlock.fields?.page?.fields?.slug
+          slug: contentBlock.fields?.page?.fields?.slug,
+          parentPageSlug: contentBlock.fields?.page?.fields?.parentPage?.fields?.slug
+        }
+      }
+    case 'imageTextBox':
+      return {
+        component: ImageTextBox,
+        name: contentBlock.fields?.name,
+        props: {
+          description: contentBlock.fields?.description,
+          image: {
+            src: contentBlock.fields?.image?.fields?.file?.url,
+            type: contentBlock.fields?.image?.fields?.file?.contentType,
+            title: contentBlock.fields?.image?.fields?.title
+          }
         }
       }
     default:

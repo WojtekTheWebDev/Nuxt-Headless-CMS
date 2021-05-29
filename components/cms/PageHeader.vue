@@ -1,11 +1,23 @@
 <template>
   <header class="page-header" :style="{ backgroundColor }">
     <v-container class="pa-0">
-      <v-parallax :src="`${backgroundImage}?w=1440`">
+      <v-parallax
+        v-if="backgroundImage"
+        :src="`${backgroundImage}?w=1440`"
+      >
         <h1 class="text-center">
           {{ title }}
         </h1>
       </v-parallax>
+
+      <div
+        v-else
+        class="page-header-no-img"
+      >
+        <h1 class="text-center">
+          {{ title }}
+        </h1>
+      </div>
     </v-container>
   </header>
 </template>
@@ -43,6 +55,14 @@ export default {
 
   .v-parallax {
     width: 100%;
+  }
+
+  &-no-img {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   h1 {

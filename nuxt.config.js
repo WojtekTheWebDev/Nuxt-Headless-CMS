@@ -45,7 +45,8 @@ export default {
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/vuetify
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
+    '@nuxtjs/google-analytics'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -54,6 +55,10 @@ export default {
     '@nuxtjs/axios',
     'nuxt-i18n'
   ],
+
+  googleAnalytics: {
+    id: process.env.GA_ID || ''
+  },
 
   i18n: {
     locales: [{

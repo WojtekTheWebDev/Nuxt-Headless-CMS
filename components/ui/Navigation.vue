@@ -21,7 +21,6 @@
       :key="route.path"
       :to="localePath(`/${route.path}`)"
       nuxt
-      exact
       rounded
       plain
       active-class="primary--text"

@@ -36,19 +36,6 @@ export default {
     }
   },
 
-  data () {
-    return {
-      pageNotFound: {
-        title: this.$t('pageNotFoundTitle'),
-        message: this.$t('pageNotFoundMessage')
-      },
-      otherError: {
-        title: this.$t('otherErrorTitle'),
-        message: this.$t('otherErrorMessage')
-      }
-    }
-  },
-
   head () {
     return {
       title: this.pageError.title,
@@ -61,6 +48,20 @@ export default {
   computed: {
     pageError () {
       return this.error.statusCode === 404 ? this.pageNotFound : this.otherError
+    },
+
+    pageNotFound () {
+      return {
+        title: this.$t('pageNotFoundTitle'),
+        message: this.$t('pageNotFoundMessage')
+      }
+    },
+
+    otherError () {
+      return {
+        title: this.$t('otherErrorTitle'),
+        message: this.$t('otherErrorMessage')
+      }
     }
   }
 }
