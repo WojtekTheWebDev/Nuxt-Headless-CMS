@@ -1,0 +1,15 @@
+name: Welcome
+on:
+  issues:
+    types: [opened]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: bubkoo/welcome-action@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FIRST_ISSUE_COMMENT: >
+            👋 @{{ author }}
+            
+             Thanks for opening your first issue here! We welcome you to the community!
