@@ -26,7 +26,10 @@
         <v-img class="card-image align-end" :src="image.src" :alt="image.alt" />
         <v-card-title>{{ title }}</v-card-title>
 
-        <v-card-text v-html="description" />
+        <v-card-text
+          :class="theme === 'dark' ? 'dark-theme' : 'light-theme'"
+          v-html="description"
+        />
       </v-card>
     </v-dialog>
   </div>
@@ -34,6 +37,7 @@
 
 <script>
 import marked from 'marked'
+import CMSMixin from '@/mixins/CMSMixin'
 import ClickMe from '@/components/ui/ClickMe'
 import TRCloseButton from '@/components/ui/TRCloseButton'
 
@@ -44,6 +48,8 @@ export default {
     TRCloseButton,
     ClickMe
   },
+
+  mixins: [CMSMixin],
 
   props: {
     title: {

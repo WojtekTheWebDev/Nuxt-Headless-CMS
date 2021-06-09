@@ -21,8 +21,12 @@
 </template>
 
 <script>
+import CMSMixin from '@/mixins/CMSMixin'
+
 export default {
   name: 'MediaBox',
+
+  mixins: [CMSMixin],
 
   props: {
     asset: {

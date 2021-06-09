@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import CMSMixin from '@/mixins/CMSMixin'
 import ComponentHeader from '@/components/ui/ComponentHeader'
 
 export default {
@@ -43,6 +44,8 @@ export default {
   components: {
     ComponentHeader
   },
+
+  mixins: [CMSMixin],
 
   props: {
     title: {

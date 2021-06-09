@@ -8,8 +8,12 @@
 </template>
 
 <script>
+import CMSMixin from '@/mixins/CMSMixin'
+
 export default {
   name: 'IconBox',
+
+  mixins: [CMSMixin],
 
   props: {
     title: {

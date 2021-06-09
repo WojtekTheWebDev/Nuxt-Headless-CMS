@@ -15,7 +15,12 @@
           <div class="text-center">
             <img :src="logo" alt="logo">
             <p>{{ pageName }}</p>
-            <small>Made with <a href="https://github.com/SikoraWojciech/Nuxt-Headless-CMS" target="_blank">Nuxt Headless CMS</a> by <a href="https://sikorawojciech.pl/" target="_blank">Wojciech Sikora</a></small>
+            <small class="dark-theme">
+              Made with
+              <a href="https://github.com/SikoraWojciech/Nuxt-Headless-CMS" target="_blank">Nuxt Headless CMS</a>
+              by
+              <a href="https://sikorawojciech.pl/" target="_blank">Wojciech Sikora</a>
+            </small>
           </div>
         </v-col>
 

@@ -1,0 +1,55 @@
+@import "~vuetify/src/styles/settings/_variables";
+
+a {
+  &.light-theme {
+    font-weight: 500;
+    color: var(--v-secondary-base) !important;
+  }
+
+  &.dark-theme {
+    font-weight: 500;
+    color: var(--v-primary-base) !important;
+  }
+}
+
+.light-theme {
+  > a {
+    font-weight: 500;
+    color: var(--v-secondary-base) !important;
+  }
+
+  p {
+    a {
+      font-weight: 500;
+      color: var(--v-secondary-base) !important;
+    }
+  }
+
+  li {
+    a {
+      font-weight: 500;
+      color: var(--v-secondary-base) !important;
+    }
+  }
+}
+
+.dark-theme {
+  > a {
+    font-weight: 500;
+    color: var(--v-primary-base) !important;
+  }
+
+  p {
+    a {
+      font-weight: 500;
+      color: var(--v-primary-base) !important;
+    }
+  }
+
+  li {
+    a {
+      font-weight: 500;
+      color: var(--v-primary-base) !important;
+    }
+  }
+}

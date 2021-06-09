@@ -17,17 +17,23 @@
       </v-col>
 
       <v-col cols="12" sm="12" md="6" lg="8" class="px-5 text-justify">
-        <div v-html="markedDescription" />
+        <div
+          :class="theme === 'dark' ? 'dark-theme' : 'light-theme'"
+          v-html="markedDescription"
+        />
       </v-col>
     </v-row>
   </div>
 </template>
 
 <script>
+import CMSMixin from '@/mixins/CMSMixin'
 import marked from 'marked'
 
 export default {
   name: 'ImageTextBox',
+
+  mixins: [CMSMixin],
 
   props: {
     description: {

@@ -22,8 +22,9 @@
 </template>
 
 <script>
-import ModalCard from '@/components/cms/ModalCard'
+import CMSMixin from '@/mixins/CMSMixin'
 import ComponentHeader from '@/components/ui/ComponentHeader'
+import ModalCard from '@/components/cms/ModalCard'
 
 export default {
   name: 'ModalCardList',
@@ -32,6 +33,8 @@ export default {
     ModalCard,
     ComponentHeader
   },
+
+  mixins: [CMSMixin],
 
   props: {
     title: {

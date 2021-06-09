@@ -1,9 +1,10 @@
-@import '~vuetify/src/styles/settings/_variables';
+@import "~vuetify/src/styles/settings/_variables";
+@import "./_themes.scss";
 
 @media #{map-get($display-breakpoints, 'xl-only')} {
   .container {
-    max-width: 1440px; 
-  }  
+    max-width: 1440px;
+  }
 }
 
 .main-content {

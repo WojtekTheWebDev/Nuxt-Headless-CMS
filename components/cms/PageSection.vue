@@ -19,7 +19,7 @@
       >
         <component
           :is="contentBlock.component"
-          v-bind="contentBlock.props"
+          v-bind="{ ...contentBlock.props, theme }"
         />
       </div>
     </v-container>
@@ -27,10 +27,13 @@
 </template>
 
 <script>
+import CMSMixin from '@/mixins/CMSMixin'
 import { parseCMSBlock } from '@/helpers/CMS'
 
 export default {
   name: 'PageSection',
+
+  mixins: [CMSMixin],
 
   props: {
     title: {
@@ -41,12 +44,6 @@ export default {
     content: {
       type: Array,
       default: () => []
-    },
-
-    theme: {
-      type: String,
-      default: 'light',
-      validator: val => val === 'light' || val === 'dark'
     }
   },
 

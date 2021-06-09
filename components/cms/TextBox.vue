@@ -1,14 +1,19 @@
 <template>
   <div
     class="text-box text-justify"
+    :class="theme === 'dark' ? 'dark-theme' : 'light-theme'"
     v-html="markedDescription"
   />
 </template>
 
 <script>
 import marked from 'marked'
+import CMSMixin from '@/mixins/CMSMixin'
+
 export default {
   name: 'TextBox',
+
+  mixins: [CMSMixin],
 
   props: {
     description: {

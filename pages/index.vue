@@ -17,7 +17,7 @@
 
 <script>
 import { createClient } from '@/plugins/contentful'
-import CMSMixin from '@/mixins/CMSMixin'
+import PageMixin from '@/mixins/PageMixin'
 import PageHeader from '@/components/cms/PageHeader'
 
 export default {
@@ -27,7 +27,7 @@ export default {
     PageHeader
   },
 
-  mixins: [CMSMixin],
+  mixins: [PageMixin],
 
   async asyncData ({ app, env, store, error }) {
     const client = createClient()

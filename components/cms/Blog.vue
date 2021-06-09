@@ -18,7 +18,7 @@
         >
           <v-img class="card-image" :src="getPageHeader(page)" :alt="page.header.fields.backgroundImage.fields.title" />
           <v-card-title>{{ page.title }}</v-card-title>
-          <v-card-text class="">
+          <v-card-text>
             {{ page.metaDescription }}
           </v-card-text>
         </v-card>
@@ -28,8 +28,12 @@
 </template>
 
 <script>
+import CMSMixin from '@/mixins/CMSMixin'
+
 export default {
   name: 'Blog',
+
+  mixins: [CMSMixin],
 
   props: {
     pages: {

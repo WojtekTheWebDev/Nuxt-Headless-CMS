@@ -23,8 +23,12 @@
 </template>
 
 <script>
+import CMSMixin from '@/mixins/CMSMixin'
+
 export default {
   name: 'PageHeader',
+
+  mixins: [CMSMixin],
 
   props: {
     title: {
@@ -68,7 +72,7 @@ export default {
   h1 {
     margin: auto;
     max-width: 1140px;
-    font-size: 5rem;
+    font-size: 4rem;
     color: white;
     font-weight: 300;
     text-shadow: 1px 1px 5px var(--v-secondary-base);

@@ -19,8 +19,9 @@
 </template>
 
 <script>
-import IconBox from '@/components/cms/IconBox'
+import CMSMixin from '@/mixins/CMSMixin'
 import ComponentHeader from '@/components/ui/ComponentHeader'
+import IconBox from '@/components/cms/IconBox'
 
 export default {
   name: 'IconList',
@@ -29,6 +30,8 @@ export default {
     IconBox,
     ComponentHeader
   },
+
+  mixins: [CMSMixin],
 
   props: {
     title: {

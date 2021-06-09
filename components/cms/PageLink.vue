@@ -5,7 +5,7 @@
       :to="link"
       nuxt
       exact
-      color="primary"
+      :color="theme === 'dark' ? 'primary' : 'secondary'"
       rounded
       outlined
       large
@@ -15,8 +15,9 @@
 
     <nuxt-link
       v-else
+      :class="theme === 'dark' ? 'dark-theme' : 'light-theme'"
       :to="link"
-      exact=""
+      exact
     >
       {{ text }}
     </nuxt-link>
@@ -24,8 +25,12 @@
 </template>
 
 <script>
+import CMSMixin from '@/mixins/CMSMixin'
+
 export default {
   name: 'PageLink',
+
+  mixins: [CMSMixin],
 
   props: {
     text: {
