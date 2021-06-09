@@ -28,7 +28,7 @@
 
         <v-card-text
           :class="theme === 'dark' ? 'dark-theme' : 'light-theme'"
-          v-html="description"
+          v-html="markedDescription"
         />
       </v-card>
     </v-dialog>
