@@ -28,6 +28,19 @@
     >
       {{ route.name }}
     </v-btn>
+
+    <v-btn
+      v-if="showHomePage"
+      :to="localePath(`/${privacyPolicy.slug}`)"
+      nuxt
+      exact
+      rounded
+      plain
+      class="px-3"
+      active-class="primary--text"
+    >
+      {{ privacyPolicy.title }}
+    </v-btn>
   </nav>
 </template>
 
@@ -51,7 +64,12 @@ export default {
   computed: {
     ...mapGetters({
       routes: 'config/getRoutes'
-    })
+    }),
+
+    privacyPolicy () {
+      const privacyPolicy = this.$store.state.config.privacyPolicy
+      return privacyPolicy.privacyPolicyPage.fields
+    }
   }
 }
 </script>

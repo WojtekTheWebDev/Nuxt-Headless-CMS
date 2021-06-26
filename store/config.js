@@ -6,7 +6,8 @@ export const state = () => ({
   pageIcon: null,
   pageName: null,
   homePage: null,
-  contactDetails: null
+  contactDetails: null,
+  privacyPolicy: null
 })
 
 export const getters = {
@@ -50,11 +51,15 @@ export const mutations = {
 
   SET_CONTACT_DETAILS (state, payload) {
     state.contactDetails = payload
+  },
+
+  SET_PRIVACY_POLICY (state, payload) {
+    state.privacyPolicy = payload
   }
 }
 
 export const actions = {
-  async init ({ commit }) {
+  async init ({ state, commit }) {
     const client = createClient()
     const entries = await client.getEntries({
       content_type: process.env.configContentModel,
@@ -64,7 +69,7 @@ export const actions = {
 
     if (!entries.total) { return }
 
-    const { routing, logo, pageIcon, pageName, homePage, contactDetails } = entries.items[0].fields
+    const { routing, logo, pageIcon, pageName, homePage, contactDetails, privacyPolicy } = entries.items[0].fields
 
     commit('SET_ROUTES', routing?.map(page => page.fields) || [])
     commit('SET_LOGO', logo.fields)
@@ -72,6 +77,7 @@ export const actions = {
     commit('SET_PAGE_NAME', pageName)
     commit('SET_HOME_PAGE', homePage.fields)
     commit('SET_CONTACT_DETAILS', contactDetails.fields)
+    commit('SET_PRIVACY_POLICY', privacyPolicy.fields)
   },
 
   async translateRoutes ({ commit }, locale) {

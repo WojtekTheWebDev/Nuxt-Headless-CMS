@@ -1041,7 +1041,7 @@
         "id": "config",
         "type": "ContentType",
         "createdAt": "2021-04-10T15:24:48.974Z",
-        "updatedAt": "2021-05-29T18:03:20.939Z",
+        "updatedAt": "2021-06-23T19:31:15.678Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -1049,8 +1049,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 13,
-        "publishedAt": "2021-05-29T18:03:20.939Z",
+        "publishedVersion": 15,
+        "publishedAt": "2021-06-23T19:31:15.678Z",
         "firstPublishedAt": "2021-04-10T15:24:53.757Z",
         "createdBy": {
           "sys": {
@@ -1066,8 +1066,8 @@
             "id": "0xtQf19pcoNQhr5JWKAjAC"
           }
         },
-        "publishedCounter": 7,
-        "version": 14,
+        "publishedCounter": 8,
+        "version": 16,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -1195,6 +1195,23 @@
             {
               "linkContentType": [
                 "contactDetails"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "privacyPolicy",
+          "name": "Privacy policy",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "linkContentType": [
+                "privacyPolicy"
               ]
             }
           ],
@@ -1842,6 +1859,301 @@
           "linkType": "Asset"
         }
       ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "fstbipriwhvf"
+          }
+        },
+        "id": "privacyPolicy",
+        "type": "ContentType",
+        "createdAt": "2021-06-23T19:30:44.044Z",
+        "updatedAt": "2021-06-23T19:30:44.494Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2021-06-23T19:30:44.494Z",
+        "firstPublishedAt": "2021-06-23T19:30:44.494Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0xtQf19pcoNQhr5JWKAjAC"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0xtQf19pcoNQhr5JWKAjAC"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0xtQf19pcoNQhr5JWKAjAC"
+          }
+        }
+      },
+      "displayField": "name",
+      "name": "Privacy policy",
+      "description": "",
+      "fields": [
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "message",
+          "name": "Message",
+          "type": "Text",
+          "localized": true,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "acceptButtonText",
+          "name": "Accept button text",
+          "type": "Symbol",
+          "localized": true,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "privacyPolicyPage",
+          "name": "Privacy policy page",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "linkContentType": [
+                "page"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "fstbipriwhvf"
+          }
+        },
+        "id": "faq",
+        "type": "ContentType",
+        "createdAt": "2021-06-05T22:27:47.533Z",
+        "updatedAt": "2021-06-06T19:41:46.849Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2021-06-06T19:41:46.849Z",
+        "firstPublishedAt": "2021-06-05T22:27:47.731Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0W4mCUBP0uc2kM0fU0YIBr"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0W4mCUBP0uc2kM0fU0YIBr"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0W4mCUBP0uc2kM0fU0YIBr"
+          }
+        }
+      },
+      "displayField": "name",
+      "name": "Faq",
+      "description": "",
+      "fields": [
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": true,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "items",
+          "name": "Items",
+          "type": "Array",
+          "localized": true,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": [
+                  "faqItem"
+                ]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "fstbipriwhvf"
+          }
+        },
+        "id": "faqItem",
+        "type": "ContentType",
+        "createdAt": "2021-06-05T22:30:03.477Z",
+        "updatedAt": "2021-06-05T22:45:51.115Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 11,
+        "publishedAt": "2021-06-05T22:45:51.115Z",
+        "firstPublishedAt": "2021-06-05T22:30:03.839Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0W4mCUBP0uc2kM0fU0YIBr"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0W4mCUBP0uc2kM0fU0YIBr"
+          }
+        },
+        "publishedCounter": 6,
+        "version": 12,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0W4mCUBP0uc2kM0fU0YIBr"
+          }
+        }
+      },
+      "displayField": "name",
+      "name": "Faq Item",
+      "description": "",
+      "fields": [
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "question",
+          "name": "Question",
+          "type": "Text",
+          "localized": true,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "answer",
+          "name": "Answer",
+          "type": "Text",
+          "localized": true,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
     }
   ],
   "tags": [
@@ -2462,7 +2774,7 @@
             "linkType": "Space"
           }
         },
-        "version": 14,
+        "version": 16,
         "createdAt": "2021-04-10T15:24:53.872Z",
         "createdBy": {
           "sys": {
@@ -2471,7 +2783,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2021-05-29T18:03:31.427Z",
+        "updatedAt": "2021-06-23T19:31:16.472Z",
         "updatedBy": {
           "sys": {
             "id": "0xtQf19pcoNQhr5JWKAjAC",
@@ -2527,6 +2839,11 @@
         },
         {
           "fieldId": "contactDetails",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "privacyPolicy",
           "widgetId": "entryLinkEditor",
           "widgetNamespace": "builtin"
         }
@@ -2927,6 +3244,200 @@
           "widgetNamespace": "builtin"
         }
       ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "fstbipriwhvf",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2021-06-23T19:30:44.737Z",
+        "createdBy": {
+          "sys": {
+            "id": "0xtQf19pcoNQhr5JWKAjAC",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2021-06-23T19:30:45.371Z",
+        "updatedBy": {
+          "sys": {
+            "id": "0xtQf19pcoNQhr5JWKAjAC",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "privacyPolicy",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "name",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "message",
+          "settings": {
+            "helpText": "This website uses cookies for analytics and to improve provided services. By choosing I Accept, you consent to our use of them and other tracking technologies according to our Privacy Policy."
+          },
+          "widgetId": "markdown",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "acceptButtonText",
+          "settings": {
+            "helpText": "Like: Accept"
+          },
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "privacyPolicyPage",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "fstbipriwhvf",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 12,
+        "createdAt": "2021-06-05T22:27:47.787Z",
+        "createdBy": {
+          "sys": {
+            "id": "0W4mCUBP0uc2kM0fU0YIBr",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2021-06-06T19:41:47.453Z",
+        "updatedBy": {
+          "sys": {
+            "id": "0W4mCUBP0uc2kM0fU0YIBr",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "faq",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "name",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "items",
+          "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "fstbipriwhvf",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 12,
+        "createdAt": "2021-06-05T22:30:03.948Z",
+        "createdBy": {
+          "sys": {
+            "id": "0W4mCUBP0uc2kM0fU0YIBr",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2021-06-05T22:45:52.467Z",
+        "updatedBy": {
+          "sys": {
+            "id": "0W4mCUBP0uc2kM0fU0YIBr",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "faqItem",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "name",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "question",
+          "widgetId": "multipleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "answer",
+          "widgetId": "multipleLine",
+          "widgetNamespace": "builtin"
+        }
+      ]
     }
   ],
   "locales": [
@@ -2941,7 +3452,7 @@
       "sys": {
         "type": "Locale",
         "id": "3akucO77ewWP4arizf4tuW",
-        "version": 2,
+        "version": 1,
         "space": {
           "sys": {
             "type": "Link",

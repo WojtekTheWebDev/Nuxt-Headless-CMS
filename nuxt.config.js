@@ -104,7 +104,7 @@ export default {
         light: {
           primary: '#f0db4f',
           secondary: '#323330',
-          info: '#2196F3',
+          info: '#323330',
 
           // Backgrounds
           lightBackground: '#ffffff',

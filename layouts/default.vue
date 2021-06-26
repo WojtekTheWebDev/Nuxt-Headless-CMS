@@ -1,11 +1,11 @@
 <template>
   <v-app>
     <AppHeader />
+    <PrivacyPolicy />
 
     <v-main>
       <nuxt />
     </v-main>
-
     <NavigationDrawer />
     <AppFooter />
   </v-app>
@@ -16,13 +16,15 @@ import AppHeader from '@/components/layout/AppHeader'
 import AppFooter from '@/components/layout/AppFooter'
 import NavigationDrawer from '@/components/layout/NavigationDrawer'
 import PageMixin from '@/mixins/PageMixin'
+import PrivacyPolicy from '@/components/layout/PrivacyPolicy.vue'
 import { mapGetters } from 'vuex'
 
 export default {
   components: {
     AppHeader,
     AppFooter,
-    NavigationDrawer
+    NavigationDrawer,
+    PrivacyPolicy
   },
 
   mixins: [PageMixin],
