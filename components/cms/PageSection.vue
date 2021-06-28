@@ -2,7 +2,7 @@
   <v-card
     tag="section"
     class="page-section py-5"
-    :class="{ 'dark-theme': theme === 'dark' }"
+    :class="{ 'dark-theme': theme === 'dark', 'fill-height': fillHeight }"
     :dark="theme === 'dark'"
     flat
     tile
@@ -44,6 +44,11 @@ export default {
     content: {
       type: Array,
       default: () => []
+    },
+
+    fillHeight: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -60,6 +65,12 @@ export default {
 
 .page-section {
   background-color: var(--v-lightBackground-base) !important;
+
+  &.fill-height {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+  }
 
   h2 {
     font-size: 3rem;

@@ -60,7 +60,7 @@ export default {
 
   methods: {
     switchLocale (code) {
-      this.$store.dispatch('config/translateRoutes', code)
+      this.$store.dispatch('config/translateState', code)
       this.$router.push(this.switchLocalePath(code))
     }
   }

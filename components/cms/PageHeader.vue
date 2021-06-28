@@ -1,5 +1,9 @@
 <template>
-  <header class="page-header" :style="{ backgroundColor }">
+  <header
+    v-if="showHeader"
+    class="page-header"
+    :style="{ backgroundColor }"
+  >
     <v-container class="pa-0">
       <v-parallax
         v-if="backgroundImage"
@@ -44,6 +48,11 @@ export default {
     backgroundColor: {
       type: String,
       default: 'white'
+    },
+
+    showHeader: {
+      type: Boolean,
+      default: true
     }
   }
 }

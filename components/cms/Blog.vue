@@ -16,10 +16,15 @@
           exact
           :elevation="hover ? 5 : 0"
         >
-          <v-img class="card-image" :src="getPageHeader(page)" :alt="page.header.fields.backgroundImage.fields.title" />
+          <v-img
+            v-if="!!page.header"
+            class="card-image"
+            :src="getPageHeader(page)"
+            :alt="getPageAlt(page)"
+          />
           <v-card-title>{{ page.title }}</v-card-title>
           <v-card-text>
-            {{ page.metaDescription }}
+            {{ page.description || page.metaDescription || '' }}
           </v-card-text>
         </v-card>
       </v-hover>
@@ -44,11 +49,15 @@ export default {
 
   methods: {
     getPageHeader (page) {
-      return `${page.header.fields.backgroundImage.fields.file.url}?w=300`
+      return page.header ? `${page.header.fields.backgroundImage.fields.file.url}?w=300` : null
+    },
+
+    getPageAlt (page) {
+      return page.header?.fields?.backgroundImage?.fields?.title || ''
     },
 
     getPageLink (page) {
-      return page.parentPage ? this.localePath(`/${page.parentPage.fields.slug}/${page.slug}`) : this.localePath(`/${page.slug}`)
+      return page.parentPage ? this.localePath(`/${page.parentPage?.fields?.slug}/${page.slug}`) : this.localePath(`/${page.slug}`)
     }
   }
 }

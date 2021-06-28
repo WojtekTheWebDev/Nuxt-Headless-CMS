@@ -18,7 +18,8 @@ export function parseCMSBlock (contentBlock) {
         props: {
           title: contentBlock.fields?.title,
           content: contentBlock.fields?.contentBlocks,
-          theme: contentBlock.fields?.theme
+          theme: contentBlock.fields?.theme,
+          fillHeight: contentBlock.fields?.fillHeight
         }
       }
     case 'textBox':

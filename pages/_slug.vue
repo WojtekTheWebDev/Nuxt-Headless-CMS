@@ -1,32 +1,18 @@
 <template>
-  <article>
-    <PageHeader
-      :title="header.title"
-      :background-image="header.backgroundImage"
-      :background-color="header.backgroundColor"
-    />
-
-    <component
-      :is="contentBlock.component"
-      v-for="contentBlock in contentBlocks"
-      :key="contentBlock.name"
-      v-bind="contentBlock.props"
-    />
-  </article>
+  <StandardPage :header="header" :content-blocks="contentBlocks" />
 </template>
 
 <script>
 import config from '@/nuxt.config'
 import { createClient } from '@/plugins/contentful'
 import PageMixin from '@/mixins/PageMixin'
-
-import PageHeader from '@/components/cms/PageHeader'
+import StandardPage from '@/components/layout/StandardPage'
 
 export default {
   name: 'CMSPage',
 
   components: {
-    PageHeader
+    StandardPage
   },
 
   mixins: [PageMixin],
@@ -47,7 +33,10 @@ export default {
     return {
       metaTitle: page?.fields?.metaTitle,
       metaDescription: page?.fields?.metaDescription,
-      pageHeader: page?.fields?.header,
+      pageHeader: {
+        ...page?.fields?.header,
+        showHeader: page?.fields?.showHeader
+      },
       content: page?.fields?.sections
     }
   },
