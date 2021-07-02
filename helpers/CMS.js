@@ -7,6 +7,7 @@ import ModalCardList from '@/components/cms/ModalCardList'
 import Blog from '@/components/cms/Blog'
 import PageLink from '@/components/cms/PageLink'
 import ImageTextBox from '@/components/cms/ImageTextBox'
+import Faq from '~/components/cms/Faq'
 
 export function parseCMSBlock (contentBlock) {
   switch (contentBlock.sys.contentType.sys.id) {
@@ -116,6 +117,15 @@ export function parseCMSBlock (contentBlock) {
             type: contentBlock.fields?.image?.fields?.file?.contentType,
             title: contentBlock.fields?.image?.fields?.title
           }
+        }
+      }
+    case 'faq':
+      return {
+        component: Faq,
+        name: contentBlock.fields?.name,
+        props: {
+          title: contentBlock.fields?.title,
+          items: contentBlock.fields?.items.map(faqItem => faqItem.fields)
         }
       }
     default:
