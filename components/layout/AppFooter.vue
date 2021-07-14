@@ -52,8 +52,8 @@
 
 <script>
 import { mapGetters, mapState } from 'vuex'
-import ContactButtons from '@/components/ui/ContactButtons'
-import Navigation from '@/components/ui/Navigation'
+import ContactButtons from '@/components/layout/ContactButtons'
+import Navigation from '@/components/layout/Navigation'
 
 export default {
   name: 'AppFooter',

@@ -18,9 +18,9 @@
 </template>
 
 <script>
-import Navigation from '@/components/ui/Navigation'
+import Navigation from '@/components/layout/Navigation'
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher'
-import ContactButtons from '@/components/ui/ContactButtons'
+import ContactButtons from '@/components/layout/ContactButtons'
 import { mapGetters } from 'vuex'
 
 export default {

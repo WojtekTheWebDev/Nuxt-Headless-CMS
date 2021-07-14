@@ -21,9 +21,9 @@
 </template>
 
 <script>
-import ContactButtons from '@/components/ui/ContactButtons'
+import ContactButtons from '@/components/layout/ContactButtons'
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher'
-import Navigation from '@/components/ui/Navigation'
+import Navigation from '@/components/layout/Navigation'
 
 export default {
   name: 'AppHeaderContent',
