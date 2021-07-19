@@ -80,7 +80,7 @@ export const actions = {
     commit('SET_PRIVACY_POLICY', privacyPolicy.fields)
   },
 
-  async translateRoutes ({ commit }, locale) {
+  async translateState ({ commit }, locale) {
     const client = createClient()
     const entries = await client.getEntries({
       content_type: process.env.configContentModel,
@@ -90,10 +90,11 @@ export const actions = {
 
     if (!entries.total) { return }
 
-    const { routing } = entries.items[0].fields
+    const { routing, privacyPolicy } = entries.items[0].fields
 
-    if (!routing) { return }
+    if (!routing || privacyPolicy) { return }
 
     commit('SET_ROUTES', routing.map(page => page.fields))
+    commit('SET_PRIVACY_POLICY', privacyPolicy.fields)
   }
 }

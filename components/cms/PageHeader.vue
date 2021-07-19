@@ -1,5 +1,9 @@
 <template>
-  <header class="page-header" :style="{ backgroundColor }">
+  <header
+    v-if="title || backgroundColor || backgroundImage"
+    class="page-header"
+    :style="{ backgroundColor }"
+  >
     <v-container class="pa-0">
       <v-parallax
         v-if="backgroundImage"
