@@ -133,7 +133,7 @@
         "id": "section",
         "type": "ContentType",
         "createdAt": "2021-04-10T15:24:48.029Z",
-        "updatedAt": "2021-07-14T20:30:17.904Z",
+        "updatedAt": "2021-07-17T11:47:24.234Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -141,8 +141,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 21,
-        "publishedAt": "2021-07-14T20:30:17.904Z",
+        "publishedVersion": 23,
+        "publishedAt": "2021-07-17T11:47:24.234Z",
         "firstPublishedAt": "2021-04-10T15:24:58.277Z",
         "createdBy": {
           "sys": {
@@ -158,8 +158,8 @@
             "id": "0xtQf19pcoNQhr5JWKAjAC"
           }
         },
-        "publishedCounter": 11,
-        "version": 22,
+        "publishedCounter": 12,
+        "version": 24,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -201,7 +201,7 @@
           "id": "contentBlocks",
           "name": "Content blocks",
           "type": "Array",
-          "localized": true,
+          "localized": false,
           "required": false,
           "validations": [
           ],
@@ -231,7 +231,7 @@
           "id": "theme",
           "name": "Theme",
           "type": "Symbol",
-          "localized": true,
+          "localized": false,
           "required": true,
           "validations": [
             {
@@ -567,7 +567,7 @@
         "id": "page",
         "type": "ContentType",
         "createdAt": "2021-04-10T15:24:48.225Z",
-        "updatedAt": "2021-07-14T20:29:37.054Z",
+        "updatedAt": "2021-07-19T06:05:44.963Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -575,8 +575,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 17,
-        "publishedAt": "2021-07-14T20:29:37.054Z",
+        "publishedVersion": 21,
+        "publishedAt": "2021-07-19T06:05:44.963Z",
         "firstPublishedAt": "2021-04-10T15:24:59.003Z",
         "createdBy": {
           "sys": {
@@ -592,8 +592,8 @@
             "id": "0xtQf19pcoNQhr5JWKAjAC"
           }
         },
-        "publishedCounter": 9,
-        "version": 18,
+        "publishedCounter": 11,
+        "version": 22,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -630,6 +630,17 @@
             {
               "unique": true
             }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "Symbol",
+          "localized": true,
+          "required": false,
+          "validations": [
           ],
           "disabled": false,
           "omitted": false
@@ -675,7 +686,7 @@
           "name": "Header",
           "type": "Link",
           "localized": false,
-          "required": true,
+          "required": false,
           "validations": [
             {
               "linkContentType": [
@@ -2237,7 +2248,7 @@
             "linkType": "Space"
           }
         },
-        "version": 22,
+        "version": 24,
         "createdAt": "2021-04-10T15:24:58.357Z",
         "createdBy": {
           "sys": {
@@ -2246,7 +2257,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2021-07-14T20:30:18.416Z",
+        "updatedAt": "2021-07-17T11:47:24.740Z",
         "updatedBy": {
           "sys": {
             "id": "0xtQf19pcoNQhr5JWKAjAC",
@@ -2501,7 +2512,7 @@
             "linkType": "Space"
           }
         },
-        "version": 18,
+        "version": 22,
         "createdAt": "2021-04-10T15:24:59.127Z",
         "createdBy": {
           "sys": {
@@ -2510,7 +2521,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2021-07-14T20:29:44.407Z",
+        "updatedAt": "2021-07-19T06:05:46.206Z",
         "updatedBy": {
           "sys": {
             "id": "0xtQf19pcoNQhr5JWKAjAC",
@@ -2545,12 +2556,23 @@
           "widgetNamespace": "builtin"
         },
         {
+          "fieldId": "description",
+          "settings": {
+            "helpText": "Used for the blog's page description"
+          },
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
           "fieldId": "metaTitle",
           "widgetId": "singleLine",
           "widgetNamespace": "builtin"
         },
         {
           "fieldId": "metaDescription",
+          "settings": {
+            "helpText": "If description is not set, meta description will be taken for blog's page description."
+          },
           "widgetId": "singleLine",
           "widgetNamespace": "builtin"
         },

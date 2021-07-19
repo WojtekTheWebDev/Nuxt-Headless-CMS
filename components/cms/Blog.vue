@@ -24,7 +24,7 @@
           />
           <v-card-title>{{ page.title }}</v-card-title>
           <v-card-text>
-            {{ page.metaDescription }}
+            {{ page.description || page.metaDescription || '' }}
           </v-card-text>
         </v-card>
       </v-hover>
