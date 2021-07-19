@@ -1,6 +1,6 @@
 <template>
   <header
-    v-if="title || backgroundColor || backgroundImage"
+    v-if="showHeader"
     class="page-header"
     :style="{ backgroundColor }"
   >
@@ -48,6 +48,11 @@ export default {
     backgroundColor: {
       type: String,
       default: 'white'
+    },
+
+    showHeader: {
+      type: Boolean,
+      default: true
     }
   }
 }
