@@ -30,7 +30,7 @@
     </v-btn>
 
     <v-btn
-      v-if="showHomePage"
+      v-if="privacyPolicy"
       :to="localePath(`/${privacyPolicy.slug}`)"
       nuxt
       exact
@@ -68,7 +68,7 @@ export default {
 
     privacyPolicy () {
       const privacyPolicy = this.$store.state.config.privacyPolicy
-      return privacyPolicy.privacyPolicyPage.fields
+      return privacyPolicy ? privacyPolicy.privacyPolicyPage.fields : null
     }
   }
 }

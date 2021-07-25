@@ -1076,7 +1076,7 @@
         "id": "config",
         "type": "ContentType",
         "createdAt": "2021-04-10T15:24:48.974Z",
-        "updatedAt": "2021-07-14T20:29:36.562Z",
+        "updatedAt": "2021-07-25T18:31:15.127Z",
         "environment": {
           "sys": {
             "id": "dev",
@@ -1084,8 +1084,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 17,
-        "publishedAt": "2021-07-14T20:29:36.562Z",
+        "publishedVersion": 19,
+        "publishedAt": "2021-07-25T18:31:15.127Z",
         "firstPublishedAt": "2021-04-10T15:24:53.757Z",
         "createdBy": {
           "sys": {
@@ -1101,8 +1101,8 @@
             "id": "0xtQf19pcoNQhr5JWKAjAC"
           }
         },
-        "publishedCounter": 9,
-        "version": 18,
+        "publishedCounter": 10,
+        "version": 20,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -1242,7 +1242,7 @@
           "name": "Privacy policy",
           "type": "Link",
           "localized": false,
-          "required": true,
+          "required": false,
           "validations": [
             {
               "linkContentType": [
@@ -2946,7 +2946,7 @@
             "linkType": "Space"
           }
         },
-        "version": 18,
+        "version": 20,
         "createdAt": "2021-04-10T15:24:53.872Z",
         "createdBy": {
           "sys": {
@@ -2955,7 +2955,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2021-07-14T20:29:44.446Z",
+        "updatedAt": "2021-07-25T18:31:15.713Z",
         "updatedBy": {
           "sys": {
             "id": "0xtQf19pcoNQhr5JWKAjAC",

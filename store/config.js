@@ -77,7 +77,7 @@ export const actions = {
     commit('SET_PAGE_NAME', pageName)
     commit('SET_HOME_PAGE', homePage.fields)
     commit('SET_CONTACT_DETAILS', contactDetails.fields)
-    commit('SET_PRIVACY_POLICY', privacyPolicy.fields)
+    commit('SET_PRIVACY_POLICY', privacyPolicy ? privacyPolicy.fields : null)
   },
 
   async translateState ({ commit }, locale) {
@@ -92,9 +92,9 @@ export const actions = {
 
     const { routing, privacyPolicy } = entries.items[0].fields
 
-    if (!routing || privacyPolicy) { return }
+    if (!routing) { return }
 
     commit('SET_ROUTES', routing.map(page => page.fields))
-    commit('SET_PRIVACY_POLICY', privacyPolicy.fields)
+    commit('SET_PRIVACY_POLICY', privacyPolicy ? privacyPolicy.fields : null)
   }
 }

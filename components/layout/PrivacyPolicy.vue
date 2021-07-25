@@ -1,5 +1,6 @@
 <template>
   <v-snackbar
+    v-if="privacyPolicy"
     v-model="snackbar"
     class="privacy-policy"
     :timeout="-1"
@@ -44,7 +45,7 @@ export default {
     }),
 
     privacyPolicyURL () {
-      return this.localePath(`/${this.privacyPolicy.privacyPolicyPage.fields.slug}`)
+      return this.localePath(`/${this.privacyPolicy?.privacyPolicyPage?.fields?.slug}`)
     }
   },
 
