@@ -8,6 +8,7 @@ import Blog from '@/components/cms/Blog'
 import PageLink from '@/components/cms/PageLink'
 import ImageTextBox from '@/components/cms/ImageTextBox'
 import Faq from '~/components/cms/Faq'
+import Jumbotron from '~/components/cms/Jumbotron'
 
 export function parseCMSBlock (contentBlock) {
   switch (contentBlock.sys.contentType.sys.id) {
@@ -19,7 +20,8 @@ export function parseCMSBlock (contentBlock) {
           title: contentBlock.fields?.title,
           content: contentBlock.fields?.contentBlocks,
           theme: contentBlock.fields?.theme,
-          fillHeight: contentBlock.fields?.fillHeight
+          fillHeight: contentBlock.fields?.fillHeight,
+          backgroundImage: contentBlock.fields?.backgroundImage?.fields?.file?.url
         }
       }
     case 'textBox':
@@ -127,6 +129,21 @@ export function parseCMSBlock (contentBlock) {
         props: {
           title: contentBlock.fields?.title,
           items: contentBlock.fields?.items.map(faqItem => faqItem.fields)
+        }
+      }
+    case 'jumbotron':
+      return {
+        component: Jumbotron,
+        name: contentBlock.fields?.name,
+        props: {
+          title: contentBlock.fields?.title,
+          description: contentBlock.fields?.description,
+          pageLinks: contentBlock.fields?.pageLinks.map(pageLink => ({
+            text: pageLink.fields?.text,
+            type: pageLink.fields?.type,
+            slug: pageLink.fields?.page?.fields?.slug,
+            parentPageSlug: pageLink.fields?.page?.fields?.parentPage?.fields?.slug
+          }))
         }
       }
     default:
