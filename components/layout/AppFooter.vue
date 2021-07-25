@@ -31,7 +31,11 @@
         >
           <p>{{ $t('siteMap') }}</p>
 
-          <Navigation :show-home-page="true" :vertical="true" />
+          <Navigation
+            :show-home-page="true"
+            :show-privacy-policy="true"
+            :vertical="true"
+          />
         </v-col>
 
         <v-col

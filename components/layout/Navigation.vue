@@ -30,7 +30,7 @@
     </v-btn>
 
     <v-btn
-      v-if="privacyPolicy"
+      v-if="privacyPolicy && showPrivacyPolicy"
       :to="localePath(`/${privacyPolicy.slug}`)"
       nuxt
       exact
@@ -55,6 +55,12 @@ export default {
       type: Boolean,
       default: false
     },
+
+    showPrivacyPolicy: {
+      type: Boolean,
+      default: false
+    },
+
     vertical: {
       type: Boolean,
       default: false
