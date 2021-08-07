@@ -8,6 +8,7 @@
       <PageLink
         v-for="pageLink in pageLinks"
         :key="pageLink.slug"
+        :theme="theme"
         :text="pageLink.text"
         :type="pageLink.type"
         :slug="pageLink.slug"
