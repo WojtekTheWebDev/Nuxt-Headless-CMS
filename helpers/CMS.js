@@ -20,7 +20,8 @@ export function parseCMSBlock (contentBlock) {
           title: contentBlock.fields?.title,
           content: contentBlock.fields?.contentBlocks,
           theme: contentBlock.fields?.theme,
-          fillHeight: contentBlock.fields?.fillHeight
+          fillHeight: contentBlock.fields?.fillHeight,
+          backgroundImage: contentBlock.fields?.backgroundImage?.fields?.file?.url
         }
       }
     case 'textBox':

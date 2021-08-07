@@ -2,7 +2,12 @@
   <v-card
     tag="section"
     class="page-section py-5"
-    :class="{ 'dark-theme': theme === 'dark', 'fill-height': fillHeight }"
+    :class="{
+      'dark-theme': theme === 'dark',
+      'fill-height': fillHeight,
+      'with-image': backgroundImage
+    }"
+    :style="{ backgroundImage: `url(${backgroundImage})` }"
     :dark="theme === 'dark'"
     flat
     tile
@@ -49,6 +54,11 @@ export default {
     fillHeight: {
       type: Boolean,
       default: false
+    },
+
+    backgroundImage: {
+      type: String,
+      default: null
     }
   },
 
@@ -70,6 +80,11 @@ export default {
     display: flex;
     flex-grow: 1;
     align-items: center;
+  }
+
+  &.with-image {
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   h2 {
