@@ -1,6 +1,6 @@
 {
   "name": "nuxt-headless-cms",
-  "version": "0.23.4",
+  "version": "0.24.0",
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -15,6 +15,7 @@
     "@nuxtjs/google-analytics": "^2.4.0",
     "contentful": "^8.2.1",
     "core-js": "^3.8.3",
+    "express": "^4.17.1",
     "marked": "^2.0.1",
     "nuxt": "^2.14.12",
     "nuxt-i18n": "^6.20.2",

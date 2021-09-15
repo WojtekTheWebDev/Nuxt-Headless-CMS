@@ -72,8 +72,7 @@ export default {
       pageName: state => state.config.pageName
     }),
     ...mapGetters({
-      logo: 'config/getLogo',
-      routes: 'config/getRoutes'
+      logo: 'config/getLogo'
     })
   }
 }

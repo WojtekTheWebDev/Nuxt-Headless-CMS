@@ -61,6 +61,9 @@ export const mutations = {
 export const actions = {
   async init ({ state, commit }) {
     const client = createClient()
+
+    await fetch('http://localhost:3000/api/config')
+
     const entries = await client.getEntries({
       content_type: process.env.configContentModel,
       include: process.env.contentfulIncludeLevel,

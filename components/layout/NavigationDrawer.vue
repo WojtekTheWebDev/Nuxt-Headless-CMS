@@ -21,7 +21,6 @@
 import Navigation from '@/components/layout/Navigation'
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher'
 import ContactButtons from '@/components/layout/ContactButtons'
-import { mapGetters } from 'vuex'
 
 export default {
   name: 'NavigationDrawer',
@@ -33,9 +32,6 @@ export default {
   },
 
   computed: {
-    ...mapGetters({
-      routes: 'config/getRoutes'
-    }),
     navDrawerVisible: {
       get () {
         return this.$store.state.ui.navigationDrawerVisible
