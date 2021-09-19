@@ -1,52 +1,25 @@
-<template>
-  <StandardPage id="home-page" :header="header" :content-blocks="contentBlocks" />
+><template>
+  <div>
+    {{ msg }}
+  </div>
 </template>
 
-<script>
-import { createClient } from '@/plugins/contentful'
-import PageMixin from '@/mixins/PageMixin'
-import StandardPage from '@/components/layout/StandardPage'
+<script lang="ts">
+import { defineComponent, ref } from '@vue/composition-api'
 
-export default {
-  name: 'HomePage',
-
-  components: {
-    StandardPage
-  },
-
-  mixins: [PageMixin],
-
-  async asyncData ({ app, env, store, error }) {
-    const client = createClient()
-    const entries = await client.getEntries({
-      content_type: env.pageContentModel,
-      locale: app.i18n.localeProperties.code,
-      include: env.contentfulIncludeLevel,
-      'fields.name': store.getters['config/getHomePageName']
-    })
-
-    const page = entries.items[0] || null
-
-    if (!page) { error({ statusCode: 404 }) }
+export default defineComponent({
+  setup () {
+    const msg = ref('Running on TS and Composition API')
 
     return {
-      metaTitle: page?.fields?.metaTitle,
-      metaDescription: page?.fields?.metaDescription,
-      pageHeader: {
-        ...page?.fields?.header,
-        showHeader: page?.fields?.showHeader
-      },
-      content: page?.fields?.sections
-    }
-  },
-
-  head () {
-    return {
-      title: this.metaTitle,
-      meta: [
-        { hid: 'description', name: 'description', content: this.metaDescription }
-      ]
+      msg
     }
   }
-}
+})
 </script>
+
+<style lang="scss" scoped>
+div {
+  color: red;
+}
+</style>

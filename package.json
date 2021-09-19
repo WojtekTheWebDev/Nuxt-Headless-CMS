@@ -1,6 +1,6 @@
 {
   "name": "nuxt-headless-cms",
-  "version": "0.23.4",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -13,6 +13,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.12.5",
     "@nuxtjs/google-analytics": "^2.4.0",
+    "@vue/composition-api": "^1.1.5",
     "contentful": "^8.2.1",
     "core-js": "^3.8.3",
     "marked": "^2.0.1",
@@ -22,6 +23,8 @@
   },
   "devDependencies": {
     "@babel/preset-env": "^7.13.12",
+    "@nuxt/types": "^2.15.8",
+    "@nuxt/typescript-build": "^2.1.0",
     "@nuxtjs/eslint-config": "^5.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",
     "@nuxtjs/vuetify": "^1.11.3",
