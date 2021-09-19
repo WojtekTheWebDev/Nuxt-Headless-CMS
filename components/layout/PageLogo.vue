@@ -1,22 +1,20 @@
 <template>
   <nuxt-link :to="localePath('/')" exact class="home-page-navigation">
-    <img class="mx-3" :src="logo" alt="logo" width="40" height="40">
+    <img class="mx-3" :src="logo.source" :alt="logo.title" width="40" height="40">
     <span v-if="$vuetify.breakpoint.mdAndUp">{{ pageName }}</span>
   </nuxt-link>
 </template>
 
 <script>
-import { mapGetters, mapState } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
   name: 'PageLogo',
 
   computed: {
     ...mapState({
-      pageName: state => state.config.pageName
-    }),
-    ...mapGetters({
-      logo: 'config/getLogo'
+      pageName: ({ config }) => config.pageName,
+      logo: ({ config }) => config.logo
     })
   }
 }

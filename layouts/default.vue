@@ -15,7 +15,6 @@
 import AppHeader from '@/components/layout/AppHeader'
 import AppFooter from '@/components/layout/AppFooter'
 import NavigationDrawer from '@/components/layout/NavigationDrawer'
-import PageMixin from '@/mixins/PageMixin'
 import PrivacyPolicy from '@/components/layout/PrivacyPolicy'
 import { mapGetters } from 'vuex'
 
@@ -26,8 +25,6 @@ export default {
     NavigationDrawer,
     PrivacyPolicy
   },
-
-  mixins: [PageMixin],
 
   head () {
     return {

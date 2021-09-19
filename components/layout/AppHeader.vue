@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import PageLogo from '@/components/ui/PageLogo'
+import PageLogo from '@/components/layout/PageLogo'
 import AppHeaderContent from '@/components/layout/AppHeaderContent'
 
 export default {

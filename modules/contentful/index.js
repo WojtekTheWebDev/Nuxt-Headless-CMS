@@ -5,7 +5,7 @@ import {
   preparePrivacyPolicy,
   prepareMeta,
   prepareHeader,
-  prepareContentBlocks
+  prepareSections
 } from './utils.js'
 
 const CONTENT_MODELS = {
@@ -30,29 +30,43 @@ export const getConfig = async (locale = '') => {
     pageName,
     pageIcon: prepareAsset(pageIcon),
     logo: prepareAsset(logo),
-    homePage: homePage.fields.name,
+    homePageName: homePage.fields.name,
     routes: prepareRoutes(routing),
     contactDetails: contactDetails.fields,
     privacyPolicy: preparePrivacyPolicy(privacyPolicy)
   }
 }
 
-export const getPage = async (slug, parentSlug = null, locale = '') => {
-  let filter = {
+export const getPageBySlug = async (slug, parentSlug = null, locale = '') => {
+  const filter = {
     'fields.slug': slug
   }
-
-  filter = Object.seal(filter)
 
   if (parentSlug) {
     filter['fields.parentPage.fields.slug'] = parentSlug
   }
 
   const [entry] = await getEntries(CONTENT_MODELS.page, locale, filter, 1)
+  const page = entry.fields
 
   return {
-    meta: prepareMeta(entry),
-    pageHeader: prepareHeader(entry),
-    contentBlocks: prepareContentBlocks(entry)
+    meta: prepareMeta(page),
+    header: prepareHeader(page),
+    sections: prepareSections(page)
+  }
+}
+
+export const getPageByName = async (name, locale = '') => {
+  const filter = {
+    'fields.name': name
+  }
+
+  const [entry] = await getEntries(CONTENT_MODELS.page, locale, filter, 1)
+  const page = entry.fields
+
+  return {
+    meta: prepareMeta(page),
+    header: prepareHeader(page),
+    sections: prepareSections(page)
   }
 }

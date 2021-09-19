@@ -91,12 +91,12 @@ export default {
 
   computed: {
     ...mapState({
-      email: state => state.config.contactDetails.email || null,
-      facebook: state => state.config.contactDetails.facebook || null,
-      linkedIn: state => state.config.contactDetails.linkedIn || null,
-      twitter: state => state.config.contactDetails.twitter || null,
-      youtube: state => state.config.contactDetails.youtube || null,
-      github: state => state.config.contactDetails.github || null
+      email: ({ config }) => config.contactDetails.email || null,
+      facebook: ({ config }) => config.contactDetails.facebook || null,
+      linkedIn: ({ config }) => config.contactDetails.linkedIn || null,
+      twitter: ({ config }) => config.contactDetails.twitter || null,
+      youtube: ({ config }) => config.contactDetails.youtube || null,
+      github: ({ config }) => config.contactDetails.github || null
     })
   }
 }

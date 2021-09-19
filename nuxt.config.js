@@ -14,12 +14,7 @@ export default {
   },
 
   env: {
-    contentfulSpace: process.env.CONTENTFUL_SPACE || '',
-    contentfulEnv: process.env.CONTENTFUL_ENV || 'master',
-    contentfulToken: process.env.CONTENTFUL_TOKEN || '',
-    pageContentModel: process.env.CONTENTFUL_PAGE_CONTENT_MODEL || 'page',
-    configContentModel: process.env.CONTENTFUL_CONFIG_CONTENT_MODEL || 'config',
-    contentfulIncludeLevel: process.env.CONTENTFUL_INCLUDE_LEVEL || 10
+    baseURL: 'http://localhost:3000'
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -84,11 +79,6 @@ export default {
         }
       }
     }
-  },
-
-  // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {
-    baseURL: 'https://cdn.contentful.com'
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

@@ -3,9 +3,9 @@
 </template>
 
 <script>
-import { createClient } from '@/plugins/contentful'
-import PageMixin from '@/mixins/PageMixin'
+import getMetaTags from '@/helpers/metaTags'
 import StandardPage from '@/components/layout/StandardPage'
+import { getContentBlock } from '@/helpers/contentBlocks'
 
 export default {
   name: 'HomePage',
@@ -14,38 +14,29 @@ export default {
     StandardPage
   },
 
-  mixins: [PageMixin],
+  async asyncData ({ app, store, error }) {
+    const homePageName = store.state.config.homePageName
+    console.log(`${process.env.baseURL}/api/page/${homePageName}?locale=${app.i18n.localeProperties.code}&getByName=true`)
+    const res = await fetch(`${process.env.baseURL}/api/page/${homePageName}?locale=${app.i18n.localeProperties.code}&getByName=true`)
 
-  async asyncData ({ app, env, store, error }) {
-    const client = createClient()
-    const entries = await client.getEntries({
-      content_type: env.pageContentModel,
-      locale: app.i18n.localeProperties.code,
-      include: env.contentfulIncludeLevel,
-      'fields.name': store.getters['config/getHomePageName']
-    })
+    if (res.status !== 200) { error({ statusCode: 404 }) }
 
-    const page = entries.items[0] || null
-
-    if (!page) { error({ statusCode: 404 }) }
+    const { meta, header, sections } = await res.json()
 
     return {
-      metaTitle: page?.fields?.metaTitle,
-      metaDescription: page?.fields?.metaDescription,
-      pageHeader: {
-        ...page?.fields?.header,
-        showHeader: page?.fields?.showHeader
-      },
-      content: page?.fields?.sections
+      meta,
+      header,
+      sections
     }
   },
 
   head () {
-    return {
-      title: this.metaTitle,
-      meta: [
-        { hid: 'description', name: 'description', content: this.metaDescription }
-      ]
+    return getMetaTags(this.meta)
+  },
+
+  computed: {
+    contentBlocks () {
+      return this.sections.map(getContentBlock)
     }
   }
 }

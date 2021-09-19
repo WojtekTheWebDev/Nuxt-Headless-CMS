@@ -26,7 +26,7 @@
       active-class="primary--text"
       class="px-3"
     >
-      {{ route.name }}
+      {{ route.title }}
     </v-btn>
 
     <v-btn
@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
   name: 'Navigation',
@@ -68,14 +68,10 @@ export default {
   },
 
   computed: {
-    ...mapGetters({
-      routes: 'config/getRoutes'
-    }),
-
-    privacyPolicy () {
-      const privacyPolicy = this.$store.state.config.privacyPolicy
-      return privacyPolicy ? privacyPolicy.privacyPolicyPage.fields : null
-    }
+    ...mapState({
+      routes: ({ config }) => config.routes,
+      privacyPolicy: ({ config }) => config.privacyPolicy
+    })
   }
 }
 </script>

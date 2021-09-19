@@ -1,57 +1,35 @@
 <template>
-  <StandardPage :header="header" :content-blocks="contentBlocks" />
+  <!-- <StandardPage :header="header" :content-blocks="contentBlocks" /> -->
+  <div />
 </template>
 
 <script>
-import config from '@/nuxt.config'
-import { createClient } from '@/plugins/contentful'
-import PageMixin from '@/mixins/PageMixin'
-import StandardPage from '@/components/layout/StandardPage'
+import metaTags from '@/helpers/metaTags'
+// import StandardPage from '@/components/layout/StandardPage'
 
 export default {
   name: 'CMSPage',
 
-  components: {
-    StandardPage
-  },
+  // components: {
+  //   StandardPage
+  // },
 
-  mixins: [PageMixin],
+  async asyncData ({ app, params, error }) {
+    const res = await fetch(`${process.env.baseURL}/api/page/${params.slug}?locale=${app.i18n.localeProperties.code}`)
 
-  async asyncData ({ app, env, params, error }) {
-    const client = createClient()
+    if (res.status !== 200) { error({ statusCode: 404 }) }
 
-    const entries = await client.getEntries({
-      content_type: env.pageContentModel,
-      locale: app.i18n.localeProperties.code,
-      include: env.contentfulIncludeLevel
-    })
-
-    const page = entries.items.find(entry => entry.fields.slug === params.slug && !entry.fields.parentPage)
-
-    if (!page) { error({ statusCode: 404 }) }
+    const { meta, header, contentBlocks } = await res.json()
 
     return {
-      metaTitle: page?.fields?.metaTitle,
-      metaDescription: page?.fields?.metaDescription,
-      pageHeader: {
-        ...page?.fields?.header,
-        showHeader: page?.fields?.showHeader
-      },
-      content: page?.fields?.sections
+      meta,
+      header,
+      contentBlocks
     }
   },
 
   head () {
-    return {
-      title: this.metaTitle ? this.metaTitle : config.head.title,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: this.metaDescription || config.head.meta.find(el => el.hid === 'description').content
-        }
-      ]
-    }
+    return metaTags(this.meta)
   }
 }
 </script>

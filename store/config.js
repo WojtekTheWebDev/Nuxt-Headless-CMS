@@ -1,30 +1,20 @@
-import { createClient } from '@/plugins/contentful'
-
 export const state = () => ({
   routes: null,
   logo: null,
   pageIcon: null,
   pageName: null,
-  homePage: null,
+  homePageName: null,
   contactDetails: null,
   privacyPolicy: null
 })
 
 export const getters = {
   getPageIcon (state) {
-    return state.pageIcon.file.url + '?w=30&h=30'
+    return state.pageIcon + '?w=30&h=30'
   },
 
   getLogo (state) {
-    return state.logo.file.url + '?w=50&h=50'
-  },
-
-  getRoutes (state) {
-    return state.routes.map(route => ({ path: route.slug, name: route.title }))
-  },
-
-  getHomePageName (state) {
-    return state.homePage.name
+    return state.logo + '?w=50&h=50'
   }
 }
 
@@ -45,8 +35,8 @@ export const mutations = {
     state.pageName = payload
   },
 
-  SET_HOME_PAGE (state, payload) {
-    state.homePage = payload
+  SET_HOME_PAGE_NAME (state, payload) {
+    state.homePageName = payload
   },
 
   SET_CONTACT_DETAILS (state, payload) {
@@ -59,41 +49,26 @@ export const mutations = {
 }
 
 export const actions = {
-  async init ({ state, commit }) {
-    const client = createClient()
+  async init ({ commit }) {
+    const res = await fetch(`${process.env.baseURL}/api/config?locale=${this.$i18n.locale}`)
 
-    await fetch('http://localhost:3000/api/config')
+    if (res.status !== 200) { return }
 
-    const entries = await client.getEntries({
-      content_type: process.env.configContentModel,
-      include: process.env.contentfulIncludeLevel,
-      locale: this.$i18n.locale
-    })
+    const { routes, logo, pageIcon, homePageName, pageName, contactDetails, privacyPolicy } = await res.json()
 
-    if (!entries.total) { return }
-
-    const { routing, logo, pageIcon, pageName, homePage, contactDetails, privacyPolicy } = entries.items[0].fields
-
-    commit('SET_ROUTES', routing?.map(page => page.fields) || [])
-    commit('SET_LOGO', logo.fields)
-    commit('SET_PAGE_ICON', pageIcon.fields)
+    commit('SET_ROUTES', routes)
+    commit('SET_LOGO', logo)
+    commit('SET_PAGE_ICON', pageIcon)
     commit('SET_PAGE_NAME', pageName)
-    commit('SET_HOME_PAGE', homePage.fields)
-    commit('SET_CONTACT_DETAILS', contactDetails.fields)
-    commit('SET_PRIVACY_POLICY', privacyPolicy ? privacyPolicy.fields : null)
+    commit('SET_HOME_PAGE_NAME', homePageName)
+    commit('SET_CONTACT_DETAILS', contactDetails)
+    commit('SET_PRIVACY_POLICY', privacyPolicy)
   },
 
   async translateState ({ commit }, locale) {
-    const client = createClient()
-    const entries = await client.getEntries({
-      content_type: process.env.configContentModel,
-      include: process.env.contentfulIncludeLevel,
-      locale
-    })
+    const config = await fetch(`http://localhost:3000/api/config?locale=${locale}`)
 
-    if (!entries.total) { return }
-
-    const { routing, privacyPolicy } = entries.items[0].fields
+    const { routing, privacyPolicy } = config
 
     if (!routing) { return }
 

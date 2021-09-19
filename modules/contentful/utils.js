@@ -1,4 +1,4 @@
-import { getContentBlock } from './factory.js'
+import { prepareContent } from './factory.js'
 
 export const createClient = () => {
   const contentful = require('contentful')
@@ -13,18 +13,17 @@ export const createClient = () => {
 export const getEntries = async (contentType, locale = '', filter = null, limit = null, nestedLevels = 10) => {
   const client = createClient()
 
-  let contentfulQuery = {
+  const contentfulQuery = {
     content_type: contentType,
     include: nestedLevels,
     locale,
     limit
   }
 
-  contentfulQuery = Object.seal(contentfulQuery)
-
-  if (filter) {
-    const { key, value } = filter
-    contentfulQuery[key] = value
+  if (filter && Object.entries(filter).length > 0) {
+    for (const [key, value] of Object.entries(filter)) {
+      contentfulQuery[key] = value
+    }
   }
 
   const entries = await client.getEntries(contentfulQuery)
@@ -47,19 +46,19 @@ export const prepareAsset = (asset) => {
 export const preparePrivacyPolicy = (privacyPolicy) => {
   return {
     message: privacyPolicy.fields.message,
-    acceptButton: privacyPolicy.fields.acceptButtonText,
+    acceptButtonText: privacyPolicy.fields.acceptButtonText,
     slug: privacyPolicy.fields.privacyPolicyPage.fields.slug,
     title: privacyPolicy.fields.privacyPolicyPage.fields.title
   }
 }
 
 export const prepareHeader = (page) => {
-  const { pageHeader, showHeader } = page
+  const { header, showHeader } = page
 
   return {
-    title: pageHeader.fields?.title || '',
-    backgroundImage: pageHeader?.fields?.backgroundImage?.fields?.file?.url,
-    backgroundColor: pageHeader?.fields?.backgroundColor || 'white',
+    title: header.fields?.title || '',
+    backgroundImage: header?.fields?.backgroundImage?.fields?.file?.url,
+    backgroundColor: header?.fields?.backgroundColor || 'white',
     showHeader
   }
 }
@@ -68,15 +67,17 @@ export const prepareMeta = (page) => {
   const { metaTitle, metaDescription } = page
 
   return {
-    metaTitle,
-    metaDescription,
-    metaImage: '',
-    metaURL: ''
+    title: metaTitle,
+    description: metaDescription,
+    ogImage: '',
+    ogURL: '',
+    ogType: '',
+    twitterCard: ''
   }
 }
 
-export const prepareContentBlocks = (page) => {
-  const { content } = page
+export const prepareSections = (page) => {
+  const { sections } = page
 
-  return content.map(getContentBlock)
+  return sections.map(prepareContent)
 }

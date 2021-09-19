@@ -7,7 +7,7 @@
     color="info"
   >
     <a
-      :href="privacyPolicyURL"
+      :href="privacyPolicy.slug"
       target="_blank"
     >
       {{ privacyPolicy.message }}
@@ -42,11 +42,7 @@ export default {
   computed: {
     ...mapState({
       privacyPolicy: state => state.config.privacyPolicy
-    }),
-
-    privacyPolicyURL () {
-      return this.localePath(`/${this.privacyPolicy?.privacyPolicyPage?.fields?.slug}`)
-    }
+    })
   },
 
   created () {

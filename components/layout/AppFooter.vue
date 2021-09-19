@@ -13,7 +13,7 @@
           md="4"
         >
           <div class="text-center">
-            <img :src="logo" alt="logo">
+            <img :src="logo.source" :alt="logo.title" width="75" height="75">
             <p>{{ pageName }}</p>
             <small class="dark-theme">
               Made with
@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import { mapGetters, mapState } from 'vuex'
+import { mapState } from 'vuex'
 import ContactButtons from '@/components/layout/ContactButtons'
 import Navigation from '@/components/layout/Navigation'
 
@@ -69,10 +69,8 @@ export default {
 
   computed: {
     ...mapState({
-      pageName: state => state.config.pageName
-    }),
-    ...mapGetters({
-      logo: 'config/getLogo'
+      pageName: ({ config }) => config.pageName,
+      logo: ({ config }) => config.logo
     })
   }
 }

@@ -33,7 +33,6 @@
 
 <script>
 import CMSMixin from '@/mixins/CMSMixin'
-import { parseCMSBlock } from '@/helpers/CMS'
 
 export default {
   name: 'PageSection',
@@ -46,7 +45,7 @@ export default {
       default: ''
     },
 
-    content: {
+    contentBlocks: {
       type: Array,
       default: () => []
     },
@@ -59,12 +58,6 @@ export default {
     backgroundImage: {
       type: String,
       default: null
-    }
-  },
-
-  computed: {
-    contentBlocks () {
-      return this.content.map(parseCMSBlock)
     }
   }
 }

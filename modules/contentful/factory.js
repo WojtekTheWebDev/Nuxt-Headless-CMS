@@ -1,24 +1,16 @@
-import PageSection from '@/components/cms/PageSection'
-import TextBox from '@/components/cms/TextBox'
-import MediaBox from '@/components/cms/MediaBox'
-import Timeline from '@/components/cms/Timeline'
-import IconList from '@/components/cms/IconList'
-import ModalCardList from '@/components/cms/ModalCardList'
-import Blog from '@/components/cms/Blog'
-import PageLink from '@/components/cms/PageLink'
-import ImageTextBox from '@/components/cms/ImageTextBox'
-import Faq from '~/components/cms/Faq'
-import Jumbotron from '~/components/cms/Jumbotron'
+export function prepareContent (item) {
+  const baseFields = {
+    type: item.sys?.contentType?.sys?.id || 'none',
+    name: item.fields?.name
+  }
 
-export function getContentBlock (item) {
   switch (item.sys.contentType.sys.id) {
     case 'section':
       return {
-        component: PageSection,
-        name: item.fields?.name,
+        ...baseFields,
         props: {
           title: item.fields?.title,
-          content: item.fields?.contentBlocks.map(getContentBlock),
+          content: item.fields?.contentBlocks.map(prepareContent),
           theme: item.fields?.theme,
           fillHeight: item.fields?.fillHeight,
           backgroundImage: item.fields?.backgroundImage?.fields?.file?.url
@@ -26,16 +18,14 @@ export function getContentBlock (item) {
       }
     case 'textBox':
       return {
-        component: TextBox,
-        name: item.fields?.name,
+        ...baseFields,
         props: {
           description: item.fields?.description
         }
       }
     case 'mediaBox':
       return {
-        component: MediaBox,
-        name: item.fields?.name,
+        ...baseFields,
         props: {
           asset: {
             src: item.fields?.asset?.fields?.file?.url,
@@ -49,8 +39,7 @@ export function getContentBlock (item) {
       }
     case 'timeline':
       return {
-        component: Timeline,
-        name: item.fields?.name,
+        ...baseFields,
         props: {
           title: item.fields?.title,
           items: item.fields?.items.map(timelineItem => timelineItem.fields)
@@ -58,8 +47,7 @@ export function getContentBlock (item) {
       }
     case 'iconList':
       return {
-        component: IconList,
-        name: item.fields?.name,
+        ...baseFields,
         props: {
           title: item.fields?.title,
           icons: item.fields?.icons.map(icon => ({
@@ -74,8 +62,7 @@ export function getContentBlock (item) {
       }
     case 'modalCardList':
       return {
-        component: ModalCardList,
-        name: item.fields?.name,
+        ...baseFields,
         props: {
           title: item.fields?.title,
           subtitle: item.fields?.subtitle,
@@ -92,16 +79,14 @@ export function getContentBlock (item) {
       }
     case 'blog':
       return {
-        component: Blog,
-        name: item.fields?.name,
+        ...baseFields,
         props: {
           pages: item.fields?.pages?.map(page => page.fields)
         }
       }
     case 'pageLink':
       return {
-        component: PageLink,
-        name: item.fields?.name,
+        ...baseFields,
         props: {
           text: item.fields?.text,
           type: item.fields?.type,
@@ -111,8 +96,7 @@ export function getContentBlock (item) {
       }
     case 'imageTextBox':
       return {
-        component: ImageTextBox,
-        name: item.fields?.name,
+        ...baseFields,
         props: {
           description: item.fields?.description,
           image: {
@@ -124,8 +108,7 @@ export function getContentBlock (item) {
       }
     case 'faq':
       return {
-        component: Faq,
-        name: item.fields?.name,
+        ...baseFields,
         props: {
           title: item.fields?.title,
           items: item.fields?.items.map(faqItem => faqItem.fields)
@@ -133,8 +116,7 @@ export function getContentBlock (item) {
       }
     case 'jumbotron':
       return {
-        component: Jumbotron,
-        name: item.fields?.name,
+        ...baseFields,
         props: {
           title: item.fields?.title,
           description: item.fields?.description,
@@ -148,8 +130,7 @@ export function getContentBlock (item) {
       }
     default:
       return {
-        component: null,
-        name: item.fields?.name,
+        ...baseFields,
         props: {}
       }
   }
