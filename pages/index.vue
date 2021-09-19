@@ -1,5 +1,7 @@
-<template>
-  <StandardPage id="home-page" :header="header" :content-blocks="contentBlocks" />
+><template>
+  <div>
+    {{ msg }}
+  </div>
 </template>
 
 <script>
@@ -39,5 +41,11 @@ export default {
       return this.sections.map(getContentBlock)
     }
   }
-}
+})
 </script>
+
+<style lang="scss" scoped>
+div {
+  color: red;
+}
+</style>
