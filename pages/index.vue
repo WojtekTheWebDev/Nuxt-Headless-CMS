@@ -6,15 +6,15 @@
 
 <script>
 import getMetaTags from '@/helpers/metaTags'
-import StandardPage from '@/components/layout/StandardPage'
+// import StandardPage from '@/components/layout/StandardPage'
 import { getContentBlock } from '@/helpers/contentBlocks'
 
 export default {
   name: 'HomePage',
 
-  components: {
-    StandardPage
-  },
+  // components: {
+  //   StandardPage
+  // },
 
   async asyncData ({ app, store, error }) {
     const homePageName = store.state.config.homePageName
@@ -41,7 +41,7 @@ export default {
       return this.sections.map(getContentBlock)
     }
   }
-})
+}
 </script>
 
 <style lang="scss" scoped>
