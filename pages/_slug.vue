@@ -1,35 +1,41 @@
 <template>
-  <!-- <StandardPage :header="header" :content-blocks="contentBlocks" /> -->
-  <div />
+  <StandardPage :header="header" :content-blocks="contentBlocks" />
 </template>
 
 <script>
-import metaTags from '@/helpers/metaTags'
-// import StandardPage from '@/components/layout/StandardPage'
+import getMetaTags from '@/helpers/metaTags'
+import StandardPage from '@/components/layout/StandardPage'
+import { getContentBlock } from '@/helpers/contentBlocks'
 
 export default {
   name: 'CMSPage',
 
-  // components: {
-  //   StandardPage
-  // },
+  components: {
+    StandardPage
+  },
 
   async asyncData ({ app, params, error }) {
     const res = await fetch(`${process.env.baseURL}/api/page/${params.slug}?locale=${app.i18n.localeProperties.code}`)
 
     if (res.status !== 200) { error({ statusCode: 404 }) }
 
-    const { meta, header, contentBlocks } = await res.json()
+    const { meta, header, sections } = await res.json()
 
     return {
       meta,
       header,
-      contentBlocks
+      sections
     }
   },
 
   head () {
-    return metaTags(this.meta)
+    return getMetaTags(this.meta)
+  },
+
+  computed: {
+    contentBlocks () {
+      return this.sections.map(section => getContentBlock(section))
+    }
   }
 }
 </script>

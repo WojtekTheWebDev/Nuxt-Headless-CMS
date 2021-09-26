@@ -13,7 +13,7 @@
           md="4"
         >
           <div class="text-center">
-            <img :src="logo.source" :alt="logo.title" width="75" height="75">
+            <img :src="logo.src" :alt="logo.alt" width="75" height="75">
             <p>{{ pageName }}</p>
             <small class="dark-theme">
               Made with

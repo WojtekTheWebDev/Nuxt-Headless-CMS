@@ -1,24 +1,21 @@
 ><template>
-  <div>
-    {{ msg }}
-  </div>
+  <StandardPage :header="header" :content-blocks="contentBlocks" />
 </template>
 
 <script>
 import getMetaTags from '@/helpers/metaTags'
-// import StandardPage from '@/components/layout/StandardPage'
+import StandardPage from '@/components/layout/StandardPage'
 import { getContentBlock } from '@/helpers/contentBlocks'
 
 export default {
   name: 'HomePage',
 
-  // components: {
-  //   StandardPage
-  // },
+  components: {
+    StandardPage
+  },
 
   async asyncData ({ app, store, error }) {
     const homePageName = store.state.config.homePageName
-    console.log(`${process.env.baseURL}/api/page/${homePageName}?locale=${app.i18n.localeProperties.code}&getByName=true`)
     const res = await fetch(`${process.env.baseURL}/api/page/${homePageName}?locale=${app.i18n.localeProperties.code}&getByName=true`)
 
     if (res.status !== 200) { error({ statusCode: 404 }) }
@@ -38,14 +35,8 @@ export default {
 
   computed: {
     contentBlocks () {
-      return this.sections.map(getContentBlock)
+      return this.sections.map(section => getContentBlock(section))
     }
   }
 }
 </script>
-
-<style lang="scss" scoped>
-div {
-  color: red;
-}
-</style>

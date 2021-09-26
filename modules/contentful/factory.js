@@ -1,3 +1,5 @@
+import { prepareHeader } from './utils'
+
 export function prepareContent (item) {
   const baseFields = {
     type: item.sys?.contentType?.sys?.id || 'none',
@@ -81,7 +83,12 @@ export function prepareContent (item) {
       return {
         ...baseFields,
         props: {
-          pages: item.fields?.pages?.map(page => page.fields)
+          pages: item.fields?.pages?.map(page => ({
+            name: page.fields.name,
+            slug: page.fields.slug,
+            description: page.fields.description || page.fields.metaDescription,
+            header: prepareHeader(page.fields.header)
+          }))
         }
       }
     case 'pageLink':

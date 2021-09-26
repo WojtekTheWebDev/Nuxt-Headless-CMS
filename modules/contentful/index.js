@@ -6,7 +6,7 @@ import {
   prepareMeta,
   prepareHeader,
   prepareSections
-} from './utils.js'
+} from './utils.ts'
 
 const CONTENT_MODELS = {
   config: 'config',
