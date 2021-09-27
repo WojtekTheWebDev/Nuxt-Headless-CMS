@@ -31,14 +31,11 @@
   </v-card>
 </template>
 
-<script>
-import CMSMixin from '@/mixins/CMSMixin'
+<script lang="ts">
+import { defineComponent, PropType } from '@vue/composition-api'
+import { Section } from '@/types/cms'
 
-export default {
-  name: 'PageSection',
-
-  mixins: [CMSMixin],
-
+export default defineComponent({
   props: {
     title: {
       type: String,
@@ -46,8 +43,13 @@ export default {
     },
 
     contentBlocks: {
-      type: Array,
+      type: Array as PropType<Section['contentBlocks']>,
       default: () => []
+    },
+
+    theme: {
+      type: String,
+      default: ''
     },
 
     fillHeight: {
@@ -60,7 +62,7 @@ export default {
       default: null
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

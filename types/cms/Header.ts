@@ -1,4 +1,4 @@
-import { AllowNull } from "../common"
+import { AllowNull } from '../common'
 
 type Header = {
   title: string,
@@ -7,4 +7,4 @@ type Header = {
   showHeader: boolean
 }
 
-export default Header;
+export default Header

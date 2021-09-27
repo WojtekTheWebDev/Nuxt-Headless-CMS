@@ -1,11 +1,18 @@
-import PrivacyPolicy from "./PrivacyPolicy";
-import Route from "./Route";
-import Header from "./Header";
-import Meta from "./Meta";
+import PrivacyPolicy from './PrivacyPolicy'
+import Route from './Route'
+import Header from './Header'
+import Meta from './Meta'
+import Section from './Section'
+import Blog from './Blog'
 
 export {
-  Header,
+  // Config
   Meta,
   PrivacyPolicy,
-  Route
+  Route,
+
+  // Components
+  Section,
+  Header,
+  Blog
 }
