@@ -35,13 +35,15 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent, PropType, ref } from '@nuxtjs/composition-api'
 import marked from 'marked'
-import CMSMixin from '@/mixins/CMSMixin'
-import ClickMe from '@/components/ui/ClickMe'
-import TRCloseButton from '@/components/ui/TRCloseButton'
+import ClickMe from '@/components/ui/ClickMe.vue'
+import TRCloseButton from '@/components/ui/TRCloseButton.vue'
+import { ModalCard } from '@/types/cms/ModalCardList'
+import useMarkedDescription from '@/composables/useMarkedDescription'
 
-export default {
+export default defineComponent({
   name: 'ModalCard',
 
   components: {
@@ -49,38 +51,39 @@ export default {
     ClickMe
   },
 
-  mixins: [CMSMixin],
-
   props: {
+    theme: {
+      type: String as PropType<ModalCard['theme']>,
+      default: (): ModalCard['theme'] => 'light',
+      validate: (val: ModalCard['theme']) => val === 'light' || val === 'dark'
+    },
     title: {
-      type: String,
-      default: ''
+      type: String as PropType<ModalCard['title']>,
+      default: (): ModalCard['title'] => ''
     },
-
     description: {
-      type: String,
-      default: ''
+      type: String as PropType<ModalCard['description']>,
+      default: (): ModalCard['description'] => ''
     },
-
     image: {
-      type: Object,
-      default: () => ({
+      type: Object as PropType<ModalCard['image']>,
+      default: (): ModalCard['image'] => ({
         src: '',
         alt: ''
       })
     }
   },
 
-  data: () => ({
-    dialog: false
-  }),
+  setup (props) {
+    const dialog = ref(false)
+    const markedDescription = useMarkedDescription(props.description)
 
-  computed: {
-    markedDescription () {
-      return marked(this.description)
+    return {
+      dialog,
+      markedDescription
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

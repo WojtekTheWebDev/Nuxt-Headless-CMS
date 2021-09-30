@@ -10,6 +10,9 @@ import ImageTextBox from './ImageTextBox'
 import PageLink from './PageLink'
 import Jumbotron from './Jumbotron'
 import MediaBox from './MediaBox'
+import ModalCardList from './ModalCardList'
+import TextBox from './TextBox'
+import PageHeader from './PageHeader'
 
 export {
   // Config
@@ -26,5 +29,8 @@ export {
   ImageTextBox,
   PageLink,
   Jumbotron,
-  MediaBox
+  MediaBox,
+  ModalCardList,
+  TextBox,
+  PageHeader
 }
