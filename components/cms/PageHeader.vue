@@ -28,27 +28,27 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from '@nuxtjs/composition-api'
-import PageHeader from '@/types/cms/PageHeader'
+import Header from '@/types/cms/components/Header'
 
 export default defineComponent({
   name: 'PageHeader',
 
   props: {
     title: {
-      type: String as PropType<PageHeader['title']>,
-      default: (): PageHeader['title'] => ''
+      type: String as PropType<Header['title']>,
+      default: (): Header['title'] => ''
     },
     backgroundImage: {
-      type: String as PropType<PageHeader['backgroundImage']>,
-      default: (): PageHeader['backgroundImage'] => ''
+      type: String as PropType<Header['backgroundImage']>,
+      default: (): Header['backgroundImage'] => ''
     },
     backgroundColor: {
-      type: String as PropType<PageHeader['backgroundColor']>,
-      default: (): PageHeader['backgroundColor'] => 'white'
+      type: String as PropType<Header['backgroundColor']>,
+      default: (): Header['backgroundColor'] => 'white'
     },
     showHeader: {
-      type: Boolean as PropType<PageHeader['showHeader']>,
-      default: (): PageHeader['showHeader'] => true
+      type: Boolean as PropType<Header['showHeader']>,
+      default: (): Header['showHeader'] => true
     }
   }
 })

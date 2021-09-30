@@ -22,7 +22,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, PropType, useContext } from '@nuxtjs/composition-api'
-import { MediaBox } from '@/types/cms'
+import MediaBox from '@/types/cms/components/MediaBox'
 
 export default defineComponent({
   name: 'MediaBox',

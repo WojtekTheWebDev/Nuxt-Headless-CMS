@@ -37,11 +37,10 @@
 
 <script lang="ts">
 import { defineComponent, PropType, ref } from '@nuxtjs/composition-api'
-import marked from 'marked'
 import ClickMe from '@/components/ui/ClickMe.vue'
 import TRCloseButton from '@/components/ui/TRCloseButton.vue'
-import { ModalCard } from '@/types/cms/ModalCardList'
-import useMarkedDescription from '@/composables/useMarkedDescription'
+import { ModalCard } from '@/types/cms/components/ModalCardList'
+import useMarkedText from '~/composables/useMarkedText'
 
 export default defineComponent({
   name: 'ModalCard',
@@ -76,7 +75,7 @@ export default defineComponent({
 
   setup (props) {
     const dialog = ref(false)
-    const markedDescription = useMarkedDescription(props.description)
+    const markedDescription = useMarkedText(props.description)
 
     return {
       dialog,

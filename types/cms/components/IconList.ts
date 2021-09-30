@@ -1,7 +1,7 @@
-import Theme from '@/types/cms/Theme'
-import { Image } from '@/types/common'
+import Theme from '~/types/cms/Theme'
+import Image from '@/types/common/Image'
 
-interface IconBox {
+export interface IconBox {
   name: string,
   title: string,
   icon: Image

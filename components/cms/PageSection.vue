@@ -32,34 +32,31 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from '@vue/composition-api'
-import { Section } from '@/types/cms'
+import { defineComponent, PropType } from '@nuxtjs/composition-api'
+import Section from '@/types/cms/components/Section'
 
 export default defineComponent({
   props: {
-    title: {
-      type: String,
-      default: ''
+    theme: {
+      type: String as PropType<Section['theme']>,
+      default: (): Section['theme'] => 'light',
+      validate: (val: Section['theme']) => val === 'light' || val === 'dark'
     },
-
+    title: {
+      type: String as PropType<Section['title']>,
+      default: (): Section['title'] => ''
+    },
     contentBlocks: {
       type: Array as PropType<Section['contentBlocks']>,
-      default: () => []
+      default: (): Section['contentBlocks'] => []
     },
-
-    theme: {
-      type: String,
-      default: ''
-    },
-
     fillHeight: {
-      type: Boolean,
-      default: false
+      type: Boolean as PropType<Section['fillHeight']>,
+      default: (): Section['fillHeight'] => false
     },
-
     backgroundImage: {
-      type: String,
-      default: null
+      type: String as PropType<Section['backgroundImage']>,
+      default: (): Section['backgroundImage'] => null
     }
   }
 })

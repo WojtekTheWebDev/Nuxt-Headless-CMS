@@ -1,9 +1,9 @@
-import { AllowNull } from '../common'
+import AllowNull from '../../common/AllowNull'
 
 type Header = {
   title: string,
   backgroundImage: AllowNull<string>,
-  backgroundColor: string,
+  backgroundColor: AllowNull<string>,
   showHeader: boolean
 }
 

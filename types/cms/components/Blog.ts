@@ -1,7 +1,7 @@
 import Theme from '@/types/cms/Theme'
-import { Image } from '@/types/common'
+import Image from '@/types/common/Image'
 
-interface BlogPage {
+export interface BlogPage {
   name: string,
   title: string,
   description: string,

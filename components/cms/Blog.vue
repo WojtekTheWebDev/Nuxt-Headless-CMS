@@ -34,8 +34,7 @@
 
 <script lang="ts">
 import { defineComponent, useContext, PropType } from '@nuxtjs/composition-api'
-import { ArrayElement } from '@/types/common'
-import { Blog } from '@/types/cms'
+import Blog, { BlogPage } from '@/types/cms/components/Blog'
 
 export default defineComponent({
   name: 'Blog',
@@ -55,9 +54,9 @@ export default defineComponent({
   setup ({ pages }) {
     const { app } = useContext()
 
-    const getImageSrc = (page: ArrayElement<typeof pages>) => (`${page.image.src}?w=300`)
-    const isImageInPage = (page: ArrayElement<typeof pages>) => 'image' in page && 'src' in page.image
-    const getPageLink = (page: ArrayElement<typeof pages>) => (
+    const getImageSrc = (page: BlogPage) => (`${page.image.src}?w=300`)
+    const isImageInPage = (page: BlogPage) => 'image' in page && 'src' in page.image
+    const getPageLink = (page: BlogPage) => (
       app.localePath(page.parentPageSlug
         ? `/${page.parentPageSlug}/${page.slug}`
         : `/${page.slug}`)

@@ -1,7 +1,7 @@
-import Theme from '@/types/cms/Theme'
-import { Image } from '@/types/common'
+import Theme from '~/types/cms/Theme'
+import Image from '@/types/common/Image'
 
-interface Asset extends Image {
+export interface Asset extends Image {
   type: string
 }
 

@@ -1,36 +1,40 @@
+import Content from './Content'
+import Meta from './Meta'
 import PrivacyPolicy from './PrivacyPolicy'
 import Route from './Route'
-import Header from './Header'
-import Meta from './Meta'
-import Section from './Section'
-import Blog from './Blog'
-import Faq from './Faq'
-import IconList from './IconList'
-import ImageTextBox from './ImageTextBox'
-import PageLink from './PageLink'
-import Jumbotron from './Jumbotron'
-import MediaBox from './MediaBox'
-import ModalCardList from './ModalCardList'
-import TextBox from './TextBox'
-import PageHeader from './PageHeader'
+import Theme from './Theme'
+
+import Blog from './components/Blog'
+import Faq from './components/Faq'
+import Header from './components/Header'
+import IconList from './components/IconList'
+import ImageTextBox from './components/ImageTextBox'
+import Jumbotron from './components/Jumbotron'
+import MediaBox from './components/MediaBox'
+import ModalCardList from './components/ModalCardList'
+import PageLink from './components/PageLink'
+import Section from './components/Section'
+import TextBox from './components/TextBox'
+import Timeline from './components/Timeline'
 
 export {
-  // Config
+  Content,
   Meta,
   PrivacyPolicy,
   Route,
+  Theme,
 
   // Components
-  Section,
-  Header,
   Blog,
   Faq,
+  Header,
   IconList,
   ImageTextBox,
-  PageLink,
   Jumbotron,
   MediaBox,
   ModalCardList,
+  PageLink,
+  Section,
   TextBox,
-  PageHeader
+  Timeline
 }

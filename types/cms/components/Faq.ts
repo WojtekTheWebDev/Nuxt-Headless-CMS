@@ -1,6 +1,6 @@
 import Theme from '@/types/cms/Theme'
 
-interface FaqItem {
+export interface FaqItem {
   name: string,
   question: string,
   answer: string

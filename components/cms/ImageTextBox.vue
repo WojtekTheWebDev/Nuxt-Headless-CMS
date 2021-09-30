@@ -28,8 +28,8 @@
 
 <script lang="ts">
 import { computed, defineComponent, PropType } from '@nuxtjs/composition-api'
-import marked from 'marked'
-import { ImageTextBox } from '@/types/cms'
+import ImageTextBox from '@/types/cms/components/ImageTextBox'
+import useMarkedText from '~/composables/useMarkedText'
 
 export default defineComponent({
   name: 'ImageTextBox',
@@ -54,7 +54,7 @@ export default defineComponent({
   },
 
   setup (props) {
-    const markedDescription = computed(() => marked(props.description))
+    const markedDescription = useMarkedText(props.description)
     const imageSrc = computed(() => `${props.image.src}?w=150&h=150`)
 
     return {

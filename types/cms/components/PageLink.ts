@@ -1,7 +1,7 @@
-import Theme from '@/types/cms/Theme'
-import { AllowNull } from '@/types/common'
+import Theme from '~/types/cms/Theme'
+import AllowNull from '@/types/common/AllowNull'
 
-type AllowedTypes = 'Button' | 'Link'
+export type AllowedTypes = 'Button' | 'Link'
 
 interface PageLink extends Theme {
   text: string,

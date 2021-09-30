@@ -26,7 +26,7 @@
 import { defineComponent, PropType } from '@nuxtjs/composition-api'
 import ComponentHeader from '@/components/ui/ComponentHeader.vue'
 import ModalCard from '@/components/cms/ModalCard.vue'
-import ModalCardList from '@/types/cms/ModalCardList'
+import ModalCardList from '@/types/cms/components/ModalCardList'
 
 export default defineComponent({
   name: 'ModalCardList',

@@ -1,5 +1,5 @@
-import Theme from '@/types/cms/Theme'
-import { PageLink } from '@/types/cms'
+import Theme from '~/types/cms/Theme'
+import PageLink from '@/types/cms/components/PageLink'
 
 interface Jumbotron extends Theme {
   title: string,

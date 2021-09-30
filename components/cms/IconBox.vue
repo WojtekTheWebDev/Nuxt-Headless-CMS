@@ -9,10 +9,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, PropType } from '@nuxtjs/composition-api'
-import { ArrayElement } from '@/types/common'
-import { IconList } from '@/types/cms'
-
-type IconBox = ArrayElement<IconList['icons']>;
+import { IconBox } from '@/types/cms/components/IconList'
 
 export default defineComponent({
   name: 'IconBox',

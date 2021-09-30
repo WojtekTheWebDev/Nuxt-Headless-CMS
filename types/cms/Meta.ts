@@ -1,4 +1,4 @@
-type TwitterCards = 'summary' | "summary_large_image" | "app" | "player";
+type TwitterCards = 'summary' | 'summary_large_image' | 'app' | 'player';
 
 type Meta = {
   title: string,
@@ -9,4 +9,4 @@ type Meta = {
   twitterCard: TwitterCards
 }
 
-export default Meta;
+export default Meta

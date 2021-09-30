@@ -1,6 +1,6 @@
-import Theme from '@/types/cms/Theme'
+import Theme from '~/types/cms/Theme'
 
-type TimelineItemTypes = 'EDUCATION' | 'WORK_EXPERIENCE' | 'CERTIFICATION'
+export type TimelineItemTypes = 'EDUCATION' | 'WORK_EXPERIENCE' | 'CERTIFICATION'
 
 export interface TimelineItem {
   name: string,

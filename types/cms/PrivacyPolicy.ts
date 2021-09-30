@@ -5,4 +5,4 @@ type PrivacyPolicy = {
   title: string;
 }
 
-export default PrivacyPolicy;
+export default PrivacyPolicy

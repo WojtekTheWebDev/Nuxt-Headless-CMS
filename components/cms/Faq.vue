@@ -18,7 +18,7 @@
         <v-expansion-panel-content class="faq-answer">
           <v-divider class="pb-3" />
 
-          {{ item.answer }}
+          {{ getAnswer(item) }}
         </v-expansion-panel-content>
       </v-expansion-panel>
     </v-expansion-panels>
@@ -27,12 +27,11 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from '@nuxtjs/composition-api'
-import { Faq } from '@/types/cms'
+import Faq, { FaqItem } from '@/types/cms/components/Faq'
+import useMarkedText from '~/composables/useMarkedText'
 
 export default defineComponent({
   name: 'Faq',
-
-  components: {},
 
   props: {
     theme: {
@@ -47,6 +46,14 @@ export default defineComponent({
     items: {
       type: Array as PropType<Faq['items']>,
       default: (): Faq['items'] => []
+    }
+  },
+
+  setup () {
+    const getAnswer = (item: FaqItem) => useMarkedText(item.answer)
+
+    return {
+      getAnswer
     }
   }
 })

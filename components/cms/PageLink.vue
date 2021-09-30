@@ -26,7 +26,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, PropType, useContext } from '@nuxtjs/composition-api'
-import { PageLink } from '@/types/cms'
+import PageLink from '@/types/cms/components/PageLink'
 
 export default defineComponent({
   name: 'PageLink',

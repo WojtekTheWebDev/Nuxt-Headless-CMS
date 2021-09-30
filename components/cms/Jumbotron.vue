@@ -19,10 +19,10 @@
 </template>
 
 <script lang="ts">
-import marked from 'marked'
-import { defineComponent, PropType, computed } from '@nuxtjs/composition-api'
+import { defineComponent, PropType } from '@nuxtjs/composition-api'
 import PageLink from '@/components/cms/PageLink.vue'
-import { Jumbotron } from '@/types/cms'
+import Jumbotron from '@/types/cms/components/Jumbotron'
+import useMarkedText from '~/composables/useMarkedText'
 
 export default defineComponent({
   name: 'Jumbotron',
@@ -52,7 +52,7 @@ export default defineComponent({
   },
 
   setup (props) {
-    const markedDescription = computed(() => marked(props.description))
+    const markedDescription = useMarkedText(props.description)
 
     return {
       markedDescription

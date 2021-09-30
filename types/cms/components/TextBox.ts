@@ -1,4 +1,4 @@
-import Theme from '@/types/cms/Theme'
+import Theme from '~/types/cms/Theme'
 
 interface TextBox extends Theme {
   description: string

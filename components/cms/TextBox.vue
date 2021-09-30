@@ -8,8 +8,8 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from '@nuxtjs/composition-api'
-import TextBox from '@/types/cms/TextBox'
-import useMarkedDescription from '~/composables/useMarkedDescription'
+import TextBox from '@/types/cms/components/TextBox'
+import useMarkedText from '~/composables/useMarkedText'
 
 export default defineComponent({
   name: 'TextBox',
@@ -27,7 +27,7 @@ export default defineComponent({
   },
 
   setup (props) {
-    const markedDescription = useMarkedDescription(props.description)
+    const markedDescription = useMarkedText(props.description)
 
     return {
       markedDescription

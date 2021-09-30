@@ -20,7 +20,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from '@nuxtjs/composition-api'
-import { IconList } from '@/types/cms'
+import IconList from '@/types/cms/components/IconList'
 import ComponentHeader from '@/components/ui/ComponentHeader.vue'
 import IconBox from '@/components/cms/IconBox.vue'
 
