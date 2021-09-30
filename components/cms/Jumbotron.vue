@@ -18,43 +18,47 @@
   </div>
 </template>
 
-<script>
-import CMSMixin from '@/mixins/CMSMixin'
+<script lang="ts">
 import marked from 'marked'
-import PageLink from '@/components/cms/PageLink'
+import { defineComponent, PropType, computed } from '@nuxtjs/composition-api'
+import PageLink from '@/components/cms/PageLink.vue'
+import { Jumbotron } from '@/types/cms'
 
-export default {
+export default defineComponent({
   name: 'Jumbotron',
 
   components: {
     PageLink
   },
 
-  mixins: [CMSMixin],
-
   props: {
+    theme: {
+      type: String as PropType<Jumbotron['theme']>,
+      default: (): Jumbotron['theme'] => 'light',
+      validate: (val: Jumbotron['theme']) => val === 'light' || val === 'dark'
+    },
     title: {
-      type: String,
-      default: ''
+      type: String as PropType<Jumbotron['title']>,
+      default: (): Jumbotron['title'] => ''
     },
-
     description: {
-      type: String,
-      default: ''
+      type: String as PropType<Jumbotron['description']>,
+      default: (): Jumbotron['title'] => ''
     },
-
     pageLinks: {
-      type: Array,
-      default: () => []
+      type: Array as PropType<Jumbotron['pageLinks']>,
+      default: (): Jumbotron['pageLinks'] => []
     }
   },
 
-  computed: {
-    markedDescription () {
-      return marked(this.description)
+  setup (props) {
+    const markedDescription = computed(() => marked(props.description))
+
+    return {
+      markedDescription
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

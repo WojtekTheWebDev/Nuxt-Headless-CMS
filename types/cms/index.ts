@@ -4,6 +4,12 @@ import Header from './Header'
 import Meta from './Meta'
 import Section from './Section'
 import Blog from './Blog'
+import Faq from './Faq'
+import IconList from './IconList'
+import ImageTextBox from './ImageTextBox'
+import PageLink from './PageLink'
+import Jumbotron from './Jumbotron'
+import MediaBox from './MediaBox'
 
 export {
   // Config
@@ -14,5 +20,11 @@ export {
   // Components
   Section,
   Header,
-  Blog
+  Blog,
+  Faq,
+  IconList,
+  ImageTextBox,
+  PageLink,
+  Jumbotron,
+  MediaBox
 }

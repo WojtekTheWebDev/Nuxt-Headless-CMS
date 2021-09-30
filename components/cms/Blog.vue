@@ -43,19 +43,18 @@ export default defineComponent({
   props: {
     theme: {
       type: String as PropType<Blog['theme']>,
-      default: 'light',
+      default: (): Blog['theme'] => 'light',
       validate: (val: Blog['theme']) => val === 'light' || val === 'dark'
     },
-
     pages: {
       type: Array as PropType<Blog['pages']>,
-      default: () => []
+      default: (): Blog['pages'] => []
     }
   },
 
   setup ({ pages }) {
     const { app } = useContext()
-    console.log(pages)
+
     const getImageSrc = (page: ArrayElement<typeof pages>) => (`${page.image.src}?w=300`)
     const isImageInPage = (page: ArrayElement<typeof pages>) => 'image' in page && 'src' in page.image
     const getPageLink = (page: ArrayElement<typeof pages>) => (

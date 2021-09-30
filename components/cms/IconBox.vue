@@ -1,40 +1,48 @@
 <template>
   <div class="icon-box">
-    <img :src="iconURL" :alt="icon.alt">
+    <img :src="iconSrc" :alt="icon.alt">
     <p class="text-center">
       {{ title }}
     </p>
   </div>
 </template>
 
-<script>
-import CMSMixin from '@/mixins/CMSMixin'
+<script lang="ts">
+import { computed, defineComponent, PropType } from '@nuxtjs/composition-api'
+import { ArrayElement } from '@/types/common'
+import { IconList } from '@/types/cms'
 
-export default {
+type IconBox = ArrayElement<IconList['icons']>;
+
+export default defineComponent({
   name: 'IconBox',
 
-  mixins: [CMSMixin],
-
   props: {
+    name: {
+      type: String as PropType<IconBox['name']>,
+      default: (): IconBox['name'] => ''
+    },
     title: {
-      type: String,
-      default: ''
+      type: String as PropType<IconBox['title']>,
+      default: (): IconBox['title'] => ''
     },
     icon: {
-      type: Object,
-      default: () => ({
+      type: Object as PropType<IconBox['icon']>,
+      default: (): IconBox['icon'] => ({
         src: '',
         alt: ''
       })
     }
   },
 
-  computed: {
-    iconURL () {
-      return `${this.icon.src}?w=100&h=100`
+  setup (props) {
+    const iconSrc = computed(() => `${props.icon.src}?w=100&h=100`)
+
+    return {
+      iconSrc
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>
