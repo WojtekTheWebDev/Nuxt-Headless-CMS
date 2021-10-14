@@ -1,9 +1,9 @@
-import { createClient, ContentfulClientApi } from 'contentful';
+import { createClient, ContentfulClientApi } from 'contentful'
+import { AllowNull, Image } from '../../types/common'
+import { Header, Meta, PrivacyPolicy, Route } from '../../types/cms'
 import { prepareContent } from './factory.js'
 import { AllowedFilterKeys, ContentfulQuery, QueryFilter } from './types/utils'
 import { ContentfulAsset, ContentfulPage, ContentfulPrivacyPolicy, ContentfulRoute } from './types/fields'
-import { AllowNull, Image } from '../../types/common';
-import { Header, Meta, PrivacyPolicy, Route } from '../../types/cms';
 
 export const createContentfulClient = (): ContentfulClientApi => {
   return createClient({
@@ -30,10 +30,10 @@ export const getEntries = async (
   }
 
   if (filter && Object.keys(filter).length > 0) {
-    let key: AllowedFilterKeys;
+    let key: AllowedFilterKeys
     for (key in filter) {
-      const value = filter[key];
-      contentfulQuery[key] = value;
+      const value = filter[key]
+      contentfulQuery[key] = value
     }
   }
 
@@ -90,5 +90,5 @@ export const prepareMeta = (page: ContentfulPage): Meta => {
 export const prepareSections = (page: ContentfulPage) => {
   const { sections } = page
 
-  return sections.map(prepareContent)
+  return sections.map(section => prepareContent(section.sys.contentType.sys.id as any, section))
 }

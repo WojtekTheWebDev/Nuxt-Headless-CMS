@@ -1,4 +1,3 @@
-import Content from './Content'
 import Meta from './Meta'
 import PrivacyPolicy from './PrivacyPolicy'
 import Route from './Route'
@@ -18,7 +17,6 @@ import TextBox from './components/TextBox'
 import Timeline from './components/Timeline'
 
 export {
-  Content,
   Meta,
   PrivacyPolicy,
   Route,

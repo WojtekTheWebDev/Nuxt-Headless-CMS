@@ -1,3 +1,5 @@
+import ContentBlockType from '@/types/cms/factory/ContentBlockType'
+
 export type ContentfulRoute = {
   fields: {
     slug: string;
@@ -46,7 +48,7 @@ export type ContentfulSection = {
   sys: {
     contentType: {
       sys: {
-        id: string
+        id: ContentBlockType
       }
     }
   },
@@ -63,4 +65,3 @@ export type ContentfulPage = {
   metaDescription: string
   sections: ContentfulSection[]
 }
-
