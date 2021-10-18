@@ -14,7 +14,5 @@ export type DefaultQuery = {
 export type ContentfulQuery = DefaultQuery & QueryFilter;
 
 export type PageFilter = {
-  'fields.slug'?: string;
-  'fields.name'?: string;
-  'fields.parentPage.fields.slug'?: string;
+  [Property in AllowedFilterKeys]?: string
 }
