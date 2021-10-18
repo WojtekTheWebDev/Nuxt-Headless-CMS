@@ -1,3 +1,4 @@
+import { Entry } from 'contentful'
 import ContentBlockType from '@/types/cms/factory/ContentBlockType'
 
 export type ContentfulRoute = {
@@ -64,4 +65,23 @@ export type ContentfulPage = {
   metaTitle: string,
   metaDescription: string
   sections: ContentfulSection[]
+}
+
+export type ContentfulContactDetails = {
+  email: string,
+  facebook: string,
+  linkedIn: string,
+  twitter: string,
+  youtube: string,
+  github: string,
+}
+
+export type ContentfulConfig = {
+  routing: ContentfulRoute[];
+    logo: ContentfulAsset,
+    pageIcon: ContentfulAsset,
+    pageName: string,
+    homePage: Entry<{ name: string }>,
+    contactDetails: Entry<ContentfulContactDetails>,
+    privacyPolicy: ContentfulPrivacyPolicy
 }

@@ -1,6 +1,6 @@
 import { createClient, ContentfulClientApi } from 'contentful'
-import { AllowNull, Image } from '../../types/common'
-import { Header, Meta, PrivacyPolicy, Route } from '../../types/cms'
+import { AllowNull, Image } from '../../../types/common'
+import { Header, Meta, PrivacyPolicy, Route } from '../../../types/cms'
 import { prepareContent } from './factory.js'
 import { AllowedFilterKeys, ContentfulQuery, QueryFilter } from './types/utils'
 import { ContentfulAsset, ContentfulPage, ContentfulPrivacyPolicy, ContentfulRoute } from './types/fields'
@@ -13,7 +13,7 @@ export const createContentfulClient = (): ContentfulClientApi => {
   })
 }
 
-export const getEntries = async (
+export const getEntries = async <T>(
   contentType: string,
   locale = '',
   filter: AllowNull<QueryFilter> = null,
@@ -37,7 +37,7 @@ export const getEntries = async (
     }
   }
 
-  const entries = await client.getEntries(contentfulQuery)
+  const entries = await client.getEntries<T>(contentfulQuery)
 
   if (!entries.items) { throw new Error('Entry not found!') }
 

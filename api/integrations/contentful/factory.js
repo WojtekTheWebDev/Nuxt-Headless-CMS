@@ -1,33 +1,8 @@
 /* eslint-disable no-redeclare */
 import { prepareHeader } from './utils'
-import FactoryReturnType from '@/types/cms/factory/FactoryReturnType'
-import ContentBlockType from '@/types/cms/factory/ContentBlockType'
-import BaseFields from '@/types/cms/factory/BaseFields'
-import {
-  Faq,
-  IconList,
-  ImageTextBox,
-  Jumbotron,
-  MediaBox,
-  ModalCardList,
-  PageLink,
-  Section,
-  TextBox,
-  Timeline
-} from '@/types/cms'
 
-export function prepareContent(type: 'section', item: any): FactoryReturnType<Section>
-export function prepareContent(type: 'textBox', item: any): FactoryReturnType<TextBox>
-export function prepareContent(type: 'mediaBox', item: any): FactoryReturnType<MediaBox>
-export function prepareContent(type: 'timeline', item: any): FactoryReturnType<Timeline>
-export function prepareContent(type: 'iconList', item: any): FactoryReturnType<IconList>
-export function prepareContent(type: 'modalCardList', item: any): FactoryReturnType<ModalCardList>
-export function prepareContent(type: 'pageLink', item: any): FactoryReturnType<PageLink>
-export function prepareContent(type: 'imageTextBox', item: any): FactoryReturnType<ImageTextBox>
-export function prepareContent(type: 'faq', item: any): FactoryReturnType<Faq>
-export function prepareContent(type: 'jumbotron', item: any): FactoryReturnType<Jumbotron>
-export function prepareContent (type: ContentBlockType, item: any) {
-  const baseFields: BaseFields = {
+export function prepareContent (type, item) {
+  const baseFields = {
     type,
     name: item.fields?.name
   }
@@ -70,7 +45,7 @@ export function prepareContent (type: ContentBlockType, item: any) {
         ...baseFields,
         props: {
           title: item.fields?.title,
-          items: item.fields?.items.map((timelineItem: any) => timelineItem.fields)
+          items: item.fields?.items.map(timelineItem => timelineItem.fields)
         }
       }
     case 'iconList':
@@ -78,7 +53,7 @@ export function prepareContent (type: ContentBlockType, item: any) {
         ...baseFields,
         props: {
           title: item.fields?.title,
-          icons: item.fields?.icons.map((icon: any) => ({
+          icons: item.fields?.icons.map(icon => ({
             name: icon.fields?.name,
             title: icon.fields?.title,
             icon: {
@@ -94,7 +69,7 @@ export function prepareContent (type: ContentBlockType, item: any) {
         props: {
           title: item.fields?.title,
           subtitle: item.fields?.subtitle,
-          modalCards: (item.fields?.modalCards || []).map((modalCard: any) => ({
+          modalCards: (item.fields?.modalCards || []).map(modalCard => ({
             name: modalCard.fields?.name,
             title: modalCard.fields?.title,
             description: modalCard.fields?.description,
@@ -109,7 +84,7 @@ export function prepareContent (type: ContentBlockType, item: any) {
       return {
         ...baseFields,
         props: {
-          pages: item.fields?.pages?.map((page: any) => ({
+          pages: item.fields?.pages?.map(page => ({
             name: page.fields.name,
             slug: page.fields.slug,
             description: page.fields.description || page.fields.metaDescription,
@@ -143,7 +118,7 @@ export function prepareContent (type: ContentBlockType, item: any) {
         ...baseFields,
         props: {
           title: item.fields?.title,
-          items: item.fields?.items.map((faqItem: any) => faqItem.fields)
+          items: item.fields?.items.map(faqItem => faqItem.fields)
         }
       }
     case 'jumbotron':
@@ -152,7 +127,7 @@ export function prepareContent (type: ContentBlockType, item: any) {
         props: {
           title: item.fields?.title,
           description: item.fields?.description,
-          pageLinks: item.fields?.pageLinks.map((pageLink: any) => ({
+          pageLinks: item.fields?.pageLinks.map(pageLink => ({
             text: pageLink.fields?.text,
             type: pageLink.fields?.type,
             slug: pageLink.fields?.page?.fields?.slug,

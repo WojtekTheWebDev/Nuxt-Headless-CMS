@@ -1,5 +1,5 @@
 import express from 'express'
-import { getConfig, getPageBySlug, getPageByName } from '../modules/contentful'
+import { getConfig, getPageBySlug, getPageByName } from './integrations/contentful'
 
 const app = express()
 

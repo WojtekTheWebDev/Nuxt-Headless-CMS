@@ -1,3 +1,5 @@
+import { ContentfulConfig, ContentfulPage } from './types/fields'
+import { PageFilter } from './types/utils'
 import {
   getEntries,
   prepareRoutes,
@@ -6,7 +8,7 @@ import {
   prepareMeta,
   prepareHeader,
   prepareSections
-} from './utils.ts'
+} from './utils'
 
 const CONTENT_MODELS = {
   config: 'config',
@@ -14,7 +16,7 @@ const CONTENT_MODELS = {
 }
 
 export const getConfig = async (locale = '') => {
-  const [entry] = await getEntries(CONTENT_MODELS.config, locale, null, 1)
+  const [entry] = await getEntries<ContentfulConfig>(CONTENT_MODELS.config, locale, null, 1)
 
   const {
     routing,
@@ -37,8 +39,8 @@ export const getConfig = async (locale = '') => {
   }
 }
 
-export const getPageBySlug = async (slug, parentSlug = null, locale = '') => {
-  const filter = {
+export const getPageBySlug = async (slug: string, parentSlug = null, locale = '') => {
+  const filter: PageFilter = {
     'fields.slug': slug
   }
 
@@ -46,7 +48,7 @@ export const getPageBySlug = async (slug, parentSlug = null, locale = '') => {
     filter['fields.parentPage.fields.slug'] = parentSlug
   }
 
-  const [entry] = await getEntries(CONTENT_MODELS.page, locale, filter, 1)
+  const [entry] = await getEntries<ContentfulPage>(CONTENT_MODELS.page, locale, filter, 1)
   const page = entry.fields
 
   return {
@@ -56,12 +58,12 @@ export const getPageBySlug = async (slug, parentSlug = null, locale = '') => {
   }
 }
 
-export const getPageByName = async (name, locale = '') => {
-  const filter = {
+export const getPageByName = async (name: string, locale = '') => {
+  const filter: PageFilter = {
     'fields.name': name
   }
 
-  const [entry] = await getEntries(CONTENT_MODELS.page, locale, filter, 1)
+  const [entry] = await getEntries<ContentfulPage>(CONTENT_MODELS.page, locale, filter, 1)
   const page = entry.fields
 
   return {
