@@ -5,7 +5,7 @@ export interface Asset extends Image {
   type: string
 }
 
-interface MediaBox extends Theme {
+interface MediaBox extends Partial<Theme> {
   asset: Asset,
   width: number,
   height: number,

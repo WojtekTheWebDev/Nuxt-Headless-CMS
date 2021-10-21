@@ -1,6 +1,6 @@
 import Theme from '~/types/cms/Theme'
 
-export type TimelineItemTypes = 'EDUCATION' | 'WORK_EXPERIENCE' | 'CERTIFICATION'
+export type TimelineItemTypes = 'NONE' | 'EDUCATION' | 'WORK_EXPERIENCE' | 'CERTIFICATION'
 
 export interface TimelineItem {
   name: string,
@@ -10,7 +10,7 @@ export interface TimelineItem {
   description: string
 }
 
-interface Timeline extends Theme {
+interface Timeline extends Partial<Theme> {
   title: string,
   items: TimelineItem[]
 }

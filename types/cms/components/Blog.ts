@@ -10,7 +10,7 @@ export interface BlogPage {
   parentPageSlug?: string,
 }
 
-interface Blog extends Theme {
+interface Blog extends Partial<Theme> {
   pages: BlogPage[]
 }
 

@@ -6,7 +6,7 @@ export interface FaqItem {
   answer: string
 }
 
-interface Faq extends Theme {
+interface Faq extends Partial<Theme> {
   title: String,
   items: FaqItem[]
 }

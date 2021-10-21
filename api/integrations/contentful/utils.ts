@@ -1,9 +1,10 @@
-import { createClient, ContentfulClientApi } from 'contentful'
+import { createClient, ContentfulClientApi, Asset } from 'contentful'
 import { AllowNull, Image } from '../../../types/common'
-import { Header, Meta, PrivacyPolicy, Route } from '../../../types/cms'
-import { prepareContent } from './factory.js'
+import { Meta, PrivacyPolicy, Route } from '../../../types/cms'
+import { Header } from '../../../types/cms/components'
+import { prepareContent } from './factory'
 import { AllowedFilterKeys, ContentfulQuery, QueryFilter } from './types/utils'
-import { ContentfulAsset, ContentfulPage, ContentfulPrivacyPolicy, ContentfulRoute } from './types/fields'
+import { Config, Page } from './types/contentModels'
 
 export const createContentfulClient = (): ContentfulClientApi => {
   return createClient({
@@ -44,17 +45,17 @@ export const getEntries = async <T>(
   return entries.items
 }
 
-export const prepareRoutes = (routes: ContentfulRoute[]): Route[] => {
-  return routes.map(
+export const prepareRoutes = (routes: Config['routing']): Route[] => {
+  return routes?.map(
     ({ fields: route }) => ({ path: route.slug, name: route.name, title: route.title })
-  )
+  ) || []
 }
 
-export const prepareAsset = (asset: ContentfulAsset): Image => {
+export const prepareAsset = (asset: Asset): Image => {
   return { src: asset.fields.file.url, alt: asset.fields.title }
 }
 
-export const preparePrivacyPolicy = (privacyPolicy: ContentfulPrivacyPolicy): PrivacyPolicy => {
+export const preparePrivacyPolicy = (privacyPolicy: Config['privacyPolicy']): PrivacyPolicy => {
   return {
     message: privacyPolicy.fields.message,
     acceptButtonText: privacyPolicy.fields.acceptButtonText,
@@ -63,18 +64,18 @@ export const preparePrivacyPolicy = (privacyPolicy: ContentfulPrivacyPolicy): Pr
   }
 }
 
-export const prepareHeader = (page: ContentfulPage): Header => {
+export const prepareHeader = (page: Page): Header => {
   const { header, showHeader } = page
 
   return {
     title: header?.fields?.title || '',
     backgroundImage: header?.fields?.backgroundImage?.fields?.file?.url || null,
     backgroundColor: header?.fields?.backgroundColor || 'white',
-    showHeader
+    showHeader: showHeader || true
   }
 }
 
-export const prepareMeta = (page: ContentfulPage): Meta => {
+export const prepareMeta = (page: Page): Meta => {
   const { metaTitle, metaDescription } = page
 
   return {
@@ -87,8 +88,14 @@ export const prepareMeta = (page: ContentfulPage): Meta => {
   }
 }
 
-export const prepareSections = (page: ContentfulPage) => {
+export const prepareSections = (page: Page) => {
   const { sections } = page
-
-  return sections.map(section => prepareContent(section.sys.contentType.sys.id as any, section))
+  // Remove section from factory method
+  return sections?.map(section => ({
+    name: section.name,
+    title: section.title,
+    fillHeight: section.fillHeight,
+    theme: section.theme,
+    contentBlocks: section.contentBlocks.map(prepareContent)
+  })) || []
 }

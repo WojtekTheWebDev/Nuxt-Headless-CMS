@@ -7,7 +7,7 @@ export interface IconBox {
   icon: Image
 }
 
-interface IconList extends Theme {
+interface IconList extends Partial<Theme> {
   title: string,
   icons: IconBox[]
 }

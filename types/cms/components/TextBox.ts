@@ -1,6 +1,6 @@
 import Theme from '~/types/cms/Theme'
 
-interface TextBox extends Theme {
+interface TextBox extends Partial<Theme> {
   description: string
 }
 

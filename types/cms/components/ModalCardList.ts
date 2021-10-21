@@ -8,7 +8,7 @@ export interface ModalCard extends Theme {
   image: Image
 }
 
-interface ModalCardList extends Theme {
+interface ModalCardList extends Partial<Theme> {
   title: string,
   subtitle: string,
   modalCards: ModalCard[]

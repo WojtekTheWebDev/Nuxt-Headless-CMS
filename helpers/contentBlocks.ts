@@ -1,25 +1,8 @@
-import FactoryReturnType from '~/types/cms/factory/FactoryReturnType'
-import Section from '~/types/cms/components/Section'
+import FactoryReturnType from '~/types/cms/contentBlocks/FactoryReturnType'
+import { ComponentUnion, ContentBlockReturnType } from '~/types/cms/contentBlocks'
 
-interface ContentBlock<T> extends FactoryReturnType<T> {
-  component: (() => Promise<typeof import('*.vue')>) | null
-}
-
-const isSection = (p: any): p is Section => !!p.contentBlocks
-
-export function getContentBlock<T> (content: FactoryReturnType<T>): ContentBlock<T> {
+export function getContentBlock<T extends ComponentUnion> (content: FactoryReturnType<T>): ContentBlockReturnType<T> {
   switch (content.type) {
-    case 'section':
-      return {
-        ...content,
-        component: () => import('@/components/cms/PageSection.vue'),
-        props: isSection(content.props)
-          ? {
-              ...content.props,
-              contentBlocks: content.props.contentBlocks.map(item => getContentBlock(item))
-            }
-          : { ...content.props }
-      }
     case 'textBox':
       return {
         ...content,
