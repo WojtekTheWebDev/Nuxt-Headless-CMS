@@ -8,10 +8,9 @@ import {
   MediaBox,
   ModalCardList,
   PageLink,
-  Section,
   TextBox,
   Timeline
-} from '../components'
+} from './components'
 
 type ComponentUnion = Blog
   | Faq

@@ -22,7 +22,7 @@
 import { defineComponent, PropType } from '@nuxtjs/composition-api'
 import PageLink from '@/components/cms/PageLink.vue'
 import Jumbotron from '@/types/cms/components/Jumbotron'
-import useMarkedText from '~/composables/useMarkedText'
+import useMarkedText from '@/composables/useMarkedText'
 
 export default defineComponent({
   name: 'Jumbotron',

@@ -1,4 +1,4 @@
-import { TimelineItemTypes } from '@/types/cms/components/Timeline'
+import { TimelineItemTypes } from '~/types/cms/components/Timeline'
 
 interface TimelineItem {
   name: string;

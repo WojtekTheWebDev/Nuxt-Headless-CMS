@@ -9,6 +9,7 @@ import {
   prepareHeader,
   prepareSections
 } from './utils'
+import { AllowNull } from '~/types/common'
 
 const CONTENT_MODELS = {
   config: 'config',
@@ -39,7 +40,7 @@ export const getConfig = async (locale = '') => {
   }
 }
 
-export const getPageBySlug = async (slug: string, parentSlug = null, locale = '') => {
+export const getPageBySlug = async (slug: string, parentSlug: AllowNull<string> = null, locale = '') => {
   const filter: PageFilter = {
     'fields.slug': slug
   }

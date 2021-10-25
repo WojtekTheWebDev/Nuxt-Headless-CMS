@@ -14,7 +14,7 @@ import {
   TextBox,
   TimelineItem,
   Timeline
-} from './index'
+} from '~/api/integrations/contentful/types/contentModels'
 import { AvailableThemes } from '~/types/cms/Theme'
 
 export type ContentBlock = Blog

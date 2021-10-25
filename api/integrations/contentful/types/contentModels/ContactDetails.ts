@@ -1,12 +1,6 @@
-type ContactDetails = {
+import CMSContactDetails from '~/types/cms/ContactDetails'
+interface ContactDetails extends CMSContactDetails {
   name: string;
-  email?: string;
-  facebook?: string;
-  linkedIn?: string;
-  twitter?: string;
-  youtube?: string;
-  github?: string;
-  instagram?: string;
 }
 
 export default ContactDetails

@@ -8,7 +8,7 @@ app.use(express.json())
 app.get('/config', async (req, res) => {
   try {
     const locale = req.query.locale
-    const config = await getConfig(locale)
+    const config = await getConfig(locale as string)
     res.status(200).json(config)
   } catch (error) {
     res.status(500).json(error)
@@ -20,8 +20,8 @@ app.get('/page/:slugOrName', async (req, res) => {
     const { getByName, locale, parentSlug } = req.query
 
     const page = getByName
-      ? await getPageByName(req.params.slugOrName, locale)
-      : await getPageBySlug(req.params.slugOrName, parentSlug, locale)
+      ? await getPageByName(req.params.slugOrName, locale as string)
+      : await getPageBySlug(req.params.slugOrName, parentSlug as string || null, locale as string)
     res.status(200).json(page)
   } catch (error) {
     res.status(500).json(error)

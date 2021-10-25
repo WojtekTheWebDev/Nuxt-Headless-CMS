@@ -1,4 +1,4 @@
-import { ComponentUnion, ContentBlockReturnType } from '../contentBlocks'
+import { ComponentUnion, ContentBlockReturnType } from '@/types/cms'
 import Theme from '@/types/cms/Theme'
 import AllowNull from '@/types/common/AllowNull'
 

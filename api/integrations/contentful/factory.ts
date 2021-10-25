@@ -24,9 +24,9 @@ import {
   ImageTextBox,
   Faq,
   Jumbotron
-} from '@/types/cms/components'
-import { ArrayElement } from '@/types/common'
-import { FactoryReturnType } from '@/types/cms/contentBlocks'
+} from '~/types/cms/components'
+import { ArrayElement } from '~/types/common'
+import { FactoryReturnType } from '~/types/cms'
 
 export function prepareContent (item: ArrayElement<Section['contentBlocks']>): FactoryReturnType<TextBox>;
 export function prepareContent (item: ArrayElement<Section['contentBlocks']>): FactoryReturnType<MediaBox>;

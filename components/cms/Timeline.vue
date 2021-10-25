@@ -37,7 +37,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from '@nuxtjs/composition-api'
 import ComponentHeader from '@/components/ui/ComponentHeader.vue'
-import Timeline, { TimelineItem } from '~/types/cms/components/Timeline'
+import Timeline, { TimelineItem } from '@/types/cms/components/Timeline'
 
 export default defineComponent({
   name: 'Timeline',

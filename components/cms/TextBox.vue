@@ -9,7 +9,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from '@nuxtjs/composition-api'
 import TextBox from '@/types/cms/components/TextBox'
-import useMarkedText from '~/composables/useMarkedText'
+import useMarkedText from '@/composables/useMarkedText'
 
 export default defineComponent({
   name: 'TextBox',

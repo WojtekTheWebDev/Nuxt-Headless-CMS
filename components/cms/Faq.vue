@@ -28,7 +28,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from '@nuxtjs/composition-api'
 import Faq, { FaqItem } from '@/types/cms/components/Faq'
-import useMarkedText from '~/composables/useMarkedText'
+import useMarkedText from '@/composables/useMarkedText'
 
 export default defineComponent({
   name: 'Faq',

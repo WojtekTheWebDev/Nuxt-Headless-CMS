@@ -1,5 +1,4 @@
-import FactoryReturnType from '~/types/cms/contentBlocks/FactoryReturnType'
-import { ComponentUnion, ContentBlockReturnType } from '~/types/cms/contentBlocks'
+import { ComponentUnion, ContentBlockReturnType, FactoryReturnType } from '@/types/cms'
 
 export function getContentBlock<T extends ComponentUnion> (content: FactoryReturnType<T>): ContentBlockReturnType<T> {
   switch (content.type) {

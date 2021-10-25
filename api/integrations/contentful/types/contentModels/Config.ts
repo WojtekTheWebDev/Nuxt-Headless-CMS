@@ -1,5 +1,5 @@
 import { Asset, Entry } from 'contentful'
-import { Page, ContactDetails, PrivacyPolicy } from './index'
+import { Page, ContactDetails, PrivacyPolicy } from '~/api/integrations/contentful/types/contentModels'
 
 interface Config {
   name: string;

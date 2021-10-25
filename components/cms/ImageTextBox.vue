@@ -29,7 +29,7 @@
 <script lang="ts">
 import { computed, defineComponent, PropType } from '@nuxtjs/composition-api'
 import ImageTextBox from '@/types/cms/components/ImageTextBox'
-import useMarkedText from '~/composables/useMarkedText'
+import useMarkedText from '@/composables/useMarkedText'
 
 export default defineComponent({
   name: 'ImageTextBox',

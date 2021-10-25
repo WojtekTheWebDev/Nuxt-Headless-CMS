@@ -40,7 +40,7 @@ import { defineComponent, PropType, ref } from '@nuxtjs/composition-api'
 import ClickMe from '@/components/ui/ClickMe.vue'
 import TRCloseButton from '@/components/ui/TRCloseButton.vue'
 import { ModalCard } from '@/types/cms/components/ModalCardList'
-import useMarkedText from '~/composables/useMarkedText'
+import useMarkedText from '@/composables/useMarkedText'
 
 export default defineComponent({
   name: 'ModalCard',
