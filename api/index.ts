@@ -1,9 +1,11 @@
 import express from 'express'
-import { getConfig, getPageBySlug, getPageByName } from './integrations/contentful'
+import Integration from '../types/cms/Integration'
 
 const app = express()
 
 app.use(express.json())
+
+const { getConfig, getPageBySlug, getPageByName }: Integration = require(`./integrations/${process.env.INTEGRATION}`)
 
 app.get('/config', async (req, res) => {
   try {
@@ -20,8 +22,8 @@ app.get('/page/:slugOrName', async (req, res) => {
     const { getByName, locale, parentSlug } = req.query
 
     const page = getByName
-      ? await getPageByName(req.params.slugOrName, locale as string)
-      : await getPageBySlug(req.params.slugOrName, parentSlug as string || null, locale as string)
+      ? await getPageByName(req.params.slugOrName, locale as string | undefined)
+      : await getPageBySlug(req.params.slugOrName, parentSlug as string | undefined, locale as string | undefined)
 
     res.status(200).json(page)
   } catch (error) {

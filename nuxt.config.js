@@ -14,7 +14,7 @@ export default {
   },
 
   env: {
-    baseURL: 'http://localhost:3000'
+    baseURL: process.env.BASE_URL || 'http://localhost:3000'
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -46,7 +46,8 @@ export default {
     '@nuxtjs/vuetify',
     '@nuxtjs/google-analytics',
     '@nuxt/typescript-build',
-    '@nuxtjs/composition-api/module'
+    '@nuxtjs/composition-api/module',
+    '@nuxtjs/dotenv'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
