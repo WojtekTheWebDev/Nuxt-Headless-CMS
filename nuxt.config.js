@@ -32,7 +32,7 @@ export default {
   ],
 
   serverMiddleware: [
-    '~/api/index.js'
+    '~/api/index.ts'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

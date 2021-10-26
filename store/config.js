@@ -10,7 +10,7 @@ export const state = () => ({
 
 export const getters = {
   getPageIcon (state) {
-    return state.pageIcon + '?w=30&h=30'
+    return state.pageIcon.src + '?w=30&h=30'
   },
 
   getLogo (state) {

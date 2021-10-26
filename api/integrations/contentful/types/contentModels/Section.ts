@@ -1,4 +1,4 @@
-import { Entry } from 'contentful'
+import { Asset, Entry } from 'contentful'
 import {
   Blog,
   Faq,
@@ -37,7 +37,8 @@ interface Section {
   title?: string;
   fillHeight?: boolean;
   contentBlocks: Entry<ContentBlock>[];
-  theme?: AvailableThemes
+  theme?: AvailableThemes;
+  backgroundImage?: Asset
 }
 
 export default Section

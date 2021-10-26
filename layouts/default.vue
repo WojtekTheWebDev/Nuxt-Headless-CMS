@@ -12,11 +12,11 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import AppHeader from '@/components/layout/AppHeader'
 import AppFooter from '@/components/layout/AppFooter'
 import NavigationDrawer from '@/components/layout/NavigationDrawer'
 import PrivacyPolicy from '@/components/layout/PrivacyPolicy'
-import { mapGetters } from 'vuex'
 
 export default {
   components: {

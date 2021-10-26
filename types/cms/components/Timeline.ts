@@ -11,7 +11,7 @@ export interface TimelineItem {
 }
 
 interface Timeline extends Partial<Theme> {
-  title: string,
+  title?: string,
   items: TimelineItem[]
 }
 

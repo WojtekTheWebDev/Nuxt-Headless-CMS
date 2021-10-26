@@ -7,9 +7,9 @@ export interface Asset extends Image {
 
 interface MediaBox extends Partial<Theme> {
   asset: Asset,
-  width: number,
-  height: number,
-  rounded: boolean
+  width?: number,
+  height?: number,
+  rounded?: boolean
 }
 
 export default MediaBox

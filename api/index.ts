@@ -22,6 +22,7 @@ app.get('/page/:slugOrName', async (req, res) => {
     const page = getByName
       ? await getPageByName(req.params.slugOrName, locale as string)
       : await getPageBySlug(req.params.slugOrName, parentSlug as string || null, locale as string)
+
     res.status(200).json(page)
   } catch (error) {
     res.status(500).json(error)

@@ -9,8 +9,8 @@ export interface ModalCard extends Theme {
 }
 
 interface ModalCardList extends Partial<Theme> {
-  title: string,
-  subtitle: string,
+  title?: string,
+  subtitle?: string,
   modalCards: ModalCard[]
 }
 

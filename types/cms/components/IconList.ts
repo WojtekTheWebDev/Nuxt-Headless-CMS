@@ -8,7 +8,7 @@ export interface IconBox {
 }
 
 interface IconList extends Partial<Theme> {
-  title: string,
+  title?: string,
   icons: IconBox[]
 }
 

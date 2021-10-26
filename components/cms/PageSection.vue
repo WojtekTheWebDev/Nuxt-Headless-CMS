@@ -7,7 +7,7 @@
       'fill-height': fillHeight,
       'with-image': backgroundImage
     }"
-    :style="{ backgroundImage: `url(${backgroundImage})` }"
+    :style="{ backgroundImage: backgroundImage && `url(${backgroundImage})` }"
     :dark="theme === 'dark'"
     flat
     tile
@@ -56,7 +56,7 @@ export default defineComponent({
     },
     backgroundImage: {
       type: String as PropType<Section['backgroundImage']>,
-      default: (): Section['backgroundImage'] => null
+      default: (): Section['backgroundImage'] => undefined
     }
   }
 })

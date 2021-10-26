@@ -52,7 +52,7 @@ export default defineComponent({
     },
     parentPageSlug: {
       type: String as PropType<PageLink['text']>,
-      default: (): PageLink['parentPageSlug'] => null
+      default: (): PageLink['parentPageSlug'] => undefined
     }
   },
 

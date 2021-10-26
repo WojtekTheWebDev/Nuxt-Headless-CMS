@@ -11,7 +11,7 @@ interface Page {
   slug: string;
   header: Entry<PageHeader>
   showHeader?: boolean;
-  sections?: Section[];
+  sections?: Entry<Section>[];
   parentPage?: Entry<Page>
 }
 

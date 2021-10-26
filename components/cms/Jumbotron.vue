@@ -52,7 +52,7 @@ export default defineComponent({
   },
 
   setup (props) {
-    const markedDescription = useMarkedText(props.description)
+    const markedDescription = useMarkedText(props.description || '')
 
     return {
       markedDescription

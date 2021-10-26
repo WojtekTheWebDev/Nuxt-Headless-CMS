@@ -7,7 +7,7 @@ export interface FaqItem {
 }
 
 interface Faq extends Partial<Theme> {
-  title: String,
+  title?: String,
   items: FaqItem[]
 }
 

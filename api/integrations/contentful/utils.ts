@@ -1,10 +1,11 @@
 import { createClient, ContentfulClientApi, Asset } from 'contentful'
-import { AllowNull, Image } from '../../../types/common'
-import { Meta, PrivacyPolicy, Route } from '../../../types/cms'
-import { Header } from '../../../types/cms/components'
 import { prepareContent } from './factory'
 import { AllowedFilterKeys, ContentfulQuery, QueryFilter } from './types/utils'
 import { Config, Page } from './types/contentModels'
+import { AllowNull, Image } from '~/types/common'
+import { Meta, PrivacyPolicy, Route } from '~/types/cms'
+import { PageSection } from '~/types/cms/Page'
+import { Header } from '~//types/cms/components'
 
 export const createContentfulClient = (): ContentfulClientApi => {
   return createClient({
@@ -68,9 +69,9 @@ export const prepareHeader = (page: Page): Header => {
   const { header, showHeader } = page
 
   return {
-    title: header?.fields?.title || '',
-    backgroundImage: header?.fields?.backgroundImage?.fields?.file?.url || null,
-    backgroundColor: header?.fields?.backgroundColor || 'white',
+    title: header.fields.title,
+    backgroundImage: header.fields.backgroundImage?.fields?.file?.url,
+    backgroundColor: header.fields.backgroundColor,
     showHeader: showHeader || true
   }
 }
@@ -88,14 +89,16 @@ export const prepareMeta = (page: Page): Meta => {
   }
 }
 
-export const prepareSections = (page: Page) => {
+export const prepareSections = (page: Page): PageSection[] => {
   const { sections } = page
-  // Remove section from factory method
-  return sections?.map(section => ({
-    name: section.name,
-    title: section.title,
-    fillHeight: section.fillHeight,
-    theme: section.theme,
-    contentBlocks: section.contentBlocks.map(prepareContent)
-  })) || []
+  return sections?.map((section) => {
+    return {
+      name: section.fields.name,
+      title: section.fields.title,
+      fillHeight: section.fields.fillHeight,
+      backgroundImage: section.fields.backgroundImage?.fields.file.url,
+      theme: section.fields.theme || 'light',
+      contentBlocks: section.fields.contentBlocks.map(prepareContent)
+    }
+  }) || []
 }

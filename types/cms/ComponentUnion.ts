@@ -1,7 +1,6 @@
 import {
   Blog,
   Faq,
-  Header,
   IconList,
   ImageTextBox,
   Jumbotron,
@@ -9,19 +8,20 @@ import {
   ModalCardList,
   PageLink,
   TextBox,
-  Timeline
+  Timeline,
+  Section
 } from './components'
 
-type ComponentUnion = Blog
-  | Faq
-  | Header
-  | IconList
-  | ImageTextBox
-  | Jumbotron
+type ComponentUnion = TextBox
   | MediaBox
-  | ModalCardList
-  | PageLink
-  | TextBox
   | Timeline
+  | IconList
+  | ModalCardList
+  | Blog
+  | PageLink
+  | ImageTextBox
+  | Faq
+  | Jumbotron
+  | Section
 
 export default ComponentUnion

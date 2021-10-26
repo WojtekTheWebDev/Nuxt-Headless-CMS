@@ -4,7 +4,7 @@ import Image from '@/types/common/Image'
 export interface BlogPage {
   name: string,
   title: string,
-  description: string,
+  description?: string,
   slug: string,
   image: Image
   parentPageSlug?: string,
