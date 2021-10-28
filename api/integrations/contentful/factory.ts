@@ -26,21 +26,11 @@ import {
   Jumbotron
 } from '~/types/cms/components'
 import { ArrayElement } from '~/types/common'
-import { FactoryReturnType } from '~/types/cms'
+import { BaseFields, ComponentUnion, ContentBlockType, FactoryReturnType } from '~/types/cms'
 
-export function prepareContent (item: ArrayElement<Section['contentBlocks']>): FactoryReturnType<TextBox>;
-export function prepareContent (item: ArrayElement<Section['contentBlocks']>): FactoryReturnType<MediaBox>;
-export function prepareContent (item: ArrayElement<Section['contentBlocks']>): FactoryReturnType<Timeline>;
-export function prepareContent (item: ArrayElement<Section['contentBlocks']>): FactoryReturnType<IconList>;
-export function prepareContent (item: ArrayElement<Section['contentBlocks']>): FactoryReturnType<ModalCardList>;
-export function prepareContent (item: ArrayElement<Section['contentBlocks']>): FactoryReturnType<Blog>;
-export function prepareContent (item: ArrayElement<Section['contentBlocks']>): FactoryReturnType<PageLink>;
-export function prepareContent (item: ArrayElement<Section['contentBlocks']>): FactoryReturnType<ImageTextBox>;
-export function prepareContent (item: ArrayElement<Section['contentBlocks']>): FactoryReturnType<Faq>;
-export function prepareContent (item: ArrayElement<Section['contentBlocks']>): FactoryReturnType<Jumbotron>;
-export function prepareContent (item: ArrayElement<Section['contentBlocks']>) {
-  const type = item.sys.contentType.sys.id
-  const baseFields = {
+export function prepareContent (item: ArrayElement<Section['contentBlocks']>): FactoryReturnType<ComponentUnion> {
+  const type = item.sys.contentType.sys.id as ContentBlockType
+  const baseFields: BaseFields = {
     type,
     name: item.fields.name
   }
@@ -193,7 +183,9 @@ export function prepareContent (item: ArrayElement<Section['contentBlocks']>) {
     default:
       return {
         ...baseFields,
-        props: {}
+        props: {
+          description: ''
+        } as TextBox
       }
   }
 }
