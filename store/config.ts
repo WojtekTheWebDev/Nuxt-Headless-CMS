@@ -1,4 +1,8 @@
-export const state = () => ({
+import { GetterTree, ActionTree, MutationTree } from 'vuex/types'
+import { RootState } from '~/store'
+import { Config } from '~/types/cms'
+
+export const state = (): Config => ({
   routes: null,
   logo: null,
   pageIcon: null,
@@ -8,47 +12,49 @@ export const state = () => ({
   privacyPolicy: null
 })
 
-export const getters = {
+export type State = ReturnType<typeof state>
+
+export const getters: GetterTree<State, RootState> = {
   getPageIcon (state) {
-    return state.pageIcon.src + '?w=30&h=30'
+    return state.pageIcon ? `${state.pageIcon.src}?w=30&h=30` : ''
   },
 
   getLogo (state) {
-    return state.logo + '?w=50&h=50'
+    return state.logo ? `${state.logo}?w=50&h=50` : ''
   }
 }
 
-export const mutations = {
-  SET_ROUTES (state, payload) {
+export const mutations: MutationTree<State> = {
+  SET_ROUTES (state, payload: Config['routes']) {
     state.routes = payload
   },
 
-  SET_LOGO (state, payload) {
+  SET_LOGO (state, payload: Config['logo']) {
     state.logo = payload
   },
 
-  SET_PAGE_ICON (state, payload) {
+  SET_PAGE_ICON (state, payload: Config['pageIcon']) {
     state.pageIcon = payload
   },
 
-  SET_PAGE_NAME (state, payload) {
+  SET_PAGE_NAME (state, payload: Config['pageName']) {
     state.pageName = payload
   },
 
-  SET_HOME_PAGE_NAME (state, payload) {
+  SET_HOME_PAGE_NAME (state, payload: Config['homePageName']) {
     state.homePageName = payload
   },
 
-  SET_CONTACT_DETAILS (state, payload) {
+  SET_CONTACT_DETAILS (state, payload: Config['contactDetails']) {
     state.contactDetails = payload
   },
 
-  SET_PRIVACY_POLICY (state, payload) {
+  SET_PRIVACY_POLICY (state, payload: Config['privacyPolicy']) {
     state.privacyPolicy = payload
   }
 }
 
-export const actions = {
+export const actions: ActionTree<State, RootState> = {
   async init ({ commit }) {
     const res = await fetch(`${process.env.baseURL}/api/config?locale=${this.$i18n.locale}`)
 
@@ -68,11 +74,11 @@ export const actions = {
   async translateState ({ commit }, locale) {
     const config = await fetch(`http://localhost:3000/api/config?locale=${locale}`)
 
-    const { routing, privacyPolicy } = config
+    const { routes, privacyPolicy } = await config.json() as Config
 
-    if (!routing) { return }
+    if (!routes) { return }
 
-    commit('SET_ROUTES', routing.map(page => page.fields))
-    commit('SET_PRIVACY_POLICY', privacyPolicy ? privacyPolicy.fields : null)
+    commit('SET_ROUTES', routes)
+    commit('SET_PRIVACY_POLICY', privacyPolicy)
   }
 }
