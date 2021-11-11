@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, useMeta } from '@nuxtjs/composition-api'
 import AppHeader from '@/components/layout/AppHeader.vue'
 import AppFooter from '@/components/layout/AppFooter.vue'
 import NavigationDrawer from '@/components/layout/NavigationDrawer.vue'
@@ -28,7 +28,8 @@ export default defineComponent({
   },
 
   setup () {
-    usePageIcon()
+    const { metaIcon } = usePageIcon()
+    useMeta(() => metaIcon.value)
   },
 
   head: {}

@@ -4,10 +4,11 @@ export const usePageIcon = () => {
   const { store } = useContext()
   const pageIcon = computed<string>(() => store.getters['config/getPageIcon'])
 
-  useMeta(() => ({ link: [{ rel: 'icon', type: 'image/x-icon', href: pageIcon }] }))
+  const metaIcon = computed(() => ({ link: [{ rel: 'icon', type: 'image/x-icon', href: pageIcon.value }] }))
 
   return {
-    pageIcon
+    pageIcon,
+    metaIcon
   }
 }
 

@@ -41,7 +41,7 @@ export default defineComponent({
   },
 
   setup (props) {
-    usePageIcon()
+    const { metaIcon } = usePageIcon()
 
     const { i18n } = useContext()
 
@@ -58,6 +58,7 @@ export default defineComponent({
     const pageError = computed(() => props.error.statusCode === 404 ? pageNotFound.value : otherError.value)
 
     useMeta(() => ({
+      ...metaIcon.value,
       title: pageError.value.title,
       meta: [
         { hid: 'description', name: 'description', content: pageError.value.message }
