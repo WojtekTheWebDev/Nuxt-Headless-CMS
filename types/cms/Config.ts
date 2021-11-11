@@ -3,13 +3,13 @@ import { Route, PrivacyPolicy } from '~/types/cms'
 import { AllowNull, Image } from '~/types/common'
 
 interface Config {
-  pageName: AllowNull<string>;
-  pageIcon: AllowNull<Image>;
-  logo: AllowNull<Image>;
-  homePageName: AllowNull<string>;
-  routes: AllowNull<Route[]>;
-  contactDetails: AllowNull<ContactDetails>;
-  privacyPolicy: AllowNull<PrivacyPolicy>;
+  pageName: string;
+  pageIcon: Image;
+  logo: Image;
+  homePageName: string;
+  routes: Route[];
+  contactDetails: ContactDetails;
+  privacyPolicy: PrivacyPolicy;
 }
 
 export default Config

@@ -54,12 +54,13 @@
   </v-footer>
 </template>
 
-<script>
-import { mapState } from 'vuex'
-import ContactButtons from '@/components/layout/ContactButtons'
-import Navigation from '@/components/layout/Navigation'
+<script lang="ts">
+import { computed, defineComponent, useContext } from '@nuxtjs/composition-api'
+import { state } from '@/store/config'
+import ContactButtons from '@/components/layout/ContactButtons.vue'
+import Navigation from '@/components/layout/Navigation.vue'
 
-export default {
+export default defineComponent({
   name: 'AppFooter',
 
   components: {
@@ -67,13 +68,19 @@ export default {
     Navigation
   },
 
-  computed: {
-    ...mapState({
-      pageName: ({ config }) => config.pageName,
-      logo: ({ config }) => config.logo
-    })
+  setup () {
+    const { store } = useContext()
+    const configState = store.state as ReturnType<typeof state>
+
+    const pageName = computed(() => configState.pageName)
+    const logo = computed(() => configState.logo)
+
+    return {
+      pageName,
+      logo
+    }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

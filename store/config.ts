@@ -3,13 +3,18 @@ import { RootState } from '~/store'
 import { Config } from '~/types/cms'
 
 export const state = (): Config => ({
-  routes: null,
-  logo: null,
-  pageIcon: null,
-  pageName: null,
-  homePageName: null,
-  contactDetails: null,
-  privacyPolicy: null
+  routes: [],
+  logo: { src: '', alt: '' },
+  pageIcon: { src: '', alt: '' },
+  pageName: '',
+  homePageName: '',
+  contactDetails: {},
+  privacyPolicy: {
+    message: '',
+    acceptButtonText: '',
+    slug: '',
+    title: ''
+  }
 })
 
 export type State = ReturnType<typeof state>
