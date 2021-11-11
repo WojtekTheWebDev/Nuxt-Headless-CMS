@@ -44,10 +44,11 @@
   </nav>
 </template>
 
-<script>
-import { mapState } from 'vuex'
+<script lang="ts">
+import { computed, defineComponent, useContext, useStore } from '@nuxtjs/composition-api'
+import { state } from '~/store/config'
 
-export default {
+export default defineComponent({
   name: 'Navigation',
 
   props: {
@@ -67,11 +68,18 @@ export default {
     }
   },
 
-  computed: {
-    ...mapState({
-      routes: ({ config }) => config.routes,
-      privacyPolicy: ({ config }) => config.privacyPolicy
-    })
+  setup () {
+    const { store } = useContext()
+
+    const configState = store.state.config as ReturnType<typeof state>
+
+    const routes = computed(() => configState.routes)
+    const privacyPolicy = computed(() => configState.privacyPolicy)
+
+    return {
+      routes,
+      privacyPolicy
+    }
   }
-}
+})
 </script>
