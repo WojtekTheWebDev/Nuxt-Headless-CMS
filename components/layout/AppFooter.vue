@@ -70,7 +70,7 @@ export default defineComponent({
 
   setup () {
     const { store } = useContext()
-    const configState = store.state as ReturnType<typeof state>
+    const configState = store.state.config as ReturnType<typeof state>
 
     const pageName = computed(() => configState.pageName)
     const logo = computed(() => configState.logo)
