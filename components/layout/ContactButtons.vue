@@ -16,14 +16,14 @@
     </v-btn>
 
     <v-btn
-      v-if="facebook"
+      v-if="twitter"
       icon
       :class="{ 'ma-3': !dense }"
-      :href="facebook"
+      :href="twitter"
       target="_blank"
     >
       <v-icon>
-        mdi-facebook
+        mdi-twitter
       </v-icon>
     </v-btn>
 
@@ -40,14 +40,26 @@
     </v-btn>
 
     <v-btn
-      v-if="twitter"
+      v-if="facebook"
       icon
       :class="{ 'ma-3': !dense }"
-      :href="twitter"
+      :href="facebook"
       target="_blank"
     >
       <v-icon>
-        mdi-twitter
+        mdi-facebook
+      </v-icon>
+    </v-btn>
+
+    <v-btn
+      v-if="instagram"
+      icon
+      :class="{ 'ma-3': !dense }"
+      :href="instagram"
+      target="_blank"
+    >
+      <v-icon>
+        mdi-instagram
       </v-icon>
     </v-btn>
 
@@ -77,9 +89,11 @@
   </div>
 </template>
 
-<script>
-import { mapState } from 'vuex'
-export default {
+<script lang="ts">
+import { defineComponent, useContext } from '@nuxtjs/composition-api'
+import { state } from '@/store/config'
+
+export default defineComponent({
   name: 'ContactButtons',
 
   props: {
@@ -89,15 +103,19 @@ export default {
     }
   },
 
-  computed: {
-    ...mapState({
-      email: ({ config }) => config.contactDetails.email || null,
-      facebook: ({ config }) => config.contactDetails.facebook || null,
-      linkedIn: ({ config }) => config.contactDetails.linkedIn || null,
-      twitter: ({ config }) => config.contactDetails.twitter || null,
-      youtube: ({ config }) => config.contactDetails.youtube || null,
-      github: ({ config }) => config.contactDetails.github || null
-    })
+  setup () {
+    const { store } = useContext()
+    const configState = store.state.config as ReturnType<typeof state>
+
+    return {
+      email: configState.contactDetails.email,
+      facebook: configState.contactDetails.facebook,
+      instagram: configState.contactDetails.instagram,
+      linkedIn: configState.contactDetails.linkedIn,
+      twitter: configState.contactDetails.twitter,
+      youtube: configState.contactDetails.youtube,
+      github: configState.contactDetails.github
+    }
   }
-}
+})
 </script>
