@@ -5,19 +5,24 @@
   </nuxt-link>
 </template>
 
-<script>
-import { mapState } from 'vuex'
+<script lang="ts">
+import { computed, defineComponent, useContext } from '@nuxtjs/composition-api'
+import { state } from '@/store/config'
 
-export default {
+export default defineComponent({
   name: 'PageLogo',
 
-  computed: {
-    ...mapState({
-      pageName: ({ config }) => config.pageName,
-      logo: ({ config }) => config.logo
-    })
+  setup () {
+    const { store } = useContext()
+
+    const configState = store.state.config as ReturnType<typeof state>
+
+    return {
+      pageName: computed(() => configState.homePageName),
+      logo: computed(() => configState.logo)
+    }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>
