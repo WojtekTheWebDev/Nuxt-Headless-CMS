@@ -18,7 +18,7 @@ export default defineComponent({
     const configState = store.state.config as ReturnType<typeof state>
 
     return {
-      pageName: computed(() => configState.homePageName),
+      pageName: computed(() => configState.pageName),
       logo: computed(() => configState.logo)
     }
   }
