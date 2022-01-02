@@ -12,16 +12,17 @@
   </v-app-bar>
 </template>
 
-<script>
-import PageLogo from '@/components/layout/PageLogo'
-import AppHeaderContent from '@/components/layout/AppHeaderContent'
+<script lang="ts">
+import { defineComponent } from '@nuxtjs/composition-api'
+import PageLogo from '@/components/layout/PageLogo.vue'
+import AppHeaderContent from '@/components/layout/AppHeaderContent.vue'
 
-export default {
+export default defineComponent({
   name: 'AppHeader',
 
   components: {
     PageLogo,
     AppHeaderContent
   }
-}
+})
 </script>

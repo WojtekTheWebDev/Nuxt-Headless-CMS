@@ -1,10 +1,11 @@
 <template>
   <v-navigation-drawer
-    v-model="navDrawerVisible"
+    :value="isVisible"
     app
     dark
     right
     temporary
+    @input="hide"
   >
     <div class="content py-3">
       <Navigation :show-home-page="true" :vertical="true" />
@@ -17,12 +18,14 @@
   </v-navigation-drawer>
 </template>
 
-<script>
-import Navigation from '@/components/layout/Navigation'
-import LanguageSwitcher from '@/components/ui/LanguageSwitcher'
-import ContactButtons from '@/components/layout/ContactButtons'
+<script lang="ts">
+import { computed, defineComponent, useContext } from '@nuxtjs/composition-api'
+import Navigation from '@/components/layout/Navigation.vue'
+import LanguageSwitcher from '@/components/ui/LanguageSwitcher.vue'
+import ContactButtons from '@/components/layout/ContactButtons.vue'
+import { state } from '@/store/ui'
 
-export default {
+export default defineComponent({
   name: 'NavigationDrawer',
 
   components: {
@@ -31,17 +34,19 @@ export default {
     Navigation
   },
 
-  computed: {
-    navDrawerVisible: {
-      get () {
-        return this.$store.state.ui.navigationDrawerVisible
-      },
-      set (value) {
-        this.$store.dispatch('ui/toggleNavigationDrawer', value)
-      }
+  setup () {
+    const { store } = useContext()
+    const uiState = store.state.ui as ReturnType<typeof state>
+
+    const isVisible = computed(() => uiState.navigationDrawerVisible)
+    const hide = (value: boolean) => store.dispatch('ui/setNavigationDrawer', value)
+
+    return {
+      isVisible,
+      hide
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

@@ -8,13 +8,13 @@ export const state = () => ({
 export type State = ReturnType<typeof state>
 
 export const mutations: MutationTree<State> = {
-  TOGGLE_DRAWER (state, payload: boolean) {
+  SET_DRAWER (state, payload: boolean) {
     state.navigationDrawerVisible = payload
   }
 }
 
 export const actions: ActionTree<State, RootState> = {
-  toggleNavigationDrawer ({ commit }, payload: boolean) {
-    commit('TOGGLE_DRAWER', payload)
+  setNavigationDrawer ({ commit }, payload: boolean) {
+    commit('SET_DRAWER', payload)
   }
 }
