@@ -57,10 +57,10 @@ export default defineComponent({
   },
 
   setup (props) {
-    const app = useContext()
+    const { localePath } = useContext()
     const link = computed(() => props.parentPageSlug
-      ? app.localePath(`/${props.parentPageSlug}/${props.slug}`)
-      : app.localePath(`/${props.slug}`))
+      ? localePath(`/${props.parentPageSlug}/${props.slug}`)
+      : localePath(`/${props.slug}`))
 
     return {
       link
