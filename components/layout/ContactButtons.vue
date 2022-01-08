@@ -16,14 +16,14 @@
     </v-btn>
 
     <v-btn
-      v-if="twitter"
+      v-if="facebook"
       icon
       :class="{ 'ma-3': !dense }"
-      :href="twitter"
+      :href="facebook"
       target="_blank"
     >
       <v-icon>
-        mdi-twitter
+        mdi-facebook
       </v-icon>
     </v-btn>
 
@@ -40,26 +40,14 @@
     </v-btn>
 
     <v-btn
-      v-if="facebook"
+      v-if="twitter"
       icon
       :class="{ 'ma-3': !dense }"
-      :href="facebook"
+      :href="twitter"
       target="_blank"
     >
       <v-icon>
-        mdi-facebook
-      </v-icon>
-    </v-btn>
-
-    <v-btn
-      v-if="instagram"
-      icon
-      :class="{ 'ma-3': !dense }"
-      :href="instagram"
-      target="_blank"
-    >
-      <v-icon>
-        mdi-instagram
+        mdi-twitter
       </v-icon>
     </v-btn>
 
@@ -89,11 +77,9 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, useContext } from '@nuxtjs/composition-api'
-import { state } from '@/store/config'
-
-export default defineComponent({
+<script>
+import { mapState } from 'vuex'
+export default {
   name: 'ContactButtons',
 
   props: {
@@ -103,19 +89,15 @@ export default defineComponent({
     }
   },
 
-  setup () {
-    const { store } = useContext()
-    const configState = store.state.config as ReturnType<typeof state>
-
-    return {
-      email: configState.contactDetails.email,
-      facebook: configState.contactDetails.facebook,
-      instagram: configState.contactDetails.instagram,
-      linkedIn: configState.contactDetails.linkedIn,
-      twitter: configState.contactDetails.twitter,
-      youtube: configState.contactDetails.youtube,
-      github: configState.contactDetails.github
-    }
+  computed: {
+    ...mapState({
+      email: state => state.config.contactDetails.email || null,
+      facebook: state => state.config.contactDetails.facebook || null,
+      linkedIn: state => state.config.contactDetails.linkedIn || null,
+      twitter: state => state.config.contactDetails.twitter || null,
+      youtube: state => state.config.contactDetails.youtube || null,
+      github: state => state.config.contactDetails.github || null
+    })
   }
-})
+}
 </script>

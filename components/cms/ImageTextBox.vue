@@ -9,8 +9,8 @@
         lg="4"
       >
         <img
-          :src="imageSrc"
-          :alt="image.alt"
+          :src="imageURL"
+          :alt="image.title"
           :width="150"
           :height="150"
         >
@@ -26,41 +26,39 @@
   </div>
 </template>
 
-<script lang="ts">
-import { computed, defineComponent, PropType } from '@nuxtjs/composition-api'
-import ImageTextBox from '@/types/cms/components/ImageTextBox'
-import useMarkedText from '@/composables/useMarkedText'
+<script>
+import CMSMixin from '@/mixins/CMSMixin'
+import marked from 'marked'
 
-export default defineComponent({
+export default {
   name: 'ImageTextBox',
 
+  mixins: [CMSMixin],
+
   props: {
-    theme: {
-      type: String as PropType<ImageTextBox['theme']>,
-      default: (): ImageTextBox['theme'] => 'light',
-      validate: (val: ImageTextBox['theme']) => val === 'light' || val === 'dark'
-    },
     description: {
-      type: String as PropType<ImageTextBox['description']>,
-      default: (): ImageTextBox['description'] => ''
+      type: String,
+      default: ''
     },
+
     image: {
-      type: Object as PropType<ImageTextBox['image']>,
-      default: (): ImageTextBox['image'] => ({
+      type: Object,
+      default: () => ({
         src: '',
-        alt: ''
+        type: '',
+        title: ''
       })
     }
   },
 
-  setup (props) {
-    const markedDescription = useMarkedText(props.description)
-    const imageSrc = computed(() => `${props.image.src}?w=150&h=150`)
+  computed: {
+    markedDescription () {
+      return marked(this.description)
+    },
 
-    return {
-      markedDescription,
-      imageSrc
+    imageURL () {
+      return `${this.image.src}?w=150&h=150`
     }
   }
-})
+}
 </script>
