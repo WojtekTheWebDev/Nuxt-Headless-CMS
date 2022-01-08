@@ -9,8 +9,10 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from '@nuxtjs/composition-api'
+
+export default defineComponent({
   name: 'ComponentHeader',
 
   props: {
@@ -24,7 +26,7 @@ export default {
       default: ''
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

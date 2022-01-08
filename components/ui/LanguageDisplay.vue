@@ -5,10 +5,12 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent, PropType } from '@nuxtjs/composition-api'
 import CountryFlag from 'vue-country-flag'
+import { Locale } from '@/types/common'
 
-export default {
+export default defineComponent({
   name: 'LanguageDisplay',
 
   components: {
@@ -17,12 +19,12 @@ export default {
 
   props: {
     locale: {
-      type: Object,
-      default: () => ({
+      type: Object as PropType<Locale>,
+      default: (): Locale => ({
         code: '',
         iso: ''
       })
     }
   }
-}
+})
 </script>
