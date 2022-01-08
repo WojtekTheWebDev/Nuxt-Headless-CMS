@@ -20,13 +20,12 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, useContext } from '@nuxtjs/composition-api'
-import ContactButtons from '@/components/layout/ContactButtons.vue'
-import LanguageSwitcher from '@/components/ui/LanguageSwitcher.vue'
-import Navigation from '@/components/layout/Navigation.vue'
+<script>
+import ContactButtons from '@/components/layout/ContactButtons'
+import LanguageSwitcher from '@/components/ui/LanguageSwitcher'
+import Navigation from '@/components/layout/Navigation'
 
-export default defineComponent({
+export default {
   name: 'AppHeaderContent',
 
   components: {
@@ -35,15 +34,12 @@ export default defineComponent({
     ContactButtons
   },
 
-  setup () {
-    const { store } = useContext()
-    const showDrawer = () => store.dispatch('ui/setNavigationDrawer', true)
-
-    return {
-      showDrawer
+  methods: {
+    showDrawer () {
+      this.$store.dispatch('ui/toggleNavigationDrawer', true)
     }
   }
-})
+}
 </script>
 
 <style lang="scss" scoped>

@@ -16,13 +16,10 @@
   </article>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from '@nuxtjs/composition-api'
-import PageHeader from '@/components/cms/PageHeader.vue'
-import { Page } from '@/types/cms'
-import { Section } from '~/types/cms/components'
+<script>
+import PageHeader from '@/components/cms/PageHeader'
 
-export default defineComponent({
+export default {
   name: 'StandardPage',
 
   components: {
@@ -31,7 +28,7 @@ export default defineComponent({
 
   props: {
     header: {
-      type: Object as PropType<Page['header']>,
+      type: Object,
       default: () => ({
         title: '',
         backgroundImage: '',
@@ -41,11 +38,11 @@ export default defineComponent({
     },
 
     contentBlocks: {
-      type: Array as PropType<Section['contentBlocks']>,
-      default: (): Section['contentBlocks'] => []
+      type: Array,
+      default: () => []
     }
   }
-})
+}
 </script>
 
 <style lang="scss" scoped>

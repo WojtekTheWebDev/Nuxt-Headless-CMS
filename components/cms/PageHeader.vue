@@ -26,32 +26,36 @@
   </header>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from '@nuxtjs/composition-api'
-import Header from '@/types/cms/components/Header'
+<script>
+import CMSMixin from '@/mixins/CMSMixin'
 
-export default defineComponent({
+export default {
   name: 'PageHeader',
+
+  mixins: [CMSMixin],
 
   props: {
     title: {
-      type: String as PropType<Header['title']>,
-      default: (): Header['title'] => ''
+      type: String,
+      default: ''
     },
+
     backgroundImage: {
-      type: String as PropType<Header['backgroundImage']>,
-      default: (): Header['backgroundImage'] => ''
+      type: String,
+      default: ''
     },
+
     backgroundColor: {
-      type: String as PropType<Header['backgroundColor']>,
-      default: (): Header['backgroundColor'] => 'white'
+      type: String,
+      default: 'white'
     },
+
     showHeader: {
-      type: Boolean as PropType<Header['showHeader']>,
-      default: (): Header['showHeader'] => true
+      type: Boolean,
+      default: true
     }
   }
-})
+}
 </script>
 
 <style lang="scss" scoped>
