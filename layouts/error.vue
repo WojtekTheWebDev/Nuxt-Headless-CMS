@@ -25,46 +25,53 @@
   </v-app>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { computed, defineComponent, PropType, useContext, useMeta } from '@nuxtjs/composition-api'
+import { NuxtError } from '@nuxt/types'
+import usePageIcon from '~/composables/usePageIcon'
+
+export default defineComponent({
   layout: 'empty',
 
   props: {
     error: {
-      type: Object,
-      default: null
+      type: Object as PropType<NuxtError>,
+      default: (): NuxtError => ({})
     }
   },
 
-  head () {
-    return {
-      title: this.pageError.title,
+  setup (props) {
+    const { metaIcon } = usePageIcon()
+
+    const { i18n } = useContext()
+
+    const pageNotFound = computed(() => ({
+      title: i18n.t('pageNotFoundTitle') as string,
+      message: i18n.t('pageNotFoundMessage') as string
+    }))
+
+    const otherError = computed(() => ({
+      title: i18n.t('otherErrorTitle') as string,
+      message: i18n.t('otherErrorMessage') as string
+    }))
+
+    const pageError = computed(() => props.error.statusCode === 404 ? pageNotFound.value : otherError.value)
+
+    useMeta(() => ({
+      ...metaIcon.value,
+      title: pageError.value.title,
       meta: [
-        { hid: 'description', name: 'description', content: this.pageError.message }
+        { hid: 'description', name: 'description', content: pageError.value.message }
       ]
+    }))
+
+    return {
+      pageError
     }
   },
 
-  computed: {
-    pageError () {
-      return this.error.statusCode === 404 ? this.pageNotFound : this.otherError
-    },
-
-    pageNotFound () {
-      return {
-        title: this.$t('pageNotFoundTitle'),
-        message: this.$t('pageNotFoundMessage')
-      }
-    },
-
-    otherError () {
-      return {
-        title: this.$t('otherErrorTitle'),
-        message: this.$t('otherErrorMessage')
-      }
-    }
-  }
-}
+  head: {}
+})
 </script>
 
 <style lang="scss" scoped>
@@ -72,19 +79,21 @@ export default {
 
 h1 {
   font-size: 5rem;
+  text-align: center;
 }
 
 p {
   font-size: 2rem;
+  text-align: center;
 }
 
 @media #{map-get($display-breakpoints, 'sm-and-down')} {
   h1 {
-  font-size: 3rem;
-}
+    font-size: 3rem;
+  }
 
-p {
-  font-size: 1.5rem;
-}
+  p {
+    font-size: 1.5rem;
+  }
 }
 </style>

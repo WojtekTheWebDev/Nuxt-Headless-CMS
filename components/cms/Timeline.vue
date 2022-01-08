@@ -34,32 +34,36 @@
   </div>
 </template>
 
-<script>
-import CMSMixin from '@/mixins/CMSMixin'
-import ComponentHeader from '@/components/ui/ComponentHeader'
+<script lang="ts">
+import { defineComponent, PropType } from '@nuxtjs/composition-api'
+import ComponentHeader from '@/components/ui/ComponentHeader.vue'
+import Timeline, { TimelineItem } from '@/types/cms/components/Timeline'
 
-export default {
+export default defineComponent({
   name: 'Timeline',
 
   components: {
     ComponentHeader
   },
 
-  mixins: [CMSMixin],
-
   props: {
+    theme: {
+      type: String as PropType<Timeline['theme']>,
+      default: (): Timeline['theme'] => 'light',
+      validate: (val: Timeline['theme']) => val === 'light' || val === 'dark'
+    },
     title: {
-      type: String,
-      default: ''
+      type: String as PropType<Timeline['title']>,
+      default: (): Timeline['title'] => ''
     },
     items: {
-      type: Array,
-      default: () => []
+      type: Array as PropType<Timeline['items']>,
+      default: (): Timeline['items'] => []
     }
   },
 
-  methods: {
-    getIcon (type) {
+  setup (props) {
+    const getIcon = (type: TimelineItem['type']) => {
       switch (type) {
         case 'EDUCATION':
           return 'mdi-school'
@@ -71,6 +75,10 @@ export default {
           return ''
       }
     }
+
+    return {
+      getIcon
+    }
   }
-}
+})
 </script>
