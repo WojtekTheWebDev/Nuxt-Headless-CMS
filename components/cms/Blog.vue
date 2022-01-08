@@ -17,14 +17,14 @@
           :elevation="hover ? 5 : 0"
         >
           <v-img
-            v-if="!!page.header"
+            v-if="isImageInPage(page)"
             class="card-image"
-            :src="getPageHeader(page)"
-            :alt="getPageAlt(page)"
+            :src="getImageSrc(page)"
+            :alt="page.image.alt"
           />
           <v-card-title>{{ page.title }}</v-card-title>
           <v-card-text>
-            {{ page.description || page.metaDescription || '' }}
+            {{ page.description }}
           </v-card-text>
         </v-card>
       </v-hover>
@@ -32,35 +32,43 @@
   </div>
 </template>
 
-<script>
-import CMSMixin from '@/mixins/CMSMixin'
+<script lang="ts">
+import { defineComponent, useContext, PropType } from '@nuxtjs/composition-api'
+import Blog, { BlogPage } from '@/types/cms/components/Blog'
 
-export default {
+export default defineComponent({
   name: 'Blog',
 
-  mixins: [CMSMixin],
-
   props: {
+    theme: {
+      type: String as PropType<Blog['theme']>,
+      default: (): Blog['theme'] => 'light',
+      validate: (val: Blog['theme']) => val === 'light' || val === 'dark'
+    },
     pages: {
-      type: Array,
-      default: () => []
+      type: Array as PropType<Blog['pages']>,
+      default: (): Blog['pages'] => []
     }
   },
 
-  methods: {
-    getPageHeader (page) {
-      return page.header ? `${page.header.fields.backgroundImage.fields.file.url}?w=300` : null
-    },
+  setup ({ pages }) {
+    const { app } = useContext()
 
-    getPageAlt (page) {
-      return page.header?.fields?.backgroundImage?.fields?.title || ''
-    },
+    const getImageSrc = (page: BlogPage) => (`${page.image.src}?w=300`)
+    const isImageInPage = (page: BlogPage) => 'image' in page && 'src' in page.image
+    const getPageLink = (page: BlogPage) => (
+      app.localePath(page.parentPageSlug
+        ? `/${page.parentPageSlug}/${page.slug}`
+        : `/${page.slug}`)
+    )
 
-    getPageLink (page) {
-      return page.parentPage ? this.localePath(`/${page.parentPage?.fields?.slug}/${page.slug}`) : this.localePath(`/${page.slug}`)
+    return {
+      getImageSrc,
+      isImageInPage,
+      getPageLink
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

@@ -6,28 +6,34 @@
   />
 </template>
 
-<script>
-import marked from 'marked'
-import CMSMixin from '@/mixins/CMSMixin'
+<script lang="ts">
+import { defineComponent, PropType } from '@nuxtjs/composition-api'
+import TextBox from '@/types/cms/components/TextBox'
+import useMarkedText from '@/composables/useMarkedText'
 
-export default {
+export default defineComponent({
   name: 'TextBox',
 
-  mixins: [CMSMixin],
-
   props: {
+    theme: {
+      type: String as PropType<TextBox['theme']>,
+      default: (): TextBox['theme'] => 'light',
+      validate: (val: TextBox['theme']) => val === 'light' || val === 'dark'
+    },
     description: {
-      type: String,
-      default: ''
+      type: String as PropType<TextBox['description']>,
+      default: (): TextBox['description'] => ''
     }
   },
 
-  computed: {
-    markedDescription () {
-      return marked(this.description)
+  setup (props) {
+    const markedDescription = useMarkedText(props.description)
+
+    return {
+      markedDescription
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>
