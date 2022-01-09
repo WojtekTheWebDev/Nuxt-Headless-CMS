@@ -607,7 +607,7 @@
         "id": "page",
         "type": "ContentType",
         "createdAt": "2021-04-10T15:24:48.225Z",
-        "updatedAt": "2022-01-08T23:24:50.007Z",
+        "updatedAt": "2022-01-09T22:52:59.334Z",
         "environment": {
           "sys": {
             "id": "nuxtfolio",
@@ -615,8 +615,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 37,
-        "publishedAt": "2022-01-08T23:24:50.007Z",
+        "publishedVersion": 39,
+        "publishedAt": "2022-01-09T22:52:59.334Z",
         "firstPublishedAt": "2021-04-10T15:24:59.003Z",
         "createdBy": {
           "sys": {
@@ -632,8 +632,8 @@
             "id": "0xtQf19pcoNQhr5JWKAjAC"
           }
         },
-        "publishedCounter": 19,
-        "version": 38,
+        "publishedCounter": 20,
+        "version": 40,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -774,7 +774,7 @@
           "name": "Header",
           "type": "Link",
           "localized": false,
-          "required": true,
+          "required": false,
           "validations": [
             {
               "linkContentType": [
@@ -794,6 +794,9 @@
           "required": false,
           "validations": [
           ],
+          "defaultValue": {
+            "en": true
+          },
           "disabled": false,
           "omitted": false
         },
@@ -2751,7 +2754,7 @@
             "linkType": "Space"
           }
         },
-        "version": 38,
+        "version": 40,
         "createdAt": "2021-04-10T15:24:59.127Z",
         "createdBy": {
           "sys": {
@@ -2760,7 +2763,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2022-01-08T23:24:50.744Z",
+        "updatedAt": "2022-01-09T22:53:00.071Z",
         "updatedBy": {
           "sys": {
             "id": "0xtQf19pcoNQhr5JWKAjAC",
