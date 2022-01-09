@@ -5,7 +5,11 @@ const app = express()
 
 app.use(express.json())
 
-const { getConfig, getPageBySlug, getPageByName }: Integration = require(`./integrations/${process.env.INTEGRATION}`)
+const {
+  getConfig,
+  getPageBySlug,
+  getPageByName
+}: Integration = require(`./integrations/${process.env.INTEGRATION}`)
 
 app.get('/config', async (req, res) => {
   try {
