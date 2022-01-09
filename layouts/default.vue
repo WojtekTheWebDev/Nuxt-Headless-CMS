@@ -11,15 +11,15 @@
   </v-app>
 </template>
 
-<script>
-import AppHeader from '@/components/layout/AppHeader'
-import AppFooter from '@/components/layout/AppFooter'
-import NavigationDrawer from '@/components/layout/NavigationDrawer'
-import PageMixin from '@/mixins/PageMixin'
-import PrivacyPolicy from '@/components/layout/PrivacyPolicy'
-import { mapGetters } from 'vuex'
+<script lang="ts">
+import { defineComponent, useMeta } from '@nuxtjs/composition-api'
+import AppHeader from '@/components/layout/AppHeader.vue'
+import AppFooter from '@/components/layout/AppFooter.vue'
+import NavigationDrawer from '@/components/layout/NavigationDrawer.vue'
+import PrivacyPolicy from '@/components/layout/PrivacyPolicy.vue'
+import usePageIcon from '~/composables/usePageIcon'
 
-export default {
+export default defineComponent({
   components: {
     AppHeader,
     AppFooter,
@@ -27,22 +27,13 @@ export default {
     PrivacyPolicy
   },
 
-  mixins: [PageMixin],
-
-  head () {
-    return {
-      link: [
-        { rel: 'icon', type: 'image/x-icon', href: this.pageIcon }
-      ]
-    }
+  setup () {
+    const { metaIcon } = usePageIcon()
+    useMeta(() => metaIcon.value)
   },
 
-  computed: {
-    ...mapGetters({
-      pageIcon: 'config/getPageIcon'
-    })
-  }
-}
+  head: {}
+})
 </script>
 
 <style lang="scss">

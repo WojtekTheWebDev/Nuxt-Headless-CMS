@@ -14,12 +14,7 @@ export default {
   },
 
   env: {
-    contentfulSpace: process.env.CONTENTFUL_SPACE || '',
-    contentfulEnv: process.env.CONTENTFUL_ENV || 'master',
-    contentfulToken: process.env.CONTENTFUL_TOKEN || '',
-    pageContentModel: process.env.CONTENTFUL_PAGE_CONTENT_MODEL || 'page',
-    configContentModel: process.env.CONTENTFUL_CONFIG_CONTENT_MODEL || 'config',
-    contentfulIncludeLevel: process.env.CONTENTFUL_INCLUDE_LEVEL || 10
+    baseURL: process.env.BASE_URL || 'http://localhost:3000'
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -36,6 +31,10 @@ export default {
   plugins: [
   ],
 
+  serverMiddleware: [
+    '~/api/index.ts'
+  ],
+
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
@@ -45,14 +44,17 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/google-analytics',
+    '@nuxt/typescript-build',
+    '@nuxtjs/composition-api/module',
+    '@nuxtjs/dotenv'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    'nuxt-i18n'
+    '@nuxtjs/i18n'
   ],
 
   googleAnalytics: {
@@ -80,11 +82,6 @@ export default {
         }
       }
     }
-  },
-
-  // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {
-    baseURL: 'https://cdn.contentful.com'
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

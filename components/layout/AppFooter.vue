@@ -13,7 +13,7 @@
           md="4"
         >
           <div class="text-center">
-            <img :src="logo" alt="logo">
+            <img :src="logo.src" :alt="logo.alt" width="75" height="75">
             <p>{{ pageName }}</p>
             <small class="dark-theme">
               Made with
@@ -54,12 +54,13 @@
   </v-footer>
 </template>
 
-<script>
-import { mapGetters, mapState } from 'vuex'
-import ContactButtons from '@/components/layout/ContactButtons'
-import Navigation from '@/components/layout/Navigation'
+<script lang="ts">
+import { computed, defineComponent, useContext } from '@nuxtjs/composition-api'
+import { state } from '@/store/config'
+import ContactButtons from '@/components/layout/ContactButtons.vue'
+import Navigation from '@/components/layout/Navigation.vue'
 
-export default {
+export default defineComponent({
   name: 'AppFooter',
 
   components: {
@@ -67,16 +68,19 @@ export default {
     Navigation
   },
 
-  computed: {
-    ...mapState({
-      pageName: state => state.config.pageName
-    }),
-    ...mapGetters({
-      logo: 'config/getLogo',
-      routes: 'config/getRoutes'
-    })
+  setup () {
+    const { store } = useContext()
+    const configState = store.state.config as ReturnType<typeof state>
+
+    const pageName = computed(() => configState.pageName)
+    const logo = computed(() => configState.logo)
+
+    return {
+      pageName,
+      logo
+    }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

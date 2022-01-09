@@ -7,7 +7,7 @@
     color="info"
   >
     <a
-      :href="privacyPolicyURL"
+      :href="privacyPolicy.slug"
       target="_blank"
     >
       {{ privacyPolicy.message }}
@@ -18,7 +18,7 @@
         text
         color="primary"
         v-bind="attrs"
-        @click="accept"
+        @click="handleAccept"
       >
         {{ privacyPolicy.acceptButtonText }}
       </v-btn>
@@ -26,42 +26,44 @@
   </v-snackbar>
 </template>
 
-<script>
+<script lang="ts">
+import {
+  ref,
+  computed,
+  defineComponent,
+  useContext
+} from '@nuxtjs/composition-api'
 import Cookie from 'js-cookie'
-import { mapState } from 'vuex'
+import { state } from '~/store/config'
 
-const ACCEPTED_STATUS = 'accepted'
-
-export default {
+export default defineComponent({
   name: 'PrivacyPolicy',
 
-  data: () => ({
-    snackbar: false
-  }),
+  setup () {
+    const acceptedStatus = 'accepted'
+    const { store } = useContext()
+    const snackbar = ref(false)
 
-  computed: {
-    ...mapState({
-      privacyPolicy: state => state.config.privacyPolicy
-    }),
+    const configState = store.state.config as ReturnType<typeof state>
 
-    privacyPolicyURL () {
-      return this.localePath(`/${this.privacyPolicy?.privacyPolicyPage?.fields?.slug}`)
+    const privacyPolicy = computed(() => configState.privacyPolicy)
+
+    if (Cookie.get('privacy-policy') !== acceptedStatus) {
+      snackbar.value = true
     }
-  },
 
-  created () {
-    if (Cookie.get('privacy-policy') !== ACCEPTED_STATUS) {
-      this.snackbar = true
+    const handleAccept = () => {
+      Cookie.set('privacy-policy', acceptedStatus)
+      snackbar.value = false
     }
-  },
 
-  methods: {
-    accept () {
-      Cookie.set('privacy-policy', ACCEPTED_STATUS)
-      this.snackbar = false
+    return {
+      snackbar,
+      privacyPolicy,
+      handleAccept
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

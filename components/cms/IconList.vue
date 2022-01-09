@@ -18,12 +18,13 @@
   </div>
 </template>
 
-<script>
-import CMSMixin from '@/mixins/CMSMixin'
-import ComponentHeader from '@/components/ui/ComponentHeader'
-import IconBox from '@/components/cms/IconBox'
+<script lang="ts">
+import { defineComponent, PropType } from '@nuxtjs/composition-api'
+import IconList from '@/types/cms/components/IconList'
+import ComponentHeader from '@/components/ui/ComponentHeader.vue'
+import IconBox from '@/components/cms/IconBox.vue'
 
-export default {
+export default defineComponent({
   name: 'IconList',
 
   components: {
@@ -31,17 +32,20 @@ export default {
     ComponentHeader
   },
 
-  mixins: [CMSMixin],
-
   props: {
+    theme: {
+      type: String as PropType<IconList['theme']>,
+      default: (): IconList['theme'] => 'light',
+      validate: (val: IconList['theme']) => val === 'light' || val === 'dark'
+    },
     title: {
-      type: String,
-      default: ''
+      type: String as PropType<IconList['title']>,
+      default: (): IconList['title'] => ''
     },
     icons: {
-      type: Array,
-      default: () => []
+      type: Array as PropType<IconList['icons']>,
+      default: (): IconList['icons'] => []
     }
   }
-}
+})
 </script>
