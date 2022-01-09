@@ -1,4 +1,4 @@
-import { Config, Page } from './types/contentModels'
+import { ContentfulConfig, ContentfulPage } from './types/contentModels'
 import { PageFilter } from './types/utils'
 import {
   getEntries,
@@ -17,7 +17,7 @@ const CONTENT_MODELS = {
 }
 
 export const getConfig = async (locale = '') => {
-  const [entry] = await getEntries<Config>(CONTENT_MODELS.config, locale, null, 1)
+  const [entry] = await getEntries<ContentfulConfig>(CONTENT_MODELS.config, locale, null, 1)
 
   const {
     routing,
@@ -49,7 +49,7 @@ export const getPageBySlug = async (slug: string, parentSlug: AllowNull<string> 
     filter['fields.parentPage.fields.slug'] = parentSlug
   }
 
-  const [entry] = await getEntries<Page>(CONTENT_MODELS.page, locale, filter, 1)
+  const [entry] = await getEntries<ContentfulPage>(CONTENT_MODELS.page, locale, filter, 1)
   const page = entry.fields
 
   return {
@@ -64,7 +64,7 @@ export const getPageByName = async (name: string, locale = '') => {
     'fields.name': name
   }
 
-  const [entry] = await getEntries<Page>(CONTENT_MODELS.page, locale, filter, 1)
+  const [entry] = await getEntries<ContentfulPage>(CONTENT_MODELS.page, locale, filter, 1)
   const page = entry.fields
 
   return {

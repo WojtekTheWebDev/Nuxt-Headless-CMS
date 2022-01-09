@@ -1,11 +1,11 @@
 import { Entry } from 'contentful'
-import PageLink from './PageLink'
+import PageLink from './ContentfulPageLink'
 
-interface Jumbotron {
+interface ContentfulJumbotron {
   name: string;
   title: string;
   description?: string;
   pageLinks?: Entry<PageLink>[]
 }
 
-export default Jumbotron
+export default ContentfulJumbotron

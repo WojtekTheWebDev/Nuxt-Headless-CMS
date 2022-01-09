@@ -1,17 +1,17 @@
 /* eslint-disable no-redeclare */
 import { prepareHeader } from './utils'
 import {
-  Section,
-  TextBox as ContentfulTextBox,
-  MediaBox as ContentfulMediaBox,
-  Timeline as ContentfulTimeline,
-  IconList as ContentfulIconList,
-  ModalCardList as ContentfulModalCardList,
-  Blog as ContentfulBlog,
-  PageLink as ContentfulPageLink,
-  ImageTextBox as ContentfulImageTextBox,
-  Faq as ContentfulFaq,
-  Jumbotron as ContentfulJumbotron
+  ContentfulSection,
+  ContentfulTextBox,
+  ContentfulMediaBox,
+  ContentfulTimeline,
+  ContentfulIconList,
+  ContentfulModalCardList,
+  ContentfulBlog,
+  ContentfulPageLink,
+  ContentfulImageTextBox,
+  ContentfulFaq,
+  ContentfulJumbotron
 } from './types/contentModels'
 import {
   TextBox,
@@ -28,7 +28,7 @@ import {
 import { ArrayElement } from '~/types/common'
 import { BaseFields, ComponentUnion, ContentBlockType, FactoryReturnType } from '~/types/cms'
 
-export function prepareContent (item: ArrayElement<Section['contentBlocks']>): FactoryReturnType<ComponentUnion> {
+export function prepareContent (item: ArrayElement<ContentfulSection['contentBlocks']>): FactoryReturnType<ComponentUnion> {
   const type = item.sys.contentType.sys.id as ContentBlockType
   const baseFields: BaseFields = {
     type,

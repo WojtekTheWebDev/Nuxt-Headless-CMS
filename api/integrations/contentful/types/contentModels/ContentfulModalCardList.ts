@@ -1,11 +1,11 @@
 import { Entry } from 'contentful'
-import ModalCard from './ModalCard'
+import ModalCard from './ContentfulModalCard'
 
-interface ModalCardList {
+interface ContentfulModalCardList {
   name: string;
   title?: string;
   subtitle?: string;
   modalCards: Entry<ModalCard>[]
 }
 
-export default ModalCardList
+export default ContentfulModalCardList

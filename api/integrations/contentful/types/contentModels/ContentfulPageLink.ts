@@ -1,12 +1,12 @@
 import { Entry } from 'contentful'
-import Page from './Page'
+import ContentfulPage from './ContentfulPage'
 import { AllowedTypes } from '@/types/cms/components/PageLink'
 
-interface PageLink {
+interface ContentfulPageLink {
   name: string;
   text: string;
-  page: Entry<Page>;
+  page: Entry<ContentfulPage>;
   type: AllowedTypes;
 }
 
-export default PageLink
+export default ContentfulPageLink

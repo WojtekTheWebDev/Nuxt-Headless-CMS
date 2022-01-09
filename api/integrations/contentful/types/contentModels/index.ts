@@ -1,43 +1,43 @@
-import Blog from './Blog'
-import Config from './Config'
-import ContactDetails from './ContactDetails'
-import Faq from './Faq'
-import FaqItem from './FaqItem'
-import IconBox from './IconBox'
-import IconList from './IconList'
-import ImageTextBox from './ImageTextBox'
-import Jumbotron from './Jumbotron'
-import MediaBox from './MediaBox'
-import ModalCard from './ModalCard'
-import ModalCardList from './ModalCardList'
-import Page from './Page'
-import PageHeader from './PageHeader'
-import PageLink from './PageLink'
-import PrivacyPolicy from './PrivacyPolicy'
-import Section from './Section'
-import TextBox from './TextBox'
-import TimelineItem from './TimelineItem'
-import Timeline from './Timeline'
+import ContentfulBlog from './ContentfulBlog'
+import ContentfulConfig from './ContentfulConfig'
+import ContentfulContactDetails from './ContentfulContactDetails'
+import ContentfulFaq from './ContentfulFaq'
+import ContentfulFaqItem from './ContentfulFaqItem'
+import ContentfulIconBox from './ContentfulIconBox'
+import ContentfulIconList from './ContentfulIconList'
+import ContentfulImageTextBox from './ContentfulImageTextBox'
+import ContentfulJumbotron from './ContentfulJumbotron'
+import ContentfulMediaBox from './ContentfulMediaBox'
+import ContentfulModalCard from './ContentfulModalCard'
+import ContentfulModalCardList from './ContentfulModalCardList'
+import ContentfulPage from './ContentfulPage'
+import ContentfulPageHeader from './ContentfulPageHeader'
+import ContentfulPageLink from './ContentfulPageLink'
+import ContentfulPrivacyPolicy from './ContentfulPrivacyPolicy'
+import ContentfulSection from './ContentfulSection'
+import ContentfulTextBox from './ContentfulTextBox'
+import ContentfulTimelineItem from './ContentfulTimelineItem'
+import ContentfulTimeline from './ContentfulTimeline'
 
 export {
-  Blog,
-  Config,
-  ContactDetails,
-  Faq,
-  FaqItem,
-  IconBox,
-  IconList,
-  ImageTextBox,
-  Jumbotron,
-  MediaBox,
-  ModalCard,
-  ModalCardList,
-  Page,
-  PageHeader,
-  PageLink,
-  PrivacyPolicy,
-  Section,
-  TextBox,
-  TimelineItem,
-  Timeline
+  ContentfulBlog,
+  ContentfulConfig,
+  ContentfulContactDetails,
+  ContentfulFaq,
+  ContentfulFaqItem,
+  ContentfulIconBox,
+  ContentfulIconList,
+  ContentfulImageTextBox,
+  ContentfulJumbotron,
+  ContentfulMediaBox,
+  ContentfulModalCard,
+  ContentfulModalCardList,
+  ContentfulPage,
+  ContentfulPageHeader,
+  ContentfulPageLink,
+  ContentfulPrivacyPolicy,
+  ContentfulSection,
+  ContentfulTextBox,
+  ContentfulTimelineItem,
+  ContentfulTimeline
 }

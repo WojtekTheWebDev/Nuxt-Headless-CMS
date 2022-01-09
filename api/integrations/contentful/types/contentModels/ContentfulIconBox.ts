@@ -1,9 +1,9 @@
 import { Asset } from 'contentful'
 
-interface IconBox {
+interface ContentfulIconBox {
   name: string;
   title: string;
   icon: Asset
 }
 
-export default IconBox
+export default ContentfulIconBox

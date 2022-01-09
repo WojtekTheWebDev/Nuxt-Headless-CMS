@@ -1,6 +1,6 @@
 import { Asset } from 'contentful'
 
-interface MediaBox {
+interface ContentfulMediaBox {
   name: string;
   asset: Asset;
   width?: number;
@@ -8,4 +8,4 @@ interface MediaBox {
   rounded?: boolean;
 }
 
-export default MediaBox
+export default ContentfulMediaBox

@@ -1,10 +1,10 @@
 import { Asset } from 'contentful'
 
-interface PageHeader {
+interface ContentfulPageHeader {
   name: string;
   title: string;
   backgroundImage?: Asset;
   backgroundColor?: string;
 }
 
-export default PageHeader
+export default ContentfulPageHeader

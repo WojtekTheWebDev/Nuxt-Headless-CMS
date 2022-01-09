@@ -1,7 +1,7 @@
 import { createClient, ContentfulClientApi, Asset } from 'contentful'
 import { prepareContent } from './factory'
 import { AllowedFilterKeys, ContentfulQuery, QueryFilter } from './types/utils'
-import { Config, Page } from './types/contentModels'
+import { ContentfulConfig, ContentfulPage } from './types/contentModels'
 import { AllowNull, Image } from '~/types/common'
 import { Meta, PrivacyPolicy, Route } from '~/types/cms'
 import { PageSection } from '~/types/cms/Page'
@@ -46,7 +46,7 @@ export const getEntries = async <T>(
   return entries.items
 }
 
-export const prepareRoutes = (routes: Config['routing']): Route[] => {
+export const prepareRoutes = (routes: ContentfulConfig['routing']): Route[] => {
   return routes?.map(
     ({ fields: route }) => ({ path: route.slug, name: route.name, title: route.title })
   ) || []
@@ -56,7 +56,7 @@ export const prepareAsset = (asset: Asset): Image => {
   return { src: asset.fields.file.url, alt: asset.fields.title }
 }
 
-export const preparePrivacyPolicy = (privacyPolicy: Config['privacyPolicy']): PrivacyPolicy => {
+export const preparePrivacyPolicy = (privacyPolicy: ContentfulConfig['privacyPolicy']): PrivacyPolicy => {
   return {
     message: privacyPolicy.fields.message,
     acceptButtonText: privacyPolicy.fields.acceptButtonText,
@@ -65,7 +65,7 @@ export const preparePrivacyPolicy = (privacyPolicy: Config['privacyPolicy']): Pr
   }
 }
 
-export const prepareHeader = (page: Page): Header => {
+export const prepareHeader = (page: ContentfulPage): Header => {
   const { header, showHeader } = page
 
   return {
@@ -76,20 +76,27 @@ export const prepareHeader = (page: Page): Header => {
   }
 }
 
-export const prepareMeta = (page: Page): Meta => {
-  const { metaTitle, metaDescription } = page
+export const prepareMeta = (page: ContentfulPage): Meta => {
+  const {
+    metaTitle,
+    metaDescription,
+    openGraphImage,
+    openGraphType,
+    openGraphUrl,
+    twitterCard
+  } = page
 
   return {
     title: metaTitle,
     description: metaDescription,
-    ogImage: '',
-    ogURL: '',
-    ogType: '',
-    twitterCard: 'summary_large_image'
+    ogImage: openGraphImage?.fields.file.url || '',
+    ogURL: openGraphUrl,
+    ogType: openGraphType,
+    twitterCard
   }
 }
 
-export const prepareSections = (page: Page): PageSection[] => {
+export const prepareSections = (page: ContentfulPage): PageSection[] => {
   const { sections } = page
   return sections?.map((section) => {
     return {

@@ -1,6 +1,6 @@
 import { TimelineItemTypes } from '~/types/cms/components/Timeline'
 
-interface TimelineItem {
+interface ContentfulTimelineItem {
   name: string;
   title: string;
   subtitle?: string;
@@ -8,4 +8,4 @@ interface TimelineItem {
   description: string;
 }
 
-export default TimelineItem
+export default ContentfulTimelineItem

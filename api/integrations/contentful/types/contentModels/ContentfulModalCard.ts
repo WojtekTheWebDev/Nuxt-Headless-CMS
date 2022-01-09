@@ -1,10 +1,10 @@
 import { Asset } from 'contentful'
 
-interface ModalCard {
+interface ContentfulModalCard {
   name: string;
   title: string;
   image: Asset;
   description: string;
 }
 
-export default ModalCard
+export default ContentfulModalCard

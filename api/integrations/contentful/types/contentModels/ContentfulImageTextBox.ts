@@ -1,9 +1,9 @@
 import { Asset } from 'contentful'
 
-interface ImageTextBox {
+interface ContentfulImageTextBox {
   name: string;
   description: string;
   image: Asset
 }
 
-export default ImageTextBox
+export default ContentfulImageTextBox
