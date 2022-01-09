@@ -69,10 +69,10 @@ export const prepareHeader = (page: ContentfulPage): Header => {
   const { header, showHeader } = page
 
   return {
-    title: header.fields.title,
-    backgroundImage: header.fields.backgroundImage?.fields?.file?.url,
-    backgroundColor: header.fields.backgroundColor,
-    showHeader: showHeader || true
+    title: header?.fields.title,
+    backgroundImage: header?.fields.backgroundImage?.fields?.file?.url,
+    backgroundColor: header?.fields.backgroundColor,
+    showHeader: showHeader || false
   }
 }
 
