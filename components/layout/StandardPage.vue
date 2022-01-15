@@ -5,6 +5,7 @@
       :background-image="header.backgroundImage"
       :background-color="header.backgroundColor"
       :show-header="header.showHeader"
+      :aspect-ratio="header.aspectRatio"
     />
 
     <component
