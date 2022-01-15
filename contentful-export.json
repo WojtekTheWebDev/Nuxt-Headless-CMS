@@ -12,7 +12,7 @@
         "id": "pageHeader",
         "type": "ContentType",
         "createdAt": "2021-04-10T15:24:48.024Z",
-        "updatedAt": "2021-10-20T06:48:16.478Z",
+        "updatedAt": "2022-01-13T19:53:46.706Z",
         "environment": {
           "sys": {
             "id": "nuxtfolio",
@@ -20,8 +20,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 25,
-        "publishedAt": "2021-10-20T06:48:16.478Z",
+        "publishedVersion": 29,
+        "publishedAt": "2022-01-13T19:53:46.706Z",
         "firstPublishedAt": "2021-04-10T15:24:50.173Z",
         "createdBy": {
           "sys": {
@@ -37,8 +37,8 @@
             "id": "0xtQf19pcoNQhr5JWKAjAC"
           }
         },
-        "publishedCounter": 13,
-        "version": 26,
+        "publishedCounter": 15,
+        "version": 30,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -120,6 +120,17 @@
               },
               "message": "Follow a hex color pattern."
             }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "aspectRatio",
+          "name": "Aspect ratio",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
           ],
           "disabled": false,
           "omitted": false
@@ -2406,7 +2417,7 @@
             "linkType": "Space"
           }
         },
-        "version": 26,
+        "version": 30,
         "createdAt": "2021-04-10T15:24:50.246Z",
         "createdBy": {
           "sys": {
@@ -2415,7 +2426,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2021-10-20T06:48:17.112Z",
+        "updatedAt": "2022-01-13T19:53:47.505Z",
         "updatedBy": {
           "sys": {
             "id": "0xtQf19pcoNQhr5JWKAjAC",
@@ -2456,6 +2467,14 @@
         },
         {
           "fieldId": "backgroundColor",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "aspectRatio",
+          "settings": {
+            "helpText": "See: https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio"
+          },
           "widgetId": "singleLine",
           "widgetNamespace": "builtin"
         }

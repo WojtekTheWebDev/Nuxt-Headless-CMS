@@ -72,6 +72,7 @@ export const prepareHeader = (page: ContentfulPage): Header => {
     title: header?.fields.title,
     backgroundImage: header?.fields.backgroundImage?.fields?.file?.url,
     backgroundColor: header?.fields.backgroundColor,
+    aspectRatio: header?.fields.aspectRatio,
     showHeader: showHeader || false
   }
 }

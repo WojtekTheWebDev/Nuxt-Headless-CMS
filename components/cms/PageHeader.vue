@@ -4,25 +4,17 @@
     class="page-header"
     :style="{ backgroundColor }"
   >
-    <v-container class="pa-0">
-      <v-parallax
-        v-if="backgroundImage"
-        :src="`${backgroundImage}?w=1440`"
-      >
-        <h1 class="text-center">
-          {{ title }}
-        </h1>
-      </v-parallax>
-
-      <div
-        v-else
-        class="page-header-no-img"
-      >
-        <h1 class="text-center">
-          {{ title }}
-        </h1>
-      </div>
-    </v-container>
+    <div
+      class="d-flex align-center justify-center background-image"
+      :style="{
+        backgroundImage: backgroundImage && `url(${backgroundImage}?w=1440)`,
+        aspectRatio
+      }"
+    >
+      <h1 class="text-center">
+        {{ title }}
+      </h1>
+    </div>
   </header>
 </template>
 
@@ -49,6 +41,10 @@ export default defineComponent({
     showHeader: {
       type: Boolean as PropType<Header['showHeader']>,
       default: (): Header['showHeader'] => true
+    },
+    aspectRatio: {
+      type: String as PropType<Header['aspectRatio']>,
+      default: (): Header['aspectRatio'] => 'initial'
     }
   }
 })
@@ -61,17 +57,11 @@ export default defineComponent({
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
 
-  .v-parallax {
+  .background-image {
     width: 100%;
-  }
-
-  &-no-img {
-    width: 100%;
-    height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    max-width: 1440px;
   }
 
   h1 {

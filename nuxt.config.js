@@ -65,6 +65,9 @@ export default {
     locales: [{
       code: 'en',
       iso: 'gb'
+    }, {
+      code: 'pl',
+      iso: 'pl'
     }],
     seo: true,
     defaultLocale: 'en',
