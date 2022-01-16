@@ -25,7 +25,7 @@
         v-for="locale in availableLocales"
         :key="locale.code"
         link
-        @click="switchLocale(locale.code)"
+        :href="switchLocalePath(locale.code)"
       >
         <v-list-item-title class="text-uppercase">
           <LanguageDisplay :locale="locale" />
@@ -55,18 +55,12 @@ export default defineComponent({
   },
 
   setup () {
-    const { i18n, app, store, switchLocalePath } = useContext()
+    const { i18n } = useContext()
     const availableLocales = computed(() => (i18n.locales as nuxtI18n.LocaleObject[])
       .filter(locale => locale.code !== i18n.locale))
 
-    const switchLocale = (code: string) => {
-      store.dispatch('config/translateState', code)
-      app.router?.push(switchLocalePath(code))
-    }
-
     return {
-      availableLocales,
-      switchLocale
+      availableLocales
     }
   }
 })
