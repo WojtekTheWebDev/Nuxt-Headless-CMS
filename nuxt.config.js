@@ -82,6 +82,15 @@ export default {
           pageNotFoundMessage: 'The page that you\'re looking for was not found.',
           otherErrorTitle: 'Oops, something\'s gone wrong!',
           otherErrorMessage: 'It\'s not you - it\'s us. Sorry for that.'
+        },
+        pl: {
+          homePage: 'Strona główna',
+          siteMap: 'Mapa strony',
+          getInTouch: 'Kontakt',
+          pageNotFoundTitle: 'Błąd 404',
+          pageNotFoundMessage: 'Nie znaleźliśmy strony, której szukasz.',
+          otherErrorTitle: 'Ups, coś poszło nie tak!',
+          otherErrorMessage: 'To nie Ty, to my... Przepraszamy za to.'
         }
       }
     }
