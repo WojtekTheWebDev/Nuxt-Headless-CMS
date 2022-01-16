@@ -11,7 +11,8 @@ import {
   ContentfulPageLink,
   ContentfulImageTextBox,
   ContentfulFaq,
-  ContentfulJumbotron
+  ContentfulJumbotron,
+  ContentfulContactDetails
 } from './types/contentModels'
 import {
   TextBox,
@@ -23,7 +24,8 @@ import {
   PageLink,
   ImageTextBox,
   Faq,
-  Jumbotron
+  Jumbotron,
+  ContactDetailsComponent
 } from '~/types/cms/components'
 import { ArrayElement } from '~/types/common'
 import { BaseFields, ComponentUnion, ContentBlockType, FactoryReturnType } from '~/types/cms'
@@ -178,6 +180,21 @@ export function prepareContent (item: ArrayElement<ContentfulSection['contentBlo
             parentPageSlug: pageLink.fields.page.fields.parentPage?.fields.slug
           }))
         } as Jumbotron
+      }
+    }
+    case 'contactDetails': {
+      const fields = item.fields as ContentfulContactDetails
+      return {
+        ...baseFields,
+        props: {
+          email: fields.email,
+          facebook: fields.facebook,
+          github: fields.github,
+          instagram: fields.instagram,
+          linkedIn: fields.linkedIn,
+          twitter: fields.twitter,
+          youtube: fields.youtube
+        } as ContactDetailsComponent
       }
     }
     default:

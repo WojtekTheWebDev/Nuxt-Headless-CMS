@@ -71,6 +71,11 @@ const useContentBlocks = () => {
           ...content,
           component: () => import('@/components/cms/Jumbotron.vue')
         }
+      case 'contactDetails':
+        return {
+          ...content,
+          component: () => import('@/components/cms/ContactDetails.vue')
+        }
       default:
         return {
           ...content,

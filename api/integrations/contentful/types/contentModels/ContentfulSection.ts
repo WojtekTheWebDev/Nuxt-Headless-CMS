@@ -13,7 +13,8 @@ import {
   ContentfulPageLink,
   ContentfulTextBox,
   ContentfulTimelineItem,
-  ContentfulTimeline
+  ContentfulTimeline,
+  ContentfulContactDetails
 } from '~/api/integrations/contentful/types/contentModels'
 import { AvailableThemes } from '~/types/cms/Theme'
 
@@ -30,7 +31,8 @@ export type ContentfulContentBlock = ContentfulBlog
   | ContentfulPageLink
   | ContentfulTextBox
   | ContentfulTimelineItem
-  | ContentfulTimeline;
+  | ContentfulTimeline
+  | ContentfulContactDetails;
 
 interface Section {
   name: string;
