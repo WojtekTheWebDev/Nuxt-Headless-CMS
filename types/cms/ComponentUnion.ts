@@ -9,7 +9,8 @@ import {
   PageLink,
   TextBox,
   Timeline,
-  Section
+  Section,
+  ContactDetailsComponent
 } from './components'
 
 type ComponentUnion = TextBox
@@ -23,5 +24,6 @@ type ComponentUnion = TextBox
   | Faq
   | Jumbotron
   | Section
+  | ContactDetailsComponent
 
 export default ComponentUnion

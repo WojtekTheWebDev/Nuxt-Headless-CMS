@@ -9,6 +9,7 @@ type ContentBlockType = 'section'
   | 'imageTextBox'
   | 'faq'
   | 'jumbotron'
+  | 'contactDetails'
   | 'none';
 
 export default ContentBlockType

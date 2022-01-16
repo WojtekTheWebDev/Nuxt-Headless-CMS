@@ -10,6 +10,7 @@ import PageLink from './PageLink'
 import Section from './Section'
 import TextBox from './TextBox'
 import Timeline from './Timeline'
+import ContactDetailsComponent from './ContactDetailsComponent'
 
 export {
   Blog,
@@ -23,5 +24,6 @@ export {
   PageLink,
   Section,
   TextBox,
-  Timeline
+  Timeline,
+  ContactDetailsComponent
 }
