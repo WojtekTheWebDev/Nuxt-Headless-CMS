@@ -1,5 +1,6 @@
 import express from 'express'
 import Integration from '../types/cms/Integration'
+import { ENTRY_NOT_FOUND, PAGE_NOT_FOUND_MESSAGE } from './consts'
 
 const app = express()
 
@@ -17,7 +18,14 @@ app.get('/config', async (req, res) => {
     const config = await getConfig(locale as string)
     res.status(200).json(config)
   } catch (error) {
-    res.status(500).json(error)
+    if (
+      error instanceof Error &&
+      error.message === ENTRY_NOT_FOUND
+    ) {
+      res.status(404).json(PAGE_NOT_FOUND_MESSAGE)
+    } else {
+      res.status(500).json(error)
+    }
   }
 })
 
@@ -31,7 +39,14 @@ app.get('/page/:slugOrName', async (req, res) => {
 
     res.status(200).json(page)
   } catch (error) {
-    res.status(500).json(error)
+    if (
+      error instanceof Error &&
+      error.message === ENTRY_NOT_FOUND
+    ) {
+      res.status(404).json(PAGE_NOT_FOUND_MESSAGE)
+    } else {
+      res.status(500).json(error)
+    }
   }
 })
 

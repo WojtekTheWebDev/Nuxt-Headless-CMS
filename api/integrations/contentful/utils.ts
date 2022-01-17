@@ -1,4 +1,5 @@
 import { createClient, ContentfulClientApi, Asset } from 'contentful'
+import { ENTRY_NOT_FOUND } from '../../consts'
 import { prepareContent } from './factory'
 import { AllowedFilterKeys, ContentfulQuery, QueryFilter } from './types/utils'
 import { ContentfulConfig, ContentfulPage } from './types/contentModels'
@@ -41,7 +42,7 @@ export const getEntries = async <T>(
 
   const entries = await client.getEntries<T>(contentfulQuery)
 
-  if (!entries.items) { throw new Error('Entry not found!') }
+  if (!entries.items.length) { throw new Error(ENTRY_NOT_FOUND) }
 
   return entries.items
 }

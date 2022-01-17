@@ -4,7 +4,8 @@ import {
   useMeta,
   ref,
   computed,
-  ssrRef
+  ssrRef,
+  useContext
 } from '@nuxtjs/composition-api'
 import useContentBlocks from '@/composables/useContentBlocks'
 import { ContentBlockReturnType, Meta, Page } from '~/types/cms'
@@ -12,6 +13,8 @@ import { Header, Section } from '@/types/cms/components'
 import useMetaTags from '@/composables/useMetaTags'
 
 const usePage = (apiUrl: string, key: string) => {
+  const { error } = useContext()
+
   // Composables
   const { getSection } = useContentBlocks()
   const { getMetaTags } = useMetaTags()
@@ -29,13 +32,21 @@ const usePage = (apiUrl: string, key: string) => {
     const res = await fetch(apiUrl)
     const resJSON: Page = await res.json()
     const page = ssrRef<Page>(resJSON, key)
-
-    return page
+    return {
+      status: res.status,
+      page
+    }
   }, key)
 
   // Resolving the promise with page data before component is mounted
   onBeforeMount(async () => {
-    const page = await pagePromise
+    const pageRes = await pagePromise
+    const { page, status } = pageRes
+
+    if (status !== 200) {
+      return error({ statusCode: status })
+    }
+
     header.value = page.value.header
     contentBlocks.value = page.value.sections.map(getSection)
     meta.value = page.value.meta
