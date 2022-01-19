@@ -1,6 +1,6 @@
 {
-  "name": "nuxt-headless-cms",
-  "version": "0.9.99",
+  "name": "nuxtfolio",
+  "version": "1.0.0-beta",
   "private": true,
   "scripts": {
     "dev": "nuxt",
