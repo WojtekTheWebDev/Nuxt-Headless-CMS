@@ -62,7 +62,7 @@ export default defineComponent({
     const isVideo = computed(() => props.asset.type.includes('video'))
     const defaultWidth = computed(() => app.$vuetify.breakpoint.smAndDown ? 300 : 500)
     const imageSrc = computed(() => {
-      const width = props.width ? props.width : defaultWidth
+      const width = props.width ? props.width : defaultWidth.value
       const height = props.height ? props.height : null
       let imageURL = `${props.asset.src}?w=${width}`
 
