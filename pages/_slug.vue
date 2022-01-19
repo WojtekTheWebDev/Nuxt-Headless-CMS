@@ -2,36 +2,56 @@
   <StandardPage :header="header" :content-blocks="contentBlocks" />
 </template>
 
-<script lang="ts">
-import { defineComponent, useContext, ssrPromise, onBeforeMount, useMeta, ref, computed, useRoute } from '@nuxtjs/composition-api'
-import StandardPage from '@/components/layout/StandardPage.vue'
-import usePage from '@/composables/usePage'
+<script>
+import config from '@/nuxt.config'
+import { createClient } from '@/plugins/contentful'
+import PageMixin from '@/mixins/PageMixin'
+import StandardPage from '@/components/layout/StandardPage'
 
-export default defineComponent({
+export default {
   name: 'CMSPage',
 
   components: {
     StandardPage
   },
 
-  setup () {
-    // Composables
-    const { i18n } = useContext()
-    const route = useRoute()
+  mixins: [PageMixin],
 
-    const slug = route.value.params.slug
-    const locale = i18n.localeProperties.code
-    const apiUrl = `${process.env.baseURL}/api/page/${slug}?locale=${locale}`
-    const key = `$${slug}_${locale}`
+  async asyncData ({ app, env, params, error }) {
+    const client = createClient()
 
-    const { header, contentBlocks } = usePage(apiUrl, key)
+    const entries = await client.getEntries({
+      content_type: env.pageContentModel,
+      locale: app.i18n.localeProperties.code,
+      include: env.contentfulIncludeLevel
+    })
+
+    const page = entries.items.find(entry => entry.fields.slug === params.slug && !entry.fields.parentPage)
+
+    if (!page) { error({ statusCode: 404 }) }
 
     return {
-      header,
-      contentBlocks
+      metaTitle: page?.fields?.metaTitle,
+      metaDescription: page?.fields?.metaDescription,
+      pageHeader: {
+        ...page?.fields?.header,
+        showHeader: page?.fields?.showHeader
+      },
+      content: page?.fields?.sections
     }
   },
 
-  head: {}
-})
+  head () {
+    return {
+      title: this.metaTitle ? this.metaTitle : config.head.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.metaDescription || config.head.meta.find(el => el.hid === 'description').content
+        }
+      ]
+    }
+  }
+}
 </script>

@@ -14,7 +14,12 @@ export default {
   },
 
   env: {
-    baseURL: process.env.BASE_URL || 'http://localhost:3000'
+    contentfulSpace: process.env.CONTENTFUL_SPACE || '',
+    contentfulEnv: process.env.CONTENTFUL_ENV || 'master',
+    contentfulToken: process.env.CONTENTFUL_TOKEN || '',
+    pageContentModel: process.env.CONTENTFUL_PAGE_CONTENT_MODEL || 'page',
+    configContentModel: process.env.CONTENTFUL_CONFIG_CONTENT_MODEL || 'config',
+    contentfulIncludeLevel: process.env.CONTENTFUL_INCLUDE_LEVEL || 10
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -31,10 +36,6 @@ export default {
   plugins: [
   ],
 
-  serverMiddleware: [
-    '~/api/index.ts'
-  ],
-
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
@@ -44,17 +45,14 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
-    '@nuxtjs/google-analytics',
-    '@nuxt/typescript-build',
-    '@nuxtjs/composition-api/module',
-    '@nuxtjs/dotenv'
+    '@nuxtjs/google-analytics'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '@nuxtjs/i18n'
+    'nuxt-i18n'
   ],
 
   googleAnalytics: {
@@ -65,9 +63,6 @@ export default {
     locales: [{
       code: 'en',
       iso: 'gb'
-    }, {
-      code: 'pl',
-      iso: 'pl'
     }],
     seo: true,
     defaultLocale: 'en',
@@ -82,18 +77,14 @@ export default {
           pageNotFoundMessage: 'The page that you\'re looking for was not found.',
           otherErrorTitle: 'Oops, something\'s gone wrong!',
           otherErrorMessage: 'It\'s not you - it\'s us. Sorry for that.'
-        },
-        pl: {
-          homePage: 'Strona główna',
-          siteMap: 'Mapa strony',
-          getInTouch: 'Kontakt',
-          pageNotFoundTitle: 'Błąd 404',
-          pageNotFoundMessage: 'Nie znaleźliśmy strony, której szukasz.',
-          otherErrorTitle: 'Ups, coś poszło nie tak!',
-          otherErrorMessage: 'To nie Ty, to my... Przepraszamy za to.'
         }
       }
     }
+  },
+
+  // Axios module configuration: https://go.nuxtjs.dev/config-axios
+  axios: {
+    baseURL: 'https://cdn.contentful.com'
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

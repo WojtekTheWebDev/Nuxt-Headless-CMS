@@ -9,10 +9,8 @@
   </v-btn>
 </template>
 
-<script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
-
-export default defineComponent({
+<script>
+export default {
   name: 'TRCloseButton',
 
   props: {
@@ -23,7 +21,7 @@ export default defineComponent({
   },
 
   emits: ['close']
-})
+}
 </script>
 
 <style lang="scss" scoped>

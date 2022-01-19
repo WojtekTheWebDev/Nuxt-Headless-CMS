@@ -15,20 +15,18 @@
           :title="modalCard.title"
           :description="modalCard.description"
           :image="modalCard.image"
-          :theme="theme"
         />
       </v-col>
     </v-row>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from '@nuxtjs/composition-api'
-import ComponentHeader from '@/components/ui/ComponentHeader.vue'
-import ModalCard from '@/components/cms/ModalCard.vue'
-import ModalCardList from '@/types/cms/components/ModalCardList'
+<script>
+import CMSMixin from '@/mixins/CMSMixin'
+import ComponentHeader from '@/components/ui/ComponentHeader'
+import ModalCard from '@/components/cms/ModalCard'
 
-export default defineComponent({
+export default {
   name: 'ModalCardList',
 
   components: {
@@ -36,26 +34,25 @@ export default defineComponent({
     ComponentHeader
   },
 
+  mixins: [CMSMixin],
+
   props: {
-    theme: {
-      type: String as PropType<ModalCardList['theme']>,
-      default: (): ModalCardList['theme'] => 'light',
-      validate: (val: ModalCardList['theme']) => val === 'light' || val === 'dark'
-    },
     title: {
-      type: String as PropType<ModalCardList['title']>,
-      default: (): ModalCardList['title'] => ''
+      type: String,
+      default: ''
     },
+
     subtitle: {
-      type: String as PropType<ModalCardList['subtitle']>,
-      default: (): ModalCardList['subtitle'] => ''
+      type: String,
+      default: ''
     },
+
     modalCards: {
-      type: Array as PropType<ModalCardList['modalCards']>,
-      default: (): ModalCardList['modalCards'] => []
+      type: Array,
+      default: () => []
     }
   }
-})
+}
 </script>
 
 <style lang="scss" scoped>
