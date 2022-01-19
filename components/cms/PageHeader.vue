@@ -5,13 +5,16 @@
     :style="{ backgroundColor }"
   >
     <div
-      class="d-flex align-center justify-center background-image"
-      :style="{
-        backgroundImage: backgroundImage && `url(${backgroundImage}?w=1440)`,
-        aspectRatio
-      }"
+      class="d-flex align-center justify-center"
     >
-      <h1 class="text-center">
+      <img
+        v-if="backgroundImageMobile || backgroundImage"
+        :src="`${($vuetify.breakpoint.smAndDown && backgroundImageMobile) || backgroundImage}?w=1440`"
+        alt="Background image"
+        class="page-header-background-image"
+        :style="{ aspectRatio: ($vuetify.breakpoint.smAndDown && aspectRatioMobile) || aspectRatio }"
+      >
+      <h1 class="page-header-title text-center">
         {{ title }}
       </h1>
     </div>
@@ -19,7 +22,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from '@nuxtjs/composition-api'
+import { defineComponent, onMounted, PropType, ref, useContext } from '@nuxtjs/composition-api'
 import Header from '@/types/cms/components/Header'
 
 export default defineComponent({
@@ -45,6 +48,14 @@ export default defineComponent({
     aspectRatio: {
       type: String as PropType<Header['aspectRatio']>,
       default: (): Header['aspectRatio'] => 'initial'
+    },
+    backgroundImageMobile: {
+      type: String as PropType<Header['backgroundImageMobile']>,
+      default: (): Header['backgroundImageMobile'] => ''
+    },
+    aspectRatioMobile: {
+      type: String as PropType<Header['aspectRatioMobile']>,
+      default: (): Header['aspectRatioMobile'] => 'initial'
     }
   }
 })
@@ -58,13 +69,15 @@ export default defineComponent({
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 
-  .background-image {
+  &-background-image {
     width: 100%;
     max-width: 1440px;
   }
 
-  h1 {
+  &-title {
+    position: absolute;
     margin: auto;
     max-width: 1140px;
     font-size: 4rem;

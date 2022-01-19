@@ -6,6 +6,8 @@ interface ContentfulPageHeader {
   backgroundImage?: Asset;
   aspectRatio?: string;
   backgroundColor?: string;
+  backgroundImageMobile?: Asset;
+  aspectRatioMobile?: string;
 }
 
 export default ContentfulPageHeader

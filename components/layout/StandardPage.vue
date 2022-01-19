@@ -6,6 +6,8 @@
       :background-color="header.backgroundColor"
       :show-header="header.showHeader"
       :aspect-ratio="header.aspectRatio"
+      :background-image-mobile="header.backgroundImageMobile"
+      :aspect-ratio-mobile="header.aspectRatioMobile"
     />
 
     <component

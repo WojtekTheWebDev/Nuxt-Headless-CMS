@@ -3,7 +3,9 @@ interface Header {
   backgroundImage?: string,
   backgroundColor?: string,
   aspectRatio?: string,
-  showHeader?: boolean
+  showHeader?: boolean,
+  backgroundImageMobile?: string,
+  aspectRatioMobile?: string,
 }
 
 export default Header

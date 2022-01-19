@@ -12,7 +12,7 @@
         "id": "pageHeader",
         "type": "ContentType",
         "createdAt": "2021-04-10T15:24:48.024Z",
-        "updatedAt": "2022-01-13T19:53:46.706Z",
+        "updatedAt": "2022-01-19T21:56:00.342Z",
         "environment": {
           "sys": {
             "id": "nuxtfolio",
@@ -20,8 +20,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 29,
-        "publishedAt": "2022-01-13T19:53:46.706Z",
+        "publishedVersion": 31,
+        "publishedAt": "2022-01-19T21:56:00.342Z",
         "firstPublishedAt": "2021-04-10T15:24:50.173Z",
         "createdBy": {
           "sys": {
@@ -37,8 +37,8 @@
             "id": "0xtQf19pcoNQhr5JWKAjAC"
           }
         },
-        "publishedCounter": 15,
-        "version": 30,
+        "publishedCounter": 16,
+        "version": 32,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -127,6 +127,29 @@
         {
           "id": "aspectRatio",
           "name": "Aspect ratio",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "backgroundImageMobile",
+          "name": "Background image (mobile)",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Asset"
+        },
+        {
+          "id": "aspectRatioMobile",
+          "name": "Aspect ratio (mobile)",
           "type": "Symbol",
           "localized": false,
           "required": false,
@@ -2417,7 +2440,7 @@
             "linkType": "Space"
           }
         },
-        "version": 30,
+        "version": 32,
         "createdAt": "2021-04-10T15:24:50.246Z",
         "createdBy": {
           "sys": {
@@ -2426,7 +2449,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2022-01-13T19:53:47.505Z",
+        "updatedAt": "2022-01-19T21:56:01.030Z",
         "updatedBy": {
           "sys": {
             "id": "0xtQf19pcoNQhr5JWKAjAC",
@@ -2475,6 +2498,16 @@
           "settings": {
             "helpText": "See: https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio"
           },
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "backgroundImageMobile",
+          "widgetId": "assetLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "aspectRatioMobile",
           "widgetId": "singleLine",
           "widgetNamespace": "builtin"
         }
