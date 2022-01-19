@@ -26,7 +26,7 @@
       active-class="primary--text"
       class="px-3"
     >
-      {{ route.name }}
+      {{ route.title }}
     </v-btn>
 
     <v-btn
@@ -44,10 +44,11 @@
   </nav>
 </template>
 
-<script>
-import { mapGetters } from 'vuex'
+<script lang="ts">
+import { computed, defineComponent, useContext } from '@nuxtjs/composition-api'
+import { state } from '~/store/config'
 
-export default {
+export default defineComponent({
   name: 'Navigation',
 
   props: {
@@ -67,15 +68,18 @@ export default {
     }
   },
 
-  computed: {
-    ...mapGetters({
-      routes: 'config/getRoutes'
-    }),
+  setup () {
+    const { store } = useContext()
 
-    privacyPolicy () {
-      const privacyPolicy = this.$store.state.config.privacyPolicy
-      return privacyPolicy ? privacyPolicy.privacyPolicyPage.fields : null
+    const configState = store.state.config as ReturnType<typeof state>
+
+    const routes = computed(() => configState.routes)
+    const privacyPolicy = computed(() => configState.privacyPolicy)
+
+    return {
+      routes,
+      privacyPolicy
     }
   }
-}
+})
 </script>

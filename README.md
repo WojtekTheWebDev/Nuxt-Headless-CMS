@@ -1,65 +1,62 @@
-# Nuxt Headless CMS
+# Nuxtfolio
+Create your personal website or portfolio with **nuxtfolio**.
 
-**Nuxt Headless CMS** is a template for personal websites and blogs. 
-The project was made with [Nuxt.js](https://nuxtjs.org/) and [Contentful](https://www.contentful.com/) as a headless CMS and [Vuetify](https://vuetifyjs.com/) as a UI framework.
+## About
+**nuxtfolio** is a template for small projects like personal websites or portfolios. Frontend for headless CMS. 
 
-- Build your pages and manage dynamically in the Contentful
-- Configure routes, logo and page icon in the Contentful
-- Manage meta title and meta description for SEO improvement
-- Implement multiple locales with [nuxt/i18n](https://i18n.nuxtjs.org/)
+It was made with [nuxt2](https://nuxtjs.org/), [vuetify](https://vuetifyjs.com/) as a UI framework and it communicates with  the headless CMS to render content. It's integrated with one of the most popular headless CMS - [contentful](https://www.contentful.com/).
 
-Documentation can be found [here](https://nuxt-headless-cms.herokuapp.com/documentation).
+## Motivation
+When I was looking for my first developer position I created my first personal website to stand out of the crowd and have something that I can show during the interviews. 
+
+When I learned something new, gratuate or change the job I had to update the website. Rebuilding and publishing the project was a boring process so I thought that it would be nice to have something like a CMS added to my website. 
+
+Finally I decided to help others like me with this project. Give other a template for nuxt with implemented communication and prepared components to create the website faster.
+
+## Few great modules used in project
+- Multilanguages - [nuxt/i18n](https://i18n.nuxtjs.org/)
+- Google analitics - [@nuxtjs/google-analytics](https://google-analytics.nuxtjs.org/)
+- TypeScript - [@nuxt/typescript-build @nuxt/types](https://typescript.nuxtjs.org/)
+- Composition API - [@nuxtjs/composition-api](https://composition-api.nuxtjs.org/)
+- Material theme UI - [vuetify](https://vuetifyjs.com/)
 
 ## Getting started
-
-Preparation of the project requires few 
+Before running the app for the first time, content models and content has to be configurated in the headless CMS (contentful).
 
 ### Contentful setup
+To be able to import prepared contentful configuration, it's necessary to have an account on [Contentful](https://www.contentful.com/) (free for personal usage) and to have Contentful CLI installed on your machine. [Guide how to install contentful CLI is available here](https://www.contentful.com/developers/docs/tutorials/cli/installation/). After installing the contentful CLI it's necessary to authenticate it - [guide here](www.contentful.com/developers/docs/tutorials/cli/authentication/).
 
-For this step it is necessary to have an acount on [Contentful](https://www.contentful.com/) (free for personal usage) and Contentful CLI [installed](https://www.contentful.com/developers/docs/tutorials/cli/installation/) and [authenticated](https://www.contentful.com/developers/docs/tutorials/cli/authentication/).
-
-1. In the project there is prepaired export file with all content models. To import it use Contentful CLI [space import](https://www.contentful.com/developers/docs/tutorials/cli/import-and-export/) 
+When the contentful CLI is installed and authenticated, run [contentful import/export tool](https://www.contentful.com/developers/docs/tutorials/cli/import-and-export/) in the command line like this:
 ```bash
 contentful space import --space-id YOUR_SPACE_ID --content-file ./contentful-export.json --content-model-only --skip-locales
 ```
-2. Verify if last line of import message was ```The import was successful.```
-3. Log in to your contentful space and check your content models. Right now, there are 13 content models.
-4. Prepare locales in Contentful app. Open ```Settings > Locales```, add locales with ```Add locale``` button and set some locale falbacks on locale edit page.
-5. Create page content for home page
-6. Create config content for main page config. **Important note: There should be only 1 config content**
-7. Done!
+`contentful-export.json` file contains exported configuration of contentful space.
 
-Description of all content models and it's fields with examples is still being built, but it will be [here](https://nuxt-headless-cms.herokuapp.com/).
+If the import was successful, content models should be availabe in the management panel.
 
-### Project setup
+Steps to create basic content for the app:
+1. Open **Content** tab
+2. Add new entry of type **Config**
+3. Add page name
+4. Upload logo page icon, publish them and assign in created config
+5. Create **Contact details** entry and assign it in created config
+6. Create **Page** entry for home page. Fill the necessary fields and publish the entry
+7. Publish created config entry
 
-1. Clone this project or download from github and unzip it
-2. Install all dependencies with ```yarn install``` or ```npm install```
-3. Connect project with Contentful by creating environment variables or add information directly in ```nuxt.config.js``` file.
-```js
-(...)
-env: {
-    contentfulSpace: process.env.CONTENTFUL_SPACE || YOUR_CONTENTFUL_SPACE_ID,
-    contentfulEnv: process.env.CONTENTFUL_ENV || 'master',
-    contentfulToken: process.env.CONTENTFUL_TOKEN || YOUR_CONTENTFUL_ACCESS_TOKEN,
-    pageContentModel: process.env.CONTENTFUL_PAGE_CONTENT_MODEL || 'page',
-    configContentModel: process.env.CONTENTFUL_CONFIG_CONTENT_MODEL || 'config',
-    contentfulIncludeLevel: process.env.CONTENTFUL_INCLUDE_LEVEL || 10
-  },
-(...)
-```
-4. Run development mode with ```yarn dev``` or ```npm run dev``` or production mode with ```yarn start``` or ```npm run start```
-5. Done!
+Content is now prepared. Next, navigate to **Settings > API keys** and add API key. Fill the necessary fields and check the checkbox in Environments settings (if unchecked, the API cannot communicate with the contentful space).
+The information about the Space ID and Content Delivery API - access token will be necessary to setup the app.
 
-## Live demo
+### App setup
+First, create `.env` file in root directory, copy the content of `.env.example` and pase it to `.env` file. Set the value of CONTENTFUL_SPACE to Space ID and the value of CONTENTFUL_TOKEN to Content Delivery API - access token. Both of them can be found in Contentful in **Settings > API keys**.
 
-Live demo and documentation with examples and guides: [https://nuxt-headless-cms.herokuapp.com/](https://nuxt-headless-cms.herokuapp.com/)
+Now both contentful and app should be configured correctly. Run `npm run install` to install dependencies and `npm run dev` to start the app in development mode.
 
-## Customization
+Good luck with further development!
 
-This project has an option to change theme style and add new content blocks and manage them in the Contentful app 
+## Next steps
+Some information how to customize the app, add routing and use multiple locales
 
-### Styling
+### Customization
 
 To change theme style open ```nuxt.config.js``` file and modify vuetify theme
 ```js
@@ -97,35 +94,29 @@ To change theme style open ```nuxt.config.js``` file and modify vuetify theme
 (...)
 ```
 
-### New content blocks
+### Routing
+In contentful new pages can be added just by creating additional entries. By slug page property page can be accessed by the brower (example: slug is set to `about-me` so the url would be `localhost:3000/about-me`).
 
-To create new content block:
-1. Create new content model in Contentful app
-2. Modify Section's content blocks field validation - Add new content block to list of accepted entry types
-3. Add it to sections content
-4. Create new component in ```components/cms/``` directory with props based on new content model's fields
-5. Open ```helpers/CMS.js``` file
-6. Import new component
+In each page there is a reference to the parten page - with that you can create 1 level of nesting. To access the page in the brower just pass slug of the parrent page and slug of the current page (example: parent page slug is `projects` and current page slug is `my-awesome-project` so the url would be `localhost:3000/projects/my-awesome-project`).
+
+To add those pages to navigation bar and footer, just add those entries in the config's **routing** field.
+
+### Multiple languages of the app
+To add other languages of the app, first add locale in the contentful management panel. Navigate to **Settings > Locales** and select new locale.
+
+In app, open `nuxt.config.js` file and modify `i18n` property.
 ```js
-import NewComponent from '@/components/cms/NewComponent'
+i18n: {
+  locales: [{
+      code: 'en', // The code from contentful
+      iso: 'gb' // ISO locale code to generate the flag - more information about flag generation here: https://www.npmjs.com/package/vue-country-flag
+    }, /*
+    Other locales
+    */
+  ],
 ```
-7. Add new component's case to ```parseCMSBlock``` function
-```js
-(...)
-case 'contentModelName':
-  return {
-    component: NewComponent,
-    name: contentBlock.fields?.name,
-    props: {
-      field1: contentBlock.fields?.field1,
-      field2: contentBlock.fields?.field2,
-      (...)
-    }
-  }
-(...)
-```
-8. Done!
+Remember to add translations for messages in new language - inside of `i18n.vueI18n.messages` property.
 
 ## License
 
-**Nuxt Headless CMS** is released under the MIT License.
+**Nuxtfolio** is released under the MIT License.

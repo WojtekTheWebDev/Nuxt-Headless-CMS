@@ -25,7 +25,7 @@
         v-for="locale in availableLocales"
         :key="locale.code"
         link
-        @click="switchLocale(locale.code)"
+        :href="switchLocalePath(locale.code)"
       >
         <v-list-item-title class="text-uppercase">
           <LanguageDisplay :locale="locale" />
@@ -35,10 +35,12 @@
   </v-menu>
 </template>
 
-<script>
-import LanguageDisplay from '@/components/ui/LanguageDisplay'
+<script lang="ts">
+import { computed, defineComponent, useContext } from '@nuxtjs/composition-api'
+import nuxtI18n from '@nuxtjs/i18n'
+import LanguageDisplay from '@/components/ui/LanguageDisplay.vue'
 
-export default {
+export default defineComponent({
   name: 'LanguageSwitcher',
 
   components: {
@@ -52,19 +54,16 @@ export default {
     }
   },
 
-  computed: {
-    availableLocales () {
-      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
-    }
-  },
+  setup () {
+    const { i18n } = useContext()
+    const availableLocales = computed(() => (i18n.locales as nuxtI18n.LocaleObject[])
+      .filter(locale => locale.code !== i18n.locale))
 
-  methods: {
-    switchLocale (code) {
-      this.$store.dispatch('config/translateState', code)
-      this.$router.push(this.switchLocalePath(code))
+    return {
+      availableLocales
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

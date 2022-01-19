@@ -5,6 +5,7 @@
       :background-image="header.backgroundImage"
       :background-color="header.backgroundColor"
       :show-header="header.showHeader"
+      :aspect-ratio="header.aspectRatio"
     />
 
     <component
@@ -16,10 +17,13 @@
   </article>
 </template>
 
-<script>
-import PageHeader from '@/components/cms/PageHeader'
+<script lang="ts">
+import { defineComponent, PropType } from '@nuxtjs/composition-api'
+import PageHeader from '@/components/cms/PageHeader.vue'
+import { Page } from '@/types/cms'
+import { Section } from '~/types/cms/components'
 
-export default {
+export default defineComponent({
   name: 'StandardPage',
 
   components: {
@@ -28,7 +32,7 @@ export default {
 
   props: {
     header: {
-      type: Object,
+      type: Object as PropType<Page['header']>,
       default: () => ({
         title: '',
         backgroundImage: '',
@@ -38,11 +42,11 @@ export default {
     },
 
     contentBlocks: {
-      type: Array,
-      default: () => []
+      type: Array as PropType<Section['contentBlocks']>,
+      default: (): Section['contentBlocks'] => []
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>
