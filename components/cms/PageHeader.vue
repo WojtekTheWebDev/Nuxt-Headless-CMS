@@ -4,50 +4,58 @@
     class="page-header"
     :style="{ backgroundColor }"
   >
-    <div
-      class="d-flex align-center justify-center background-image"
-      :style="{
-        backgroundImage: backgroundImage && `url(${backgroundImage}?w=1440)`,
-        aspectRatio
-      }"
-    >
-      <h1 class="text-center">
-        {{ title }}
-      </h1>
-    </div>
+    <v-container class="pa-0">
+      <v-parallax
+        v-if="backgroundImage"
+        :src="`${backgroundImage}?w=1440`"
+      >
+        <h1 class="text-center">
+          {{ title }}
+        </h1>
+      </v-parallax>
+
+      <div
+        v-else
+        class="page-header-no-img"
+      >
+        <h1 class="text-center">
+          {{ title }}
+        </h1>
+      </div>
+    </v-container>
   </header>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from '@nuxtjs/composition-api'
-import Header from '@/types/cms/components/Header'
+<script>
+import CMSMixin from '@/mixins/CMSMixin'
 
-export default defineComponent({
+export default {
   name: 'PageHeader',
+
+  mixins: [CMSMixin],
 
   props: {
     title: {
-      type: String as PropType<Header['title']>,
-      default: (): Header['title'] => ''
+      type: String,
+      default: ''
     },
+
     backgroundImage: {
-      type: String as PropType<Header['backgroundImage']>,
-      default: (): Header['backgroundImage'] => ''
+      type: String,
+      default: ''
     },
+
     backgroundColor: {
-      type: String as PropType<Header['backgroundColor']>,
-      default: (): Header['backgroundColor'] => 'white'
+      type: String,
+      default: 'white'
     },
+
     showHeader: {
-      type: Boolean as PropType<Header['showHeader']>,
-      default: (): Header['showHeader'] => true
-    },
-    aspectRatio: {
-      type: String as PropType<Header['aspectRatio']>,
-      default: (): Header['aspectRatio'] => 'initial'
+      type: Boolean,
+      default: true
     }
   }
-})
+}
 </script>
 
 <style lang="scss" scoped>
@@ -57,11 +65,17 @@ export default defineComponent({
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
 
-  .background-image {
+  .v-parallax {
     width: 100%;
-    max-width: 1440px;
+  }
+
+  &-no-img {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   h1 {

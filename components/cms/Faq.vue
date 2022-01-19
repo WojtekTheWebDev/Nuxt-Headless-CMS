@@ -18,45 +18,32 @@
         <v-expansion-panel-content class="faq-answer">
           <v-divider class="pb-3" />
 
-          {{ getAnswer(item) }}
+          {{ item.answer }}
         </v-expansion-panel-content>
       </v-expansion-panel>
     </v-expansion-panels>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from '@nuxtjs/composition-api'
-import Faq, { FaqItem } from '@/types/cms/components/Faq'
-import useMarkedText from '@/composables/useMarkedText'
+<script>
 
-export default defineComponent({
+export default {
   name: 'Faq',
 
+  components: {},
+
   props: {
-    theme: {
-      type: String as PropType<Faq['theme']>,
-      default: (): Faq['theme'] => 'light',
-      validate: (val: Faq['theme']) => val === 'light' || val === 'dark'
-    },
     title: {
-      type: String as PropType<Faq['title']>,
-      default: (): Faq['title'] => ''
+      type: String,
+      default: ''
     },
+
     items: {
-      type: Array as PropType<Faq['items']>,
-      default: (): Faq['items'] => []
-    }
-  },
-
-  setup () {
-    const getAnswer = (item: FaqItem) => useMarkedText(item.answer)
-
-    return {
-      getAnswer
+      type: Array,
+      default: () => []
     }
   }
-})
+}
 </script>
 
 <style lang="scss" scoped>

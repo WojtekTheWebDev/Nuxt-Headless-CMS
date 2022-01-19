@@ -4,15 +4,17 @@ module.exports = {
     browser: true,
     node: true
   },
+  parserOptions: {
+    parser: 'babel-eslint'
+  },
   extends: [
-    '@nuxtjs/eslint-config-typescript'
+    '@nuxtjs',
+    'plugin:nuxt/recommended'
   ],
   plugins: [
   ],
   // add your custom rules here
   rules: {
-    'vue/no-v-html': 'off',
-    'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': 'off'
+    'vue/no-v-html': 'off'
   }
 }

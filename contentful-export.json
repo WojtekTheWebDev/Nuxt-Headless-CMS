@@ -12,16 +12,16 @@
         "id": "pageHeader",
         "type": "ContentType",
         "createdAt": "2021-04-10T15:24:48.024Z",
-        "updatedAt": "2022-01-13T19:53:46.706Z",
+        "updatedAt": "2021-08-07T21:21:36.910Z",
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 29,
-        "publishedAt": "2022-01-13T19:53:46.706Z",
+        "publishedVersion": 23,
+        "publishedAt": "2021-08-07T21:21:36.910Z",
         "firstPublishedAt": "2021-04-10T15:24:50.173Z",
         "createdBy": {
           "sys": {
@@ -37,8 +37,8 @@
             "id": "0xtQf19pcoNQhr5JWKAjAC"
           }
         },
-        "publishedCounter": 15,
-        "version": 30,
+        "publishedCounter": 12,
+        "version": 24,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -70,7 +70,7 @@
           "name": "Title",
           "type": "Symbol",
           "localized": true,
-          "required": true,
+          "required": false,
           "validations": [
             {
               "size": {
@@ -123,17 +123,6 @@
           ],
           "disabled": false,
           "omitted": false
-        },
-        {
-          "id": "aspectRatio",
-          "name": "Aspect ratio",
-          "type": "Symbol",
-          "localized": false,
-          "required": false,
-          "validations": [
-          ],
-          "disabled": false,
-          "omitted": false
         }
       ]
     },
@@ -149,16 +138,16 @@
         "id": "section",
         "type": "ContentType",
         "createdAt": "2021-04-10T15:24:48.029Z",
-        "updatedAt": "2021-10-20T06:52:03.226Z",
+        "updatedAt": "2021-08-07T21:21:37.470Z",
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 33,
-        "publishedAt": "2021-10-20T06:52:03.226Z",
+        "publishedVersion": 29,
+        "publishedAt": "2021-08-07T21:21:37.470Z",
         "firstPublishedAt": "2021-04-10T15:24:58.277Z",
         "createdBy": {
           "sys": {
@@ -174,8 +163,8 @@
             "id": "0xtQf19pcoNQhr5JWKAjAC"
           }
         },
-        "publishedCounter": 17,
-        "version": 34,
+        "publishedCounter": 15,
+        "version": 30,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -229,7 +218,7 @@
           "name": "Content blocks",
           "type": "Array",
           "localized": false,
-          "required": true,
+          "required": false,
           "validations": [
           ],
           "disabled": false,
@@ -260,7 +249,7 @@
           "name": "Theme",
           "type": "Symbol",
           "localized": false,
-          "required": false,
+          "required": true,
           "validations": [
             {
               "in": [
@@ -269,9 +258,6 @@
               ]
             }
           ],
-          "defaultValue": {
-            "en": "light"
-          },
           "disabled": false,
           "omitted": false
         },
@@ -306,16 +292,16 @@
         "id": "timelineItem",
         "type": "ContentType",
         "createdAt": "2021-04-10T15:24:48.184Z",
-        "updatedAt": "2021-10-20T07:09:33.880Z",
+        "updatedAt": "2021-08-07T21:21:38.054Z",
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 27,
-        "publishedAt": "2021-10-20T07:09:33.880Z",
+        "publishedVersion": 25,
+        "publishedAt": "2021-08-07T21:21:38.054Z",
         "firstPublishedAt": "2021-04-10T15:24:56.150Z",
         "createdBy": {
           "sys": {
@@ -331,8 +317,8 @@
             "id": "0xtQf19pcoNQhr5JWKAjAC"
           }
         },
-        "publishedCounter": 14,
-        "version": 28,
+        "publishedCounter": 13,
+        "version": 26,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -386,7 +372,7 @@
           "name": "Type",
           "type": "Symbol",
           "localized": false,
-          "required": true,
+          "required": false,
           "validations": [
             {
               "in": [
@@ -397,9 +383,6 @@
               ]
             }
           ],
-          "defaultValue": {
-            "en": "NONE"
-          },
           "disabled": false,
           "omitted": false
         },
@@ -428,16 +411,16 @@
         "id": "mediaBox",
         "type": "ContentType",
         "createdAt": "2021-04-10T15:24:48.200Z",
-        "updatedAt": "2022-01-09T21:20:24.097Z",
+        "updatedAt": "2021-08-07T21:21:38.808Z",
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 31,
-        "publishedAt": "2022-01-09T21:20:24.097Z",
+        "publishedVersion": 23,
+        "publishedAt": "2021-08-07T21:21:38.808Z",
         "firstPublishedAt": "2021-04-10T15:24:56.845Z",
         "createdBy": {
           "sys": {
@@ -453,8 +436,8 @@
             "id": "0xtQf19pcoNQhr5JWKAjAC"
           }
         },
-        "publishedCounter": 16,
-        "version": 32,
+        "publishedCounter": 12,
+        "version": 24,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -486,7 +469,7 @@
           "name": "Asset",
           "type": "Link",
           "localized": true,
-          "required": true,
+          "required": false,
           "validations": [
           ],
           "disabled": false,
@@ -543,7 +526,7 @@
         "updatedAt": "2021-08-07T21:21:39.265Z",
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
@@ -618,16 +601,16 @@
         "id": "page",
         "type": "ContentType",
         "createdAt": "2021-04-10T15:24:48.225Z",
-        "updatedAt": "2022-01-09T22:52:59.334Z",
+        "updatedAt": "2021-08-07T21:21:39.659Z",
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 39,
-        "publishedAt": "2022-01-09T22:52:59.334Z",
+        "publishedVersion": 27,
+        "publishedAt": "2021-08-07T21:21:39.659Z",
         "firstPublishedAt": "2021-04-10T15:24:59.003Z",
         "createdBy": {
           "sys": {
@@ -643,8 +626,8 @@
             "id": "0xtQf19pcoNQhr5JWKAjAC"
           }
         },
-        "publishedCounter": 20,
-        "version": 40,
+        "publishedCounter": 14,
+        "version": 28,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -701,7 +684,7 @@
           "name": "Meta title",
           "type": "Symbol",
           "localized": true,
-          "required": true,
+          "required": false,
           "validations": [
           ],
           "disabled": false,
@@ -712,57 +695,9 @@
           "name": "Meta desciption",
           "type": "Symbol",
           "localized": true,
-          "required": true,
-          "validations": [
-          ],
-          "disabled": false,
-          "omitted": false
-        },
-        {
-          "id": "openGraphImage",
-          "name": "Open Graph image",
-          "type": "Link",
-          "localized": false,
           "required": false,
           "validations": [
           ],
-          "disabled": false,
-          "omitted": false,
-          "linkType": "Asset"
-        },
-        {
-          "id": "openGraphUrl",
-          "name": "Open Graph URL",
-          "type": "Symbol",
-          "localized": false,
-          "required": false,
-          "validations": [
-          ],
-          "disabled": false,
-          "omitted": false
-        },
-        {
-          "id": "openGraphType",
-          "name": "Open Graph type",
-          "type": "Symbol",
-          "localized": false,
-          "required": false,
-          "validations": [
-          ],
-          "disabled": false,
-          "omitted": false
-        },
-        {
-          "id": "twitterCard",
-          "name": "Twitter card",
-          "type": "Symbol",
-          "localized": false,
-          "required": false,
-          "validations": [
-          ],
-          "defaultValue": {
-            "en": "summary_large_image"
-          },
           "disabled": false,
           "omitted": false
         },
@@ -805,9 +740,6 @@
           "required": false,
           "validations": [
           ],
-          "defaultValue": {
-            "en": true
-          },
           "disabled": false,
           "omitted": false
         },
@@ -864,16 +796,16 @@
         "id": "iconBox",
         "type": "ContentType",
         "createdAt": "2021-04-10T15:24:48.739Z",
-        "updatedAt": "2021-10-20T06:42:03.184Z",
+        "updatedAt": "2021-08-07T21:21:40.102Z",
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 25,
-        "publishedAt": "2021-10-20T06:42:03.184Z",
+        "publishedVersion": 23,
+        "publishedAt": "2021-08-07T21:21:40.102Z",
         "firstPublishedAt": "2021-04-10T15:24:51.615Z",
         "createdBy": {
           "sys": {
@@ -889,8 +821,8 @@
             "id": "0xtQf19pcoNQhr5JWKAjAC"
           }
         },
-        "publishedCounter": 13,
-        "version": 26,
+        "publishedCounter": 12,
+        "version": 24,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -933,7 +865,7 @@
           "name": "Icon",
           "type": "Link",
           "localized": false,
-          "required": true,
+          "required": false,
           "validations": [
             {
               "assetImageDimensions": {
@@ -969,7 +901,7 @@
         "updatedAt": "2021-08-07T21:21:40.701Z",
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
@@ -1066,16 +998,16 @@
         "id": "iconList",
         "type": "ContentType",
         "createdAt": "2021-04-10T15:24:48.972Z",
-        "updatedAt": "2021-10-20T06:42:26.759Z",
+        "updatedAt": "2021-08-07T21:21:41.111Z",
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 25,
-        "publishedAt": "2021-10-20T06:42:26.759Z",
+        "publishedVersion": 23,
+        "publishedAt": "2021-08-07T21:21:41.111Z",
         "firstPublishedAt": "2021-04-10T15:24:53.018Z",
         "createdBy": {
           "sys": {
@@ -1091,8 +1023,8 @@
             "id": "0xtQf19pcoNQhr5JWKAjAC"
           }
         },
-        "publishedCounter": 13,
-        "version": 26,
+        "publishedCounter": 12,
+        "version": 24,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -1135,7 +1067,7 @@
           "name": "Icons",
           "type": "Array",
           "localized": false,
-          "required": true,
+          "required": false,
           "validations": [
           ],
           "disabled": false,
@@ -1166,16 +1098,16 @@
         "id": "config",
         "type": "ContentType",
         "createdAt": "2021-04-10T15:24:48.974Z",
-        "updatedAt": "2021-10-20T07:09:51.727Z",
+        "updatedAt": "2021-08-07T21:21:41.549Z",
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 27,
-        "publishedAt": "2021-10-20T07:09:51.727Z",
+        "publishedVersion": 23,
+        "publishedAt": "2021-08-07T21:21:41.549Z",
         "firstPublishedAt": "2021-04-10T15:24:53.757Z",
         "createdBy": {
           "sys": {
@@ -1191,8 +1123,8 @@
             "id": "0xtQf19pcoNQhr5JWKAjAC"
           }
         },
-        "publishedCounter": 14,
-        "version": 28,
+        "publishedCounter": 12,
+        "version": 24,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -1235,7 +1167,7 @@
           "name": "Home page",
           "type": "Link",
           "localized": false,
-          "required": true,
+          "required": false,
           "validations": [
             {
               "linkContentType": [
@@ -1274,7 +1206,7 @@
           "name": "Logo",
           "type": "Link",
           "localized": false,
-          "required": true,
+          "required": false,
           "validations": [
           ],
           "disabled": false,
@@ -1286,7 +1218,7 @@
           "name": "Page icon",
           "type": "Link",
           "localized": false,
-          "required": true,
+          "required": false,
           "validations": [
             {
               "linkMimetypeGroup": [
@@ -1361,7 +1293,7 @@
         "updatedAt": "2021-08-07T21:21:42.031Z",
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
@@ -1459,16 +1391,16 @@
         "id": "modalCardList",
         "type": "ContentType",
         "createdAt": "2021-04-10T15:24:48.991Z",
-        "updatedAt": "2021-10-20T06:45:56.485Z",
+        "updatedAt": "2021-08-07T21:21:42.527Z",
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 29,
-        "publishedAt": "2021-10-20T06:45:56.485Z",
+        "publishedVersion": 27,
+        "publishedAt": "2021-08-07T21:21:42.527Z",
         "firstPublishedAt": "2021-04-10T15:24:54.655Z",
         "createdBy": {
           "sys": {
@@ -1484,8 +1416,8 @@
             "id": "0xtQf19pcoNQhr5JWKAjAC"
           }
         },
-        "publishedCounter": 15,
-        "version": 30,
+        "publishedCounter": 14,
+        "version": 28,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -1536,7 +1468,7 @@
           "name": "Modal cards",
           "type": "Array",
           "localized": false,
-          "required": true,
+          "required": false,
           "validations": [
           ],
           "disabled": false,
@@ -1567,16 +1499,16 @@
         "id": "contactDetails",
         "type": "ContentType",
         "createdAt": "2021-04-10T15:24:49.488Z",
-        "updatedAt": "2021-10-19T20:08:15.535Z",
+        "updatedAt": "2021-08-07T21:21:42.924Z",
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 25,
-        "publishedAt": "2021-10-19T20:08:15.535Z",
+        "publishedVersion": 23,
+        "publishedAt": "2021-08-07T21:21:42.924Z",
         "firstPublishedAt": "2021-04-10T15:24:55.377Z",
         "createdBy": {
           "sys": {
@@ -1592,8 +1524,8 @@
             "id": "0xtQf19pcoNQhr5JWKAjAC"
           }
         },
-        "publishedCounter": 13,
-        "version": 26,
+        "publishedCounter": 12,
+        "version": 24,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -1638,19 +1570,8 @@
           "omitted": false
         },
         {
-          "id": "github",
-          "name": "Github",
-          "type": "Symbol",
-          "localized": false,
-          "required": false,
-          "validations": [
-          ],
-          "disabled": false,
-          "omitted": false
-        },
-        {
-          "id": "twitter",
-          "name": "Twitter",
+          "id": "facebook",
+          "name": "Facebook",
           "type": "Symbol",
           "localized": false,
           "required": false,
@@ -1671,19 +1592,8 @@
           "omitted": false
         },
         {
-          "id": "facebook",
-          "name": "Facebook",
-          "type": "Symbol",
-          "localized": false,
-          "required": false,
-          "validations": [
-          ],
-          "disabled": false,
-          "omitted": false
-        },
-        {
-          "id": "instagram",
-          "name": "Instagram",
+          "id": "twitter",
+          "name": "Twitter",
           "type": "Symbol",
           "localized": false,
           "required": false,
@@ -1695,6 +1605,17 @@
         {
           "id": "youtube",
           "name": "Youtube",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "github",
+          "name": "Github",
           "type": "Symbol",
           "localized": false,
           "required": false,
@@ -1720,7 +1641,7 @@
         "updatedAt": "2021-08-07T21:21:43.372Z",
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
@@ -1809,7 +1730,7 @@
         "updatedAt": "2021-08-07T21:21:43.973Z",
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
@@ -1921,7 +1842,7 @@
         "updatedAt": "2021-08-07T21:21:44.396Z",
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
@@ -2011,7 +1932,7 @@
         "updatedAt": "2021-08-07T21:21:44.827Z",
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
@@ -2114,16 +2035,16 @@
         "id": "faq",
         "type": "ContentType",
         "createdAt": "2021-07-14T20:29:30.834Z",
-        "updatedAt": "2021-10-19T20:09:09.352Z",
+        "updatedAt": "2021-08-07T21:21:45.214Z",
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 9,
-        "publishedAt": "2021-10-19T20:09:09.352Z",
+        "publishedVersion": 7,
+        "publishedAt": "2021-08-07T21:21:45.214Z",
         "firstPublishedAt": "2021-07-14T20:29:37.895Z",
         "createdBy": {
           "sys": {
@@ -2139,8 +2060,8 @@
             "id": "0xtQf19pcoNQhr5JWKAjAC"
           }
         },
-        "publishedCounter": 5,
-        "version": 10,
+        "publishedCounter": 4,
+        "version": 8,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -2183,7 +2104,7 @@
           "name": "Items",
           "type": "Array",
           "localized": true,
-          "required": true,
+          "required": false,
           "validations": [
           ],
           "disabled": false,
@@ -2217,7 +2138,7 @@
         "updatedAt": "2021-08-07T21:21:45.597Z",
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
@@ -2306,7 +2227,7 @@
         "updatedAt": "2021-08-07T21:21:46.185Z",
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
@@ -2417,7 +2338,7 @@
             "linkType": "Space"
           }
         },
-        "version": 30,
+        "version": 24,
         "createdAt": "2021-04-10T15:24:50.246Z",
         "createdBy": {
           "sys": {
@@ -2426,7 +2347,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2022-01-13T19:53:47.505Z",
+        "updatedAt": "2021-08-07T21:21:50.182Z",
         "updatedBy": {
           "sys": {
             "id": "0xtQf19pcoNQhr5JWKAjAC",
@@ -2443,7 +2364,7 @@
         },
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
@@ -2469,14 +2390,6 @@
           "fieldId": "backgroundColor",
           "widgetId": "singleLine",
           "widgetNamespace": "builtin"
-        },
-        {
-          "fieldId": "aspectRatio",
-          "settings": {
-            "helpText": "See: https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio"
-          },
-          "widgetId": "singleLine",
-          "widgetNamespace": "builtin"
         }
       ]
     },
@@ -2491,7 +2404,7 @@
             "linkType": "Space"
           }
         },
-        "version": 34,
+        "version": 30,
         "createdAt": "2021-04-10T15:24:58.357Z",
         "createdBy": {
           "sys": {
@@ -2500,7 +2413,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2021-10-20T06:52:03.721Z",
+        "updatedAt": "2021-08-07T21:21:50.053Z",
         "updatedBy": {
           "sys": {
             "id": "0xtQf19pcoNQhr5JWKAjAC",
@@ -2517,7 +2430,7 @@
         },
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
@@ -2572,7 +2485,7 @@
             "linkType": "Space"
           }
         },
-        "version": 28,
+        "version": 26,
         "createdAt": "2021-04-10T15:24:56.221Z",
         "createdBy": {
           "sys": {
@@ -2581,7 +2494,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2021-10-20T07:09:34.845Z",
+        "updatedAt": "2021-08-07T21:21:51.822Z",
         "updatedBy": {
           "sys": {
             "id": "0xtQf19pcoNQhr5JWKAjAC",
@@ -2598,7 +2511,7 @@
         },
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
@@ -2643,7 +2556,7 @@
             "linkType": "Space"
           }
         },
-        "version": 32,
+        "version": 24,
         "createdAt": "2021-04-10T15:24:56.960Z",
         "createdBy": {
           "sys": {
@@ -2652,7 +2565,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2022-01-09T21:20:24.723Z",
+        "updatedAt": "2021-08-07T21:21:50.041Z",
         "updatedBy": {
           "sys": {
             "id": "0xtQf19pcoNQhr5JWKAjAC",
@@ -2669,7 +2582,7 @@
         },
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
@@ -2688,9 +2601,6 @@
         },
         {
           "fieldId": "width",
-          "settings": {
-            "helpText": "Width in pixels."
-          },
           "widgetId": "numberEditor",
           "widgetNamespace": "builtin"
         },
@@ -2743,7 +2653,7 @@
         },
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
@@ -2773,7 +2683,7 @@
             "linkType": "Space"
           }
         },
-        "version": 40,
+        "version": 28,
         "createdAt": "2021-04-10T15:24:59.127Z",
         "createdBy": {
           "sys": {
@@ -2782,7 +2692,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2022-01-09T22:53:00.071Z",
+        "updatedAt": "2021-08-07T21:21:51.003Z",
         "updatedBy": {
           "sys": {
             "id": "0xtQf19pcoNQhr5JWKAjAC",
@@ -2799,7 +2709,7 @@
         },
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
@@ -2832,39 +2742,8 @@
         {
           "fieldId": "metaDescription",
           "settings": {
-            "helpText": "Google how good meta description should look like."
+            "helpText": "If description is not set, meta description will be taken for blog's page description."
           },
-          "widgetId": "singleLine",
-          "widgetNamespace": "builtin"
-        },
-        {
-          "fieldId": "openGraphImage",
-          "settings": {
-            "helpText": "The most frequently recommended resolution for an OG image is 1200 pixels x 627 pixels (1.91/1 ratio).",
-            "showLinkEntityAction": true,
-            "showCreateEntityAction": true
-          },
-          "widgetId": "assetLinkEditor",
-          "widgetNamespace": "builtin"
-        },
-        {
-          "fieldId": "openGraphUrl",
-          "settings": {
-            "helpText": "The canonical URL of your object that will be used as its permanent ID in the graph, e.g., \"https://www.imdb.com/title/tt0117500/\"."
-          },
-          "widgetId": "urlEditor",
-          "widgetNamespace": "builtin"
-        },
-        {
-          "fieldId": "openGraphType",
-          "settings": {
-            "helpText": "The type of your object, e.g., \"video.movie\". Depending on the type you specify, other properties may also be required. List of types: https://ogp.me/#types"
-          },
-          "widgetId": "singleLine",
-          "widgetNamespace": "builtin"
-        },
-        {
-          "fieldId": "twitterCard",
           "widgetId": "singleLine",
           "widgetNamespace": "builtin"
         },
@@ -2911,7 +2790,7 @@
             "linkType": "Space"
           }
         },
-        "version": 26,
+        "version": 24,
         "createdAt": "2021-04-10T15:24:51.690Z",
         "createdBy": {
           "sys": {
@@ -2920,7 +2799,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2021-10-20T06:42:03.821Z",
+        "updatedAt": "2021-08-07T21:21:52.074Z",
         "updatedBy": {
           "sys": {
             "id": "0xtQf19pcoNQhr5JWKAjAC",
@@ -2937,7 +2816,7 @@
         },
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
@@ -2998,7 +2877,7 @@
         },
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
@@ -3033,7 +2912,7 @@
             "linkType": "Space"
           }
         },
-        "version": 26,
+        "version": 24,
         "createdAt": "2021-04-10T15:24:53.104Z",
         "createdBy": {
           "sys": {
@@ -3042,7 +2921,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2021-10-20T06:42:27.369Z",
+        "updatedAt": "2021-08-07T21:21:51.021Z",
         "updatedBy": {
           "sys": {
             "id": "0xtQf19pcoNQhr5JWKAjAC",
@@ -3059,7 +2938,7 @@
         },
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
@@ -3094,7 +2973,7 @@
             "linkType": "Space"
           }
         },
-        "version": 28,
+        "version": 24,
         "createdAt": "2021-04-10T15:24:53.872Z",
         "createdBy": {
           "sys": {
@@ -3103,7 +2982,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2021-10-20T07:09:52.306Z",
+        "updatedAt": "2021-08-07T21:21:51.094Z",
         "updatedBy": {
           "sys": {
             "id": "0xtQf19pcoNQhr5JWKAjAC",
@@ -3120,7 +2999,7 @@
         },
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
@@ -3206,7 +3085,7 @@
         },
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
@@ -3246,7 +3125,7 @@
             "linkType": "Space"
           }
         },
-        "version": 30,
+        "version": 28,
         "createdAt": "2021-04-10T15:24:54.750Z",
         "createdBy": {
           "sys": {
@@ -3255,7 +3134,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2021-10-20T06:45:57.207Z",
+        "updatedAt": "2021-08-07T21:21:53.105Z",
         "updatedBy": {
           "sys": {
             "id": "0xtQf19pcoNQhr5JWKAjAC",
@@ -3272,7 +3151,7 @@
         },
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
@@ -3312,7 +3191,7 @@
             "linkType": "Space"
           }
         },
-        "version": 26,
+        "version": 24,
         "createdAt": "2021-04-10T15:24:55.498Z",
         "createdBy": {
           "sys": {
@@ -3321,7 +3200,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2021-10-19T20:08:16.305Z",
+        "updatedAt": "2021-08-07T21:21:51.031Z",
         "updatedBy": {
           "sys": {
             "id": "0xtQf19pcoNQhr5JWKAjAC",
@@ -3338,7 +3217,7 @@
         },
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
@@ -3356,12 +3235,7 @@
           "widgetNamespace": "builtin"
         },
         {
-          "fieldId": "github",
-          "widgetId": "urlEditor",
-          "widgetNamespace": "builtin"
-        },
-        {
-          "fieldId": "twitter",
+          "fieldId": "facebook",
           "widgetId": "urlEditor",
           "widgetNamespace": "builtin"
         },
@@ -3371,17 +3245,17 @@
           "widgetNamespace": "builtin"
         },
         {
-          "fieldId": "facebook",
+          "fieldId": "twitter",
           "widgetId": "urlEditor",
           "widgetNamespace": "builtin"
         },
         {
-          "fieldId": "instagram",
-          "widgetId": "singleLine",
+          "fieldId": "youtube",
+          "widgetId": "urlEditor",
           "widgetNamespace": "builtin"
         },
         {
-          "fieldId": "youtube",
+          "fieldId": "github",
           "widgetId": "urlEditor",
           "widgetNamespace": "builtin"
         }
@@ -3424,7 +3298,7 @@
         },
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
@@ -3480,7 +3354,7 @@
         },
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
@@ -3546,7 +3420,7 @@
         },
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
@@ -3607,7 +3481,7 @@
         },
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
@@ -3653,7 +3527,7 @@
             "linkType": "Space"
           }
         },
-        "version": 10,
+        "version": 8,
         "createdAt": "2021-07-14T20:29:37.964Z",
         "createdBy": {
           "sys": {
@@ -3662,7 +3536,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2021-10-19T20:09:10.188Z",
+        "updatedAt": "2021-08-07T21:21:52.071Z",
         "updatedBy": {
           "sys": {
             "id": "0xtQf19pcoNQhr5JWKAjAC",
@@ -3679,7 +3553,7 @@
         },
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
@@ -3740,7 +3614,7 @@
         },
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
@@ -3801,7 +3675,7 @@
         },
         "environment": {
           "sys": {
-            "id": "nuxtfolio",
+            "id": "master",
             "type": "Link",
             "linkType": "Environment"
           }
@@ -3843,7 +3717,7 @@
       "sys": {
         "type": "Locale",
         "id": "3akucO77ewWP4arizf4tuW",
-        "version": 1,
+        "version": 2,
         "space": {
           "sys": {
             "type": "Link",
@@ -3855,8 +3729,8 @@
           "sys": {
             "type": "Link",
             "linkType": "Environment",
-            "id": "nuxtfolio",
-            "uuid": "22c1ac49-cb76-4e08-9e45-689574ef2c3e"
+            "id": "master",
+            "uuid": "d22c29a5-7353-4abe-ac7b-72a70b616068"
           }
         },
         "createdBy": {
@@ -3866,7 +3740,7 @@
             "id": "0xtQf19pcoNQhr5JWKAjAC"
           }
         },
-        "createdAt": "2022-01-08T23:06:38Z",
+        "createdAt": "2021-04-10T15:21:54Z",
         "updatedBy": {
           "sys": {
             "type": "Link",
@@ -3874,7 +3748,7 @@
             "id": "0xtQf19pcoNQhr5JWKAjAC"
           }
         },
-        "updatedAt": "2022-01-08T23:06:38Z"
+        "updatedAt": "2021-04-10T15:22:20Z"
       }
     }
   ]

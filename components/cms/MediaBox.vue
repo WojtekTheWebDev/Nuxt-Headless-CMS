@@ -12,73 +12,69 @@
     <img
       v-else-if="isImage"
       :class="{ 'img-rounded': rounded }"
-      :src="imageSrc"
-      :alt="asset.alt"
+      :src="imageURL"
+      :alt="asset.title"
       :width="width ? width : defaultWidth"
       :height="height ? height : null"
     >
   </div>
 </template>
 
-<script lang="ts">
-import { computed, defineComponent, PropType, useContext } from '@nuxtjs/composition-api'
-import MediaBox from '@/types/cms/components/MediaBox'
+<script>
+import CMSMixin from '@/mixins/CMSMixin'
 
-export default defineComponent({
+export default {
   name: 'MediaBox',
 
+  mixins: [CMSMixin],
+
   props: {
-    theme: {
-      type: String as PropType<MediaBox['theme']>,
-      default: (): MediaBox['theme'] => 'light',
-      validate: (val: MediaBox['theme']) => val === 'light' || val === 'dark'
-    },
     asset: {
-      type: Object as PropType<MediaBox['asset']>,
-      default: (): MediaBox['asset'] => ({
+      type: Object,
+      default: () => ({
         src: '',
-        alt: '',
-        type: ''
+        type: '',
+        title: ''
       })
     },
+
     width: {
-      type: Number as PropType<MediaBox['width']>,
-      default: (): MediaBox['width'] => 0
+      type: Number,
+      default: 0
     },
+
     height: {
-      type: Number as PropType<MediaBox['height']>,
-      default: (): MediaBox['height'] => 0
+      type: Number,
+      default: 0
     },
+
     rounded: {
-      type: Boolean as PropType<MediaBox['rounded']>,
-      default: (): MediaBox['rounded'] => false
+      type: Boolean,
+      default: false
     }
   },
 
-  setup (props) {
-    const app = useContext()
-
-    const isImage = computed(() => props.asset.type.includes('image'))
-    const isVideo = computed(() => props.asset.type.includes('video'))
-    const defaultWidth = computed(() => app.$vuetify.breakpoint.smAndDown ? 300 : 500)
-    const imageSrc = computed(() => {
-      const width = props.width ? props.width : defaultWidth
-      const height = props.height ? props.height : null
-      let imageURL = `${props.asset.src}?w=${width}`
+  computed: {
+    isImage () {
+      return this.asset.type.includes('image')
+    },
+    isVideo () {
+      return this.asset.type.includes('video')
+    },
+    imageURL () {
+      const width = this.width ? this.width : this.defaultWidth
+      const height = this.height ? this.height : null
+      let imageURL = `${this.asset.src}?w=${width}`
 
       if (height) { imageURL += `h=${height}` }
 
       return imageURL
-    })
-
-    return {
-      isImage,
-      isVideo,
-      defaultWidth,
-      imageSrc
+    },
+    defaultWidth () {
+      return this.$vuetify.breakpoint.smAndDown ? 300 : 500
     }
   }
-})
+}
 </script>
 
 <style lang="scss" scoped>

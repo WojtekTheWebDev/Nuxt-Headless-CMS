@@ -24,49 +24,40 @@
   </div>
 </template>
 
-<script lang="ts">
-import { computed, defineComponent, PropType, useContext } from '@nuxtjs/composition-api'
-import PageLink from '@/types/cms/components/PageLink'
+<script>
+import CMSMixin from '@/mixins/CMSMixin'
 
-export default defineComponent({
+export default {
   name: 'PageLink',
+
+  mixins: [CMSMixin],
 
   props: {
     text: {
-      type: String as PropType<PageLink['text']>,
-      default: (): PageLink['text'] => ''
-    },
-    theme: {
-      type: String as PropType<PageLink['theme']>,
-      default: (): PageLink['theme'] => 'light',
-      validate: (val: PageLink['theme']) => val === 'light' || val === 'dark'
+      type: String,
+      default: ''
     },
     slug: {
-      type: String as PropType<PageLink['slug']>,
-      default: (): PageLink['slug'] => ''
+      type: String,
+      default: ''
     },
     type: {
-      type: String as PropType<PageLink['type']>,
-      default: (): PageLink['type'] => 'Button',
-      validator: (value: PageLink['type']) => value === 'Button' || value === 'Link'
+      type: String,
+      default: 'Button',
+      validator: value => value === 'Button' || value === 'Link'
     },
     parentPageSlug: {
-      type: String as PropType<PageLink['text']>,
-      default: (): PageLink['parentPageSlug'] => undefined
+      type: String,
+      default: null
     }
   },
 
-  setup (props) {
-    const { localePath } = useContext()
-    const link = computed(() => props.parentPageSlug
-      ? localePath(`/${props.parentPageSlug}/${props.slug}`)
-      : localePath(`/${props.slug}`))
-
-    return {
-      link
+  computed: {
+    link () {
+      return this.parentPageSlug ? this.localePath(`/${this.parentPageSlug}/${this.slug}`) : this.localePath(`/${this.slug}`)
     }
   }
-})
+}
 </script>
 
 <style lang="scss" scoped>

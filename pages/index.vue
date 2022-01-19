@@ -1,35 +1,52 @@
-><template>
-  <StandardPage :header="header" :content-blocks="contentBlocks" />
+<template>
+  <StandardPage id="home-page" :header="header" :content-blocks="contentBlocks" />
 </template>
 
-<script lang="ts">
-import { defineComponent, useContext } from '@nuxtjs/composition-api'
-import StandardPage from '@/components/layout/StandardPage.vue'
-import usePage from '@/composables/usePage'
+<script>
+import { createClient } from '@/plugins/contentful'
+import PageMixin from '@/mixins/PageMixin'
+import StandardPage from '@/components/layout/StandardPage'
 
-export default defineComponent({
+export default {
   name: 'HomePage',
 
   components: {
     StandardPage
   },
 
-  setup () {
-    const { i18n, store } = useContext()
+  mixins: [PageMixin],
 
-    const homePageName = store.state.config.homePageName
-    const locale = i18n.localeProperties.code
-    const apiUrl = `${process.env.baseURL}/api/page/${homePageName}?locale=${locale}&getByName=true`
-    const key = `${homePageName}_${locale}`
+  async asyncData ({ app, env, store, error }) {
+    const client = createClient()
+    const entries = await client.getEntries({
+      content_type: env.pageContentModel,
+      locale: app.i18n.localeProperties.code,
+      include: env.contentfulIncludeLevel,
+      'fields.name': store.getters['config/getHomePageName']
+    })
 
-    const { header, contentBlocks } = usePage(apiUrl, key)
+    const page = entries.items[0] || null
+
+    if (!page) { error({ statusCode: 404 }) }
 
     return {
-      header,
-      contentBlocks
+      metaTitle: page?.fields?.metaTitle,
+      metaDescription: page?.fields?.metaDescription,
+      pageHeader: {
+        ...page?.fields?.header,
+        showHeader: page?.fields?.showHeader
+      },
+      content: page?.fields?.sections
     }
   },
 
-  head: {}
-})
+  head () {
+    return {
+      title: this.metaTitle,
+      meta: [
+        { hid: 'description', name: 'description', content: this.metaDescription }
+      ]
+    }
+  }
+}
 </script>

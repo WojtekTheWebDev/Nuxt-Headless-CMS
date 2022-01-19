@@ -8,10 +8,8 @@
   </v-icon>
 </template>
 
-<script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
-
-export default defineComponent({
+<script>
+export default {
   name: 'ClickMe',
 
   props: {
@@ -20,7 +18,7 @@ export default defineComponent({
       default: true
     }
   }
-})
+}
 </script>
 
 <style lang="scss" scoped>

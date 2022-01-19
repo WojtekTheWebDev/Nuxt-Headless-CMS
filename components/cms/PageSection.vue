@@ -7,7 +7,7 @@
       'fill-height': fillHeight,
       'with-image': backgroundImage
     }"
-    :style="{ backgroundImage: backgroundImage && `url(${backgroundImage})` }"
+    :style="{ backgroundImage: `url(${backgroundImage})` }"
     :dark="theme === 'dark'"
     flat
     tile
@@ -31,35 +31,43 @@
   </v-card>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from '@nuxtjs/composition-api'
-import Section from '@/types/cms/components/Section'
+<script>
+import CMSMixin from '@/mixins/CMSMixin'
+import { parseCMSBlock } from '@/helpers/CMS'
 
-export default defineComponent({
+export default {
+  name: 'PageSection',
+
+  mixins: [CMSMixin],
+
   props: {
-    theme: {
-      type: String as PropType<Section['theme']>,
-      default: (): Section['theme'] => 'light',
-      validate: (val: Section['theme']) => val === 'light' || val === 'dark'
-    },
     title: {
-      type: String as PropType<Section['title']>,
-      default: (): Section['title'] => ''
+      type: String,
+      default: ''
     },
-    contentBlocks: {
-      type: Array as PropType<Section['contentBlocks']>,
-      default: (): Section['contentBlocks'] => []
+
+    content: {
+      type: Array,
+      default: () => []
     },
+
     fillHeight: {
-      type: Boolean as PropType<Section['fillHeight']>,
-      default: (): Section['fillHeight'] => false
+      type: Boolean,
+      default: false
     },
+
     backgroundImage: {
-      type: String as PropType<Section['backgroundImage']>,
-      default: (): Section['backgroundImage'] => undefined
+      type: String,
+      default: null
+    }
+  },
+
+  computed: {
+    contentBlocks () {
+      return this.content.map(parseCMSBlock)
     }
   }
-})
+}
 </script>
 
 <style lang="scss" scoped>
